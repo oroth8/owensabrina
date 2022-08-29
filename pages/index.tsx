@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import Layout from "../components/nav/Layout";
 import type { NextPageWithLayout } from "./_app";
 import Image from "next/image";
+import Link from 'next/link'
 import { navigation } from "../navLinks";
 
 const Page: NextPageWithLayout = () => {
@@ -38,10 +39,10 @@ const Page: NextPageWithLayout = () => {
             aria-label="Navigation"
           >
             {navigation.main.map((item) => (
-              <div key={item.name} className="px-5 py-2">
-                <a href={item.href} className="hover:text-green-dark">
+              <div key={item.name} className={item.name === "Home" ? "text-green-dark px-5 py-2" : "hover:text-green-dark px-5 py-2"}>
+                <Link href={item.href} >
                   {item.name}
-                </a>
+                </Link>
               </div>
             ))}
           </nav>
@@ -49,10 +50,10 @@ const Page: NextPageWithLayout = () => {
           <div className="shadow w-full p-2 mt-4">
             <Image
               priority
-              src="/images/bw.png"
+              src="/images/bw2.png"
               alt="flowers"
-              height={487}
-              width={900}
+              height={825}
+              width={1280}
               layout="responsive"
             />
           </div>
