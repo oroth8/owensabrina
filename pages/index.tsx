@@ -48,6 +48,7 @@ const Page: NextPageWithLayout = () => {
           {/* MAIN IMG */}
           <div className="shadow w-full p-2 mt-4">
             <Image
+              priority
               src="/images/bw.png"
               alt="flowers"
               height={487}
