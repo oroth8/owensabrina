@@ -1,3 +1,5 @@
+import Footer from "./Footer";
+
 type Props = {
     children?: React.ReactNode;
   };
@@ -6,9 +8,8 @@ type Props = {
 export default function Layout({ children }: Props) { 
   return (
     <>
-    <nav>
-    </nav>
       <main>{children}</main>
+      <Footer/>
     </>
   )
 }

@@ -5,7 +5,21 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'display': ['Baskervville'],
+        'cursive': ['"Alex Brush'],
+      },
+      colors: {
+        green: {
+          primary: '#89907C',
+          dark: '#434F2B'
+        },
+        white: {
+          DEFAULT: '#FEFEFE'
+        }
+      }
+    },
   },
   plugins: [],
 }
