@@ -22,7 +22,7 @@ const Nav = () => {
           <h1>Owen Roth</h1>
       </div>
          <nav
-            className="-mx-5 -my-2 flex flex-wrap justify-center uppercase my-8 text-green-primary "
+            className="flex flex-wrap justify-center uppercase my-8 text-green-primary "
             aria-label="Navigation"
           >
             {navigation.main.map((item) => (

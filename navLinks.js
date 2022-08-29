@@ -2,10 +2,10 @@ export const navigation = {
     main: [
       { name: 'Home', href: '/' },
       { name: 'RSVP', href: '/RSVP' },
-      { name: 'Events', href: '#' },
-      { name: 'Wedding Party', href: '#' },
-      { name: 'Travel', href: '#' },
-      { name: 'Gift Registry', href: '#' },
+      { name: 'Events', href: '/events' },
+      { name: 'Wedding Party', href: '/wedding-party' },
+      { name: 'Travel', href: '/travel' },
+      { name: 'Gift Registry', href: '/registry' },
     ],
   }
   

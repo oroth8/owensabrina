@@ -17,9 +17,14 @@ module.exports = {
         },
         white: {
           DEFAULT: '#FEFEFE'
+        },
+        gray: {
+          DEFAULT: '#9ca3af'
         }
       }
     },
   },
-  plugins: [],
+  plugins: [
+    '@tailwindcss/forms'
+  ],
 }
