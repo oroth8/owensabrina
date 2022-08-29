@@ -1,11 +1,14 @@
 import Footer from "./Footer";
 import Head from "next/head";
+import { useRouter } from 'next/router'
+
 
 type Props = {
   children?: React.ReactNode;
 };
 
 export default function Layout({ children }: Props) {
+  const { asPath } = useRouter()
   return (
     <>
       <Head>
@@ -16,6 +19,7 @@ export default function Layout({ children }: Props) {
           name="description"
           content="The wedding website for Sabrina Carlins and Owen Roth on September 9, 2023."
         />
+        <link rel="canonical" href={`https://www.sabrina-owen-wedding.com${asPath}`} />
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" />
