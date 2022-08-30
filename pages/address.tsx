@@ -38,7 +38,7 @@ const Page: NextPageWithLayout = () => {
 
         const JSONdata = JSON.stringify(responseBody)
 
-        const endpoint = 'https://owensabrina-api-dev.herokuapp.com/api/v1/guests'
+        const endpoint = `${process.env.API_URL}/api/v1/guests`
 
         const options = {
                   method: 'POST',
