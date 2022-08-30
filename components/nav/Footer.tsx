@@ -68,7 +68,7 @@ const socials = [
   
   export default function Footer() {
     return (
-      <footer className="bg-white border-t-2 border-green-dark mt-10 font-display uppercase text-green-primary">
+      <footer className="bg-white border-t-2 border-green-primary mt-10 font-display uppercase text-green-primary">
         <div className="mx-auto max-w-7xl overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
           <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
             {navigation.main.map((item) => (

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 const Nav = () => {
   const { asPath } = useRouter()
   return (
-    <div className='border-b-2 border-green-dark mb-8 font-display'>
+    <div className='border-b-2 border-green-primary mb-8 font-display'>
       <div className='flex justify-center items-center uppercase my-8 text-green-dark text-3xl flex-col sm:flex-row sm:mx-auto sm:max-w-2xl'>
         <h1>Sabrina Carlins</h1>
         <div className="mx-auto w-16 my-2">

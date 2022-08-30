@@ -32,6 +32,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@heroicons/react@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.9.tgz#175f7ba31292ed177a5d4b9ef2292bbe3291cd2d"
+  integrity sha512-Ow+PxxRkPGPVOqOEf0KiujnVfjbGZwmfLlVWRDDJpWupwHX9wT8kOSwPthoh9QVTi9UnoGb7CN8v0+ctUw4S+g==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"
