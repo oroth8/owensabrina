@@ -33,19 +33,23 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Baskervville:ital@0;1&display=swap"
           rel="stylesheet"
         />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GTM-5MVWS5V"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=GTM-5MVWS5V"
+            strategy="afterInteractive"
+          />
+        )}
+        {process.env.NODE_ENV === "production" && (
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){window.dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-          gtag('config', 'GTM-5MVWS5V');
-        `}
-        </Script>
+ gtag('config', 'GTM-5MVWS5V');
+`}
+          </Script>
+        )}
       </Head>
       <body>
         <Main />
