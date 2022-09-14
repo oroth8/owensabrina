@@ -4,22 +4,53 @@ import Layout from "../../components/nav/Layout";
 import type { NextPageWithLayout } from "../_app";
 import Nav from "../../components/nav/Nav";
 import PhoneInput from "../../components/PhoneInput";
+import Alert from "../../components/Altert";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
+  const [nameValue, setNameValue] = useState("");
+  const [error, setError] = useState("");
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    // this is where we'll call our future formatPhoneNumber function that we haven't written yet.
     const formattedPhoneNumber = PhoneInput(e.target.value);
-    // we'll set the input value using our setInputValue
     setPhoneValue(formattedPhoneNumber);
   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const data = {
+      name: nameValue,
+      phone: phoneValue,
+    }
+
+    const JSONdata = JSON.stringify(data)
+    const endpoint = `/api/v1/party_guest/api/forms/engagement_party`
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSONdata,
+    }
+    const response = await fetch(endpoint, options)
+    const result = await response.json()
+    if(result && result.error){
+    setError(result.error)
+    }else if(result && result.name && result.phone){
+   window.location.href = "/engagement_party/rsvp"
+    }
+}
 
   return (
     <>
       <Nav />
       <div className="bg-white font-display">
         <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">
+        {error && (
+            <Alert message={error} />
+        )}
           <section className="text-green-primary space-y-8">
             <h2 className="text-3xl font-bold tracking-loose font-display uppercase text-green-primary sm:text-4xl">
               Sabrina & Owen&apos;s Engagement Party
@@ -44,7 +75,7 @@ const Page: NextPageWithLayout = () => {
           </section>
         </div>
       </div>
-      <form className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5  -mt-10 border border-green-primary p-4">
+      <form className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5  -mt-10 border border-green-primary p-4" onSubmit={handleSubmit}>
       <div>
       <label htmlFor="name" className="sr-only">
         Name
@@ -57,6 +88,8 @@ const Page: NextPageWithLayout = () => {
         placeholder="Full Name"
         required
         maxLength={100}
+        onChange={(e) => setNameValue(e.target.value)}
+        value={nameValue}
       />
         <label htmlFor="phone" className="sr-only">
         Phone
