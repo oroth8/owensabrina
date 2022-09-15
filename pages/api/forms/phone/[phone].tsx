@@ -9,20 +9,20 @@ export default async function userHandler(
   }
 
   const {
-    query: { id },
+    query: { phone },
   } = req;
 
   // https://stackoverflow.com/questions/55946001/typescripts-type-string-string-is-not-assignable-to-type-string-what-is
-  if (typeof id === "undefined") {
-    return res.status(401).send({ error: "no ID" });
-  } else if (Array.isArray(id) ) {
-    return res.status(401).send({ error: "ID cannot be array" });
-  } else if (!id ) {
-    return res.status(401).send({ error: "ID cannot be empty" });
+  if (typeof phone === "undefined") {
+    return res.status(401).send({ error: "no phone" });
+  } else if (Array.isArray(phone) ) {
+    return res.status(401).send({ error: "phone cannot be array" });
+  } else if (!phone ) {
+    return res.status(401).send({ error: "phone cannot be empty" });
   }
 
   try {
-    const result = await makeRequest(id);
+    const result = await makeRequest(phone);
     if ("error" in result) {
       res.status(500).send(result);
     } else {
@@ -47,10 +47,11 @@ type Error = {
 };
 
 async function makeRequest(
-  id: string,
+  phone: string,
 ): Promise<Response | Error> {
 
-  const endpoint = `${process.env.API_URL}/api/v1/party_guests/${id}`;
+    // TODO PHONE URL
+  const endpoint = `${process.env.API_URL}/api/v1/party_guests/${phone}`;
 
   const options = {
     method: "GET",

@@ -84,6 +84,7 @@ const Page: NextPageWithLayout = () => {
 
   useEffect(() => {
     if (id) {
+      // TODO
       getDetails(id);
     }
   }, [id]);
@@ -149,7 +150,7 @@ const Page: NextPageWithLayout = () => {
                   id="default-checkbox"
                   type="checkbox"
                   checked={attendingValue}
-                  onChange={(e) => setAttendingValue(!attendingValue)}
+                  onChange={() => setAttendingValue(!attendingValue)}
                   className="w-4 h-4 text-green-dark bg-green-dark rounded border-green-primary"
                 />
                 <label
