@@ -75,8 +75,9 @@ const Page: NextPageWithLayout = () => {
                 Food will be catered in by Owen and Sabrina
               </span>
               <span className="block">BYOB</span>
-              <span className="block">September 24th</span>
+              <span className="block mt-2">September 24th</span>
               <span className="block">6:00pm</span>
+              <span className="block mt-2">Casual</span>
             </h4>
             <div>--- Late Night ---</div>
             <h5>TBD</h5>
