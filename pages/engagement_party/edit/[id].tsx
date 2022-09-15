@@ -28,7 +28,7 @@ const Page: NextPageWithLayout = () => {
   const submitMessage = `Thank you ${nameValue} for RSVPing...`;
   const updateMessage = `Thank you ${nameValue} for updating your RSVP...`;
 
-  const getDetails = async (id: string) => {
+  const getDetails = async (id: string | string[]) => {
     const endpoint = `/api/forms/party-guest/${id}`;
     const options = { method: "GET" };
 
