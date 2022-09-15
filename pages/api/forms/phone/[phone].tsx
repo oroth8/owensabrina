@@ -51,7 +51,7 @@ async function makeRequest(
 ): Promise<Response | Error> {
 
     // TODO PHONE URL
-  const endpoint = `${process.env.API_URL}/api/v1/party_guests/${phone}`;
+  const endpoint = `${process.env.API_URL}/api/v1/party_guest/find_phone/${phone}`;
 
   const options = {
     method: "GET",

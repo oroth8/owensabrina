@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import PhoneInput from "../../../components/PhoneInput";
 import Image from "next/image";
 import Success from "../../../components/Success";
+import Link from "next/link";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
@@ -22,8 +23,10 @@ const Page: NextPageWithLayout = () => {
   };
 
   const router = useRouter();
-  console.log(router.query)
   const { id, submit } = router.query;
+
+  const submitMessage = `Thank you ${nameValue} for RSVPing...`;
+  const updateMessage = `Thank you ${nameValue} for updating your RSVP...`;
 
   const getDetails = async (id: string) => {
     const endpoint = `/api/forms/party-guest/${id}`;
@@ -77,6 +80,7 @@ const Page: NextPageWithLayout = () => {
         setError(result.error);
       } else if ("id" in result) {
         setLoading(false);
+        setSuccess(true);
         // window.location.href = `/engagement_party/rsvp/${result.id}`;
       }
     } catch (e: any) {
@@ -90,12 +94,12 @@ const Page: NextPageWithLayout = () => {
       // TODO
       getDetails(id);
     }
-    if(submit === "sucess") {
+    if (submit === "sucess") {
       setSuccess(true);
-    setTimeout(() => {
-      setSuccess(false);
-    }, 3000);
-  }
+      setTimeout(() => {
+        setSuccess(false);
+      }, 3000);
+    }
   }, [id, submit]);
 
   if (!id || Array.isArray(id)) {
@@ -110,8 +114,11 @@ const Page: NextPageWithLayout = () => {
     <>
       <Nav />
       <div className="py-20">
-       
-        {success && (<div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20"><Success message={`Thank you ${nameValue} for RSVPing...`}/></div>)}
+        {success && (
+          <div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20">
+            <Success message={submit ? submitMessage : updateMessage} />
+          </div>
+        )}
         {loading ? (
           <div className="text-center">
             <Image
@@ -185,6 +192,13 @@ const Page: NextPageWithLayout = () => {
             </button>
           </form>
         )}
+      </div>
+      <div className="-mt-10">
+        <Link href="/engagement_party/rsvp">
+          <a className="text-center block text-green-primary font-display text-sm">
+            Back To Party Details
+          </a>
+        </Link>
       </div>
     </>
   );
