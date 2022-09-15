@@ -9,14 +9,6 @@ export default async function userHandler(
   }
 
   const { id, name, phone, attending } = req.body;
-  // https://stackoverflow.com/questions/55946001/typescripts-type-string-string-is-not-assignable-to-type-string-what-is
-  // if (typeof name === "undefined" || typeof phone === "undefined") {
-  //   return res.status(401).send({ error: "no name or phone" });
-  // } else if (Array.isArray(name) || Array.isArray(phone)) {
-  //   return res.status(401).send({ error: "name or phone cannot be array" });
-  // } else if (!name || !phone) {
-  //   return res.status(401).send({ error: "name or phone cannot be empty" });
-  // }
 
   try {
     const result = await makeRequest(id, name, phone, attending);

@@ -6,6 +6,7 @@ import Nav from "../../../components/nav/Nav";
 import { useRouter } from "next/router";
 import PhoneInput from "../../../components/PhoneInput";
 import Image from "next/image";
+import Success from "../../../components/Success";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
@@ -13,6 +14,7 @@ const Page: NextPageWithLayout = () => {
   const [attendingValue, setAttendingValue] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const formattedPhoneNumber = PhoneInput(e.target.value);
@@ -20,10 +22,11 @@ const Page: NextPageWithLayout = () => {
   };
 
   const router = useRouter();
-  const { id } = router.query;
+  console.log(router.query)
+  const { id, submit } = router.query;
 
   const getDetails = async (id: string) => {
-    const endpoint = `/api/forms/${id}`;
+    const endpoint = `/api/forms/party-guest/${id}`;
     const options = { method: "GET" };
 
     try {
@@ -87,7 +90,13 @@ const Page: NextPageWithLayout = () => {
       // TODO
       getDetails(id);
     }
-  }, [id]);
+    if(submit === "sucess") {
+      setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
+  }
+  }, [id, submit]);
 
   if (!id || Array.isArray(id)) {
     return (
@@ -101,6 +110,8 @@ const Page: NextPageWithLayout = () => {
     <>
       <Nav />
       <div className="py-20">
+       
+        {success && (<div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20"><Success message={`Thank you ${nameValue} for RSVPing...`}/></div>)}
         {loading ? (
           <div className="text-center">
             <Image

@@ -45,7 +45,7 @@ const Page: NextPageWithLayout = () => {
         setLoading(false);
         setError(result.error);
       } else if ("id" in result) {
-        window.location.href = `/engagement_party/thanks/${result.id}`;
+        window.location.href = `/engagement_party/edit/${result.id}?submit=sucess`;
       }
     } catch (e: any) {
       setLoading(false);
@@ -83,7 +83,7 @@ const Page: NextPageWithLayout = () => {
         </div>
       </div>
       {error && (
-        <div className="mb-20">
+        <div className="mb-20 w-1/2 mx-auto ">
           <Alert message={error} />
         </div>
       )}
