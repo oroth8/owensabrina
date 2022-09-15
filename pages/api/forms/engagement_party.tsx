@@ -49,6 +49,7 @@ async function makeRequest(
   const data = {
     name,
     phone: phone.replace(/\D+/g, ""),
+    attending: true,
   };
 
   const JSONdata = JSON.stringify(data);

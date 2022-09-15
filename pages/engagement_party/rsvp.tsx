@@ -45,7 +45,7 @@ const Page: NextPageWithLayout = () => {
         setLoading(false);
         setError(result.error);
       } else if ("id" in result) {
-        window.location.href = `/engagement_party/rsvp/${result.id}`;
+        window.location.href = `/engagement_party/thanks/${result.id}`;
       }
     } catch (e: any) {
       setLoading(false);
