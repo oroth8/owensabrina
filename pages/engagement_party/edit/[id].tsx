@@ -81,7 +81,7 @@ const Page: NextPageWithLayout = () => {
       } else if ("id" in result) {
         setLoading(false);
         setSuccess(true);
-        // window.location.href = `/engagement_party/rsvp/${result.id}`;
+        router.replace(`/engagement_party/edit/${id}`, undefined, { shallow: true });
       }
     } catch (e: any) {
       setLoading(false);
@@ -113,6 +113,7 @@ const Page: NextPageWithLayout = () => {
   return (
     <>
       <Nav />
+      <h1 className=" text-3xl md:text-4xl text-green-primary text-center font-display mb-10">Update Engagement Party RSVP Details</h1>
       <div className="py-20">
         {success && (
           <div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20">
@@ -130,7 +131,7 @@ const Page: NextPageWithLayout = () => {
           </div>
         ) : (
           <form
-            className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5  -mt-10 border border-green-primary p-4"
+            className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5 xl:w-1/5  -mt-10 border border-green-primary p-4"
             onSubmit={handleSubmit}
           >
             <div>

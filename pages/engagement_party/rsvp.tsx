@@ -90,7 +90,7 @@ const Page: NextPageWithLayout = () => {
         </div>
       )}
       <form
-        className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5  -mt-10 border border-green-primary p-4"
+        className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5 xl:w-1/5  -mt-10 border border-green-primary p-4"
         onSubmit={handleSubmit}
       >
         <div>
