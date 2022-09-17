@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withSentry } from "@sentry/nextjs";
 
-export default async function userHandler(
+async function userHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -61,3 +62,5 @@ async function makeRequest(
   const result = await response.json();
   return result;
 }
+
+export default withSentry(userHandler);
