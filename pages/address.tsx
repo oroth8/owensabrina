@@ -50,11 +50,10 @@ const Page: NextPageWithLayout = () => {
         setLoading(true)
         const response = await fetch(endpoint, options)
         const result = await response.json()
-        console.log(result)
-        if(result && result.error){
+        if("error" in result){
             setLoading(false)
             setError(result.error)
-        }else if(result && result.name){
+        }else if("name" in result){
             setLoading(false)
             setSuccess("Thank you, your response has been saved. We look forward to having you at our wedding!")
         }else{
