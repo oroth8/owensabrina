@@ -81,7 +81,7 @@ const Page: NextPageWithLayout = () => {
       } else if ("id" in result) {
         setLoading(false);
         setSuccess(true);
-        router.replace(`/engagement_party/edit/${id}`, undefined, { shallow: true });
+        router.replace(`/engagement-party/edit/${id}`, undefined, { shallow: true });
       }
     } catch (e: any) {
       setLoading(false);
@@ -195,7 +195,7 @@ const Page: NextPageWithLayout = () => {
         )}
       </div>
       <div className="-mt-10">
-        <Link href="/engagement_party/rsvp">
+        <Link href="/engagement-party/rsvp">
           <a className="text-center block text-green-primary font-display text-sm">
             Back To Party Details
           </a>

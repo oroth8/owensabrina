@@ -29,7 +29,7 @@ const Page: NextPageWithLayout = () => {
     };
 
     const JSONdata = JSON.stringify(data);
-    const endpoint = `/api/forms/engagement_party`;
+    const endpoint = `/api/forms/engagement-party`;
 
     const options = {
       method: "POST",
@@ -46,7 +46,7 @@ const Page: NextPageWithLayout = () => {
         setLoading(false);
         setError(result.error);
       } else if ("id" in result) {
-        window.location.href = `/engagement_party/edit/${result.id}?submit=sucess`;
+        window.location.href = `/engagement-party/edit/${result.id}?submit=sucess`;
       }
     } catch (e: any) {
       setLoading(false);
@@ -146,7 +146,7 @@ const Page: NextPageWithLayout = () => {
         )}
       </form>
       <div className="mt-4">
-        <Link href="/engagement_party/find">
+        <Link href="/engagement-party/find">
           <a className="text-center block text-green-primary font-display text-sm">
             Already RSVP&apos;d? Click here to edit your RSVP
           </a>

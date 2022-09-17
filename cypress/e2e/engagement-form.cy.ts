@@ -10,7 +10,7 @@ const pageURL = (path: string) => {
 
 describe('Verify Engagement Party Form Works', () => {
     it('should visit rsvp page', () => {
-        cy.visit(pageURL('/engagement_party/rsvp')); //use url variable
+        cy.visit(pageURL('/engagement-party/rsvp')); //use url variable
     });
 
     it('successfully submits the form', () => {
@@ -23,7 +23,7 @@ describe('Verify Engagement Party Form Works', () => {
         // cy.get('button[type="submit"]')
         //   .should('be.visible')
         //   .click()
-        // cy.location('pathname').should('contain', '/engagement_party/edit/:id')
+        // cy.location('pathname').should('contain', '/engagement-party/edit/:id')
     
         // cy.contains('You will receive an email to finish the purchase.')
         //   .should('be.visible')

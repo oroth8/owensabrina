@@ -26,12 +26,12 @@ describe('Verify Page Loads', () => {
         cy.visit(pageURL('/address'));
     });
     it('Verify Engagement Party RSVP Page', () => {
-        cy.visit(pageURL('/engagement_party/rsvp'));
+        cy.visit(pageURL('/engagement-party/rsvp'));
     });
     it('Verify Engagement Party Find Page', () => {
-        cy.visit(pageURL('/engagement_party/rsvp'));
+        cy.visit(pageURL('/engagement-party/rsvp'));
     });
     it('Verify Engagement Party Edit Page', () => {
-        cy.visit(pageURL('/engagement_party/edit/1'));
+        cy.visit(pageURL('/engagement-party/edit/1'));
     });
   });

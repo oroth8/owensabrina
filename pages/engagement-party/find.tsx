@@ -38,7 +38,7 @@ const Page: NextPageWithLayout = () => {
         setLoading(false);
         setError(result.error);
       } else if ("id" in result) {
-        window.location.href = `/engagement_party/edit/${result.id}`;
+        window.location.href = `/engagement-party/edit/${result.id}`;
       }
     } catch (e: any) {
       setLoading(false);
@@ -102,7 +102,7 @@ const Page: NextPageWithLayout = () => {
       </form>
       </div>
       <div className="mt-8">
-        <Link href="/engagement_party/rsvp">
+        <Link href="/engagement-party/rsvp">
           <a className="text-center block text-green-primary font-display text-sm">
             Back To Party Details
           </a>
