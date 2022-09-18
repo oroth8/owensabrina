@@ -17,9 +17,15 @@ module.exports = {
         alternateRefs: config.alternateRefs ?? [],
       }
     },
-    // additionalPaths: async (config) => [
-    //   await config.transform(config, '/additional-page'),
-    // ],
+    additionalPaths: async (config) => [
+      await config.transform(config, '/wedding-party'),
+      await config.transform(config, '/travel'),
+      await config.transform(config, '/RSVP'),
+      await config.transform(config, '/registry'),
+      await config.transform(config, '/events'),
+      await config.transform(config, '/engagement-party/rsvp'),
+      await config.transform(config, '/engagement-party/find'),
+    ],
     robotsTxtOptions: {
       policies: [
         {
