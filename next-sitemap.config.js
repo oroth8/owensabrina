@@ -33,10 +33,6 @@ module.exports = {
           allow: '/',
         },
         {
-          userAgent: 'test-bot',
-          allow: ['/path', '/path-2'],
-        },
-        {
           userAgent: '*',
           disallow: ['/address', '/engagement-party/edit/*'],
         },
