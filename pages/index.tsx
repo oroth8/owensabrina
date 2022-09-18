@@ -4,10 +4,12 @@ import type { NextPageWithLayout } from "./_app";
 import Image from "next/image";
 import Link from 'next/link'
 import { navigation } from "../navLinks";
+import Tags from "../components/Tags";
 
 const Page: NextPageWithLayout = () => {
   return (
     <>
+    <Tags title={"Home"} description={"Sabrina and Owen's wedding website. Save the date September 9th, 2023! This website will be a resource for all attendees."} />
       {/* FLOWERS */}
       <div className="mx-auto max-w-5xl w-full lg:w-[32rem]">
         <Image

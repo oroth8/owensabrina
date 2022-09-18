@@ -8,6 +8,7 @@ import PhoneInput from "../../../components/PhoneInput";
 import Image from "next/image";
 import Success from "../../../components/Success";
 import Link from "next/link";
+import Tags from "../../../components/Tags";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
@@ -112,6 +113,7 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <>
+    <Tags title={`RSVP for ${nameValue}`} description={`RSVP details for ${nameValue}`}/>
       <Nav />
       <h1 className=" text-3xl md:text-4xl text-green-primary text-center font-display mb-10">Update Engagement Party RSVP Details</h1>
       <div className="py-20">
