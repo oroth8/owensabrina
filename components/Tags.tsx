@@ -11,11 +11,11 @@ const Tags = ({title, description}: Props) => {
     const { asPath } = useRouter()
   return (
     <Head>
-        <title>Sabrina Carlins & Owen Roth Wedding | {title}</title>
+        <title>{`Sabrina Carlins & Owen Roth Wedding | ${title}`}</title>
         <meta name="title" content={`Sabrina Carlins & Owen Roth Wedding | ${title}`} />
         <meta
           name="description"
-          content={description}
+          content={`${description}`}
         />
         <link rel="canonical" href={`https://www.sabrina-owen-wedding.com${asPath}`} />
 
@@ -28,7 +28,7 @@ const Tags = ({title, description}: Props) => {
         />
         <meta
           property="og:description"
-          content={description}
+          content={`${description}`}
         />
         <meta property="og:image" content="https://ca-ventures.s3.us-east-2.amazonaws.com/bw+1+(1).png" />
 
@@ -44,7 +44,7 @@ const Tags = ({title, description}: Props) => {
         />
         <meta
           property="twitter:description"
-          content={description}
+          content={`${description}`}
         />
         <meta property="twitter:image" content="https://ca-ventures.s3.us-east-2.amazonaws.com/bw+1+(1).png" />
     </Head>
