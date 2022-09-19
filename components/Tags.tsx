@@ -11,8 +11,8 @@ const Tags = ({title, description}: Props) => {
     const { asPath } = useRouter()
   return (
     <Head>
-        <title>{`Sabrina Carlins & Owen Roth Wedding | ${title}`}</title>
-        <meta name="title" content={`Sabrina Carlins & Owen Roth Wedding | ${title}`} />
+        <title>{`Sabrina Carlins and Owen Roth Wedding | ${title}`}</title>
+        <meta name="title" content={`Sabrina Carlins and Owen Roth Wedding | ${title}`} />
         <meta
           name="description"
           content={`${description}`}
@@ -24,7 +24,7 @@ const Tags = ({title, description}: Props) => {
         <meta property="og:url" content={process.env.VERCEL_URL} />
         <meta
           property="og:title"
-          content={`Sabrina Carlins & Owen Roth Wedding | ${title}`}
+          content={`Sabrina Carlins and Owen Roth Wedding | ${title}`}
         />
         <meta
           property="og:description"
@@ -40,7 +40,7 @@ const Tags = ({title, description}: Props) => {
         />
         <meta
           property="twitter:title"
-          content={`Sabrina Carlins & Owen Roth Wedding | ${title}`}
+          content={`Sabrina Carlins and Owen Roth Wedding | ${title}`}
         />
         <meta
           property="twitter:description"
