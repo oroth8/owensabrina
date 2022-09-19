@@ -95,7 +95,7 @@ const Page: NextPageWithLayout = () => {
       // TODO
       getDetails(id);
     }
-    if (submit === "sucess") {
+    if (submit === "success") {
       setSuccess(true);
       setTimeout(() => {
         setSuccess(false);

@@ -80,9 +80,13 @@ const Page: NextPageWithLayout = () => {
               <span className="block mt-2">September 24th</span>
               <span className="block">6:00pm</span>
               <span className="block mt-2">Casual</span>
+              <span className="block mt-2">No Gifts Please</span>
             </h4>
             <div>--- Late Night ---</div>
-            <h5>TBD</h5>
+            <h5>TBD
+            <span className="block italic">Details will be provided mid-week</span>
+            </h5>
+            
           </section>
         </div>
       </div>
