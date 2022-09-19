@@ -9,6 +9,7 @@ import Image from "next/image";
 import Success from "../../../components/Success";
 import Link from "next/link";
 import Tags from "../../../components/Tags";
+import capitalize from "../../../helpers/Capitalize";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
@@ -42,7 +43,7 @@ const Page: NextPageWithLayout = () => {
       } else if ("id" in result) {
         setLoading(false);
         setPhoneValue(PhoneInput(result.phone));
-        setNameValue(result.name);
+        setNameValue(capitalize(result.name));
         setAttendingValue(result.attending);
       }
     } catch (e: any) {
