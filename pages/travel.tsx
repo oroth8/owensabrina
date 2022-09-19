@@ -3,10 +3,12 @@ import Layout from "../components/nav/Layout";
 import type { NextPageWithLayout } from "./_app";
 import Nav from "../components/nav/Nav";
 import Empty from "../components/Empty";
+import Tags from "../components/Tags";
 
 const Page: NextPageWithLayout = () => {
   return (
     <>
+    <Tags title={"Travel"} description={"Travel details for all logistics for the weekend"} />
     <Nav/>
    <Empty/>
     </>

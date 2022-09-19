@@ -6,6 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Alert from "../components/Altert";
 import Success from "../components/Success";
+import Tags from "../components/Tags";
 
 type FormDataType = {
     firstName: string;
@@ -63,6 +64,7 @@ const Page: NextPageWithLayout = () => {
     }
   return (
     <>
+    <Tags title={"Address Confirmation"} description={"Confirm your address to receive a wedding invitation."} />
     <Nav/>
     <div className="pt-8 mx-auto max-w-2xl font-display text-green-primary">
         {error && (

@@ -69,9 +69,3 @@ async function makeRequest(
 }
 
 export default withSentry(phoneHandler);
-
-export const config = {
-  api: {
-    externalResolver: true,
-  },
-}

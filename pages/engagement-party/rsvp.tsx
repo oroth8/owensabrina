@@ -7,6 +7,7 @@ import PhoneInput from "../../components/PhoneInput";
 import Alert from "../../components/Altert";
 import Image from "next/image";
 import Link from "next/link";
+import Tags from "../../components/Tags";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
@@ -56,6 +57,7 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <>
+    <Tags title={"Engagement Party RSVP"} description={"RSVP for the engagement party"} />
       <Nav />
       <div className="bg-white font-display">
         <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">

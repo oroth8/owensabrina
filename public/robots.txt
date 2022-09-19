@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /address
+Disallow: /engagement-party/edit/*
+
+# Host
+Host: https://sabrina-owen-wedding.com
+
+# Sitemaps
+Sitemap: https://sabrina-owen-wedding.com/sitemap.xml

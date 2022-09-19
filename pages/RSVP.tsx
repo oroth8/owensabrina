@@ -3,9 +3,11 @@ import Layout from "../components/nav/Layout";
 import type { NextPageWithLayout } from "./_app";
 import Nav from "../components/nav/Nav";
 import Empty from "../components/Empty";
+import Tags from "../components/Tags";
 const Page: NextPageWithLayout = () => {
   return (
     <>
+      <Tags title={"RSVP"} description={"RSVP to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"} />
       <Nav />
       <Empty/>
       {/* <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
