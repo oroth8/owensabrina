@@ -74,7 +74,7 @@ const Page: NextPageWithLayout = () => {
             </h3>
             <h4 className="text-xl">
               <span className="block">
-                Food will be catered in by Owen and Sabrina
+                Catered in Gordo's Tiny Tacos
               </span>
               <span className="block">BYOB</span>
               <span className="block mt-2">September 24th</span>
@@ -83,8 +83,11 @@ const Page: NextPageWithLayout = () => {
               <span className="block mt-2">No Gifts Please</span>
             </h4>
             <div>--- Late Night ---</div>
-            <h5>TBD
-            <span className="block italic">Details will be provided mid-week</span>
+            <h5 className="text-xl">
+            <span className="block">Untitled Supper Club</span>
+              <span className="block">111 W Kinzie St</span>
+              <span className="block">Chicago, IL 60652</span>
+              <span className="block">10:00pm</span>
             </h5>
             
           </section>
