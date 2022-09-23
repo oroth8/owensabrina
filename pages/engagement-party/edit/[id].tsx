@@ -9,7 +9,7 @@ import Image from "next/image";
 import Success from "../../../components/Success";
 import Link from "next/link";
 import Tags from "../../../components/Tags";
-import capitalize from "../../../helpers/Capitalize";
+import capitalize from "../../../helpers/capitalize";
 
 const Page: NextPageWithLayout = () => {
   const [phoneValue, setPhoneValue] = useState("");
