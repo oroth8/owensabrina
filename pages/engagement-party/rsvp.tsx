@@ -74,7 +74,7 @@ const Page: NextPageWithLayout = () => {
             </h3>
             <h4 className="text-xl">
               <span className="block">
-                Catered in Gordo's Tiny Tacos
+                Catered in Gordo&apos;s Tiny Tacos
               </span>
               <span className="block">BYOB</span>
               <span className="block mt-2">September 24th</span>
