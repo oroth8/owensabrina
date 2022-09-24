@@ -84,9 +84,10 @@ const Page: NextPageWithLayout = () => {
             </h4>
             <div>--- Late Night ---</div>
             <h5 className="text-xl">
-            <span className="block">Untitled Supper Club</span>
-              <span className="block">111 W Kinzie St</span>
-              <span className="block">Chicago, IL 60652</span>
+            <span className="block">BASSMENT CHICAGO</span>
+              <span className="block">353 W Hubbard</span>
+              <span className="block">Chicago, IL 60654</span>
+              <span className="block">Table reserved for RSVP list only</span>
               <span className="block">10:00pm</span>
             </h5>
             
