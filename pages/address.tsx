@@ -88,7 +88,7 @@ const Page: NextPageWithLayout = () => {
                   id="firstName"
                   autoComplete="given-name"
                   required
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -104,7 +104,7 @@ const Page: NextPageWithLayout = () => {
                   id="lastName"
                   autoComplete="family-name"
                   required
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -120,7 +120,7 @@ const Page: NextPageWithLayout = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -140,7 +140,7 @@ const Page: NextPageWithLayout = () => {
                   pattern="^\d{10}$"
                   title="numbers only, no special chars."
 
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ const Page: NextPageWithLayout = () => {
                   id="address"
                   autoComplete="address-line1"
                   required
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -171,7 +171,7 @@ const Page: NextPageWithLayout = () => {
                   name="address2"
                   id="address2"
                   autoComplete="address-line2"
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -186,7 +186,7 @@ const Page: NextPageWithLayout = () => {
                   name="city"
                   id="city"
                   autoComplete="address-level2"
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -203,7 +203,7 @@ const Page: NextPageWithLayout = () => {
                   autoComplete="address-level1"
                   required
                   maxLength={2}
-                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>
@@ -220,7 +220,7 @@ const Page: NextPageWithLayout = () => {
                   maxLength={5}
                   autoComplete="postal-code"
                   required
-                  className="block p-2 w-full rounded border-gray-300 border  shadow-sm focus:border-green-dark focus:ring-green-dark sm:text-sm"
+                  className="block p-2 w-full rounded border-gray-300 border  shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
               </div>
             </div>

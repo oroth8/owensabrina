@@ -68,6 +68,9 @@ const Page: NextPageWithLayout = () => {
               <h3 className="mt-6 text-3xl sm:text-4xl uppercase tracking-widest">
                 September 9, 2023
               </h3>
+              <h4 className="mt-6 uppercase">
+                Chicago
+              </h4>
             </div>
           </section>
           <div className="mx-auto w-16 my-10">
