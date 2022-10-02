@@ -119,12 +119,11 @@ const Page: NextPageWithLayout = () => {
       setError(result.error);
     } else if ("name" in result) {
       setLoading(false);
-      window.location.href = "/invite-address/thank-you";
-      // setSuccess("Thank you, your response has been saved. We look forward to having you at our wedding!")
+      window.location.href = "/invite-address/thank-you?updated=true";
     } else {
       setLoading(false);
       setError(
-        "Error please contact us by email and we will make sure you are added to the list!"
+        "Error please contact us by email if this issue persists"
       );
     }
   };
