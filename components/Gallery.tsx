@@ -33,35 +33,31 @@ type Gallery = [
   GalleyImages
 ];
 
-type Props = {
-  gallery: Gallery;
-};
-
 const gallery: Gallery = [
-  { path: "/images/gallery/g1.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g2.JPEG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g3.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g4.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g5.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g6.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g7.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g8.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g9.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g10.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g11.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g12.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g13.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g14.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g15.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g16.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g17.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g18.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g19.jpeg", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g20.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g19.jpeg", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g20.JPG", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g19.jpeg", alt: "Sabrina and Owen" },
-  { path: "/images/gallery/g20.JPG", alt: "Sabrina and Owen" },
+  { path: "/images/gallery/g1.JPG", alt: "Engagement Kiss" },
+  { path: "/images/gallery/g2.JPEG", alt: "Cake Cutting" },
+  { path: "/images/gallery/g5.JPG", alt: "Coronado Sunset Kiss" }, // full
+  { path: "/images/gallery/g4.JPG", alt: "San Diego Concert" }, // full
+  { path: "/images/gallery/g3.JPG", alt: "Aqua Wedding Formal" },
+  { path: "/images/gallery/g6.JPG", alt: "Botanic Gardens Light Festival" },
+  { path: "/images/gallery/g7.JPG", alt: "Aqua Pool" },
+  { path: "/images/gallery/g8.JPG", alt: "San Diego Sunset" },
+  { path: "/images/gallery/g11.JPG", alt: "San Diego Hike" }, // full
+  { path: "/images/gallery/g10.JPG", alt: "Kuai Hike" }, // full
+  { path: "/images/gallery/g9.JPG", alt: "North Carolina Engagement" },
+  { path: "/images/gallery/g12.JPG", alt: "College Formal" },
+  { path: "/images/gallery/g13.JPG", alt: "London Ferris Wheel" },
+  { path: "/images/gallery/g14.JPG", alt: "Steamboat ATV" },
+  { path: "/images/gallery/g15.JPG", alt: "Coco-head Hike" }, // full
+  { path: "/images/gallery/g16.JPG", alt: "Steamboat Spring Ski" }, // full
+  { path: "/images/gallery/g17.JPG", alt: "Madison Bar" },
+  { path: "/images/gallery/g18.JPG", alt: "New Buffalo" },
+  { path: "/images/gallery/g19.jpeg", alt: "Mykonos Little Italy" },
+  { path: "/images/gallery/g20.JPG", alt: "Wisconsin Tailgate" },
+  { path: "/images/gallery/g23.jpeg", alt: "Telluride Waterfall" }, // full
+  { path: "/images/gallery/g21.JPG", alt: "Santorini Village" }, // full
+  { path: "/images/gallery/g22.JPG", alt: "TODO" },
+  { path: "/images/gallery/g20.JPG", alt: "TODO" },
 ];
 
 const Gallery = () => {
