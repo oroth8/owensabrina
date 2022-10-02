@@ -18,13 +18,15 @@ module.exports = {
       }
     },
     additionalPaths: async (config) => [
+      await config.transform(config, '/'),
       await config.transform(config, '/wedding-party'),
       await config.transform(config, '/travel'),
       await config.transform(config, '/RSVP'),
       await config.transform(config, '/registry'),
       await config.transform(config, '/events'),
-      await config.transform(config, '/engagement-party/rsvp'),
-      await config.transform(config, '/engagement-party/find'),
+      await config.transform(config, '/photos'),
+      await config.transform(config, '/invite-address'),
+      await config.transform(config, '/invite-address/update'),
     ],
     robotsTxtOptions: {
       policies: [
@@ -34,7 +36,7 @@ module.exports = {
         },
         {
           userAgent: '*',
-          disallow: ['/address', '/engagement-party/edit/*'],
+          disallow: ['/engagement-party/*', '/invite-address/thank-you'],
         },
       ],
     },
