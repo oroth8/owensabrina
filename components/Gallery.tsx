@@ -56,8 +56,8 @@ const gallery: Gallery = [
   { path: "/images/gallery/g20.JPG", alt: "Wisconsin Tailgate" },
   { path: "/images/gallery/g23.jpeg", alt: "Telluride Waterfall" }, // full
   { path: "/images/gallery/g21.JPG", alt: "Santorini Village" }, // full
-  { path: "/images/gallery/g22.JPG", alt: "TODO" },
-  { path: "/images/gallery/g20.JPG", alt: "TODO" },
+  { path: "/images/gallery/g20.jpeg", alt: "Balcony Proposal" },
+  { path: "/images/gallery/g24.jpeg", alt: "Beach Ring Pic" },
 ];
 
 const Gallery = () => {
