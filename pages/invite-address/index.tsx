@@ -136,8 +136,7 @@ const Page: NextPageWithLayout = () => {
                   autoComplete="tel"
                   maxLength={14}
                   minLength={14}
-                  pattern="^\d{10}$"
-                  title="numbers only, no special chars."
+                  required
 
                   className="block p-2 w-full rounded border-gray-300 border shadow-sm focus:outline-none focus:border-green-dark focus:ring-green-dark sm:text-sm"
                 />
