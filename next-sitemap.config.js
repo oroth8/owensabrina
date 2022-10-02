@@ -18,6 +18,7 @@ module.exports = {
       }
     },
     additionalPaths: async (config) => [
+      await config.transform(config, '/'),
       await config.transform(config, '/wedding-party'),
       await config.transform(config, '/travel'),
       await config.transform(config, '/RSVP'),
