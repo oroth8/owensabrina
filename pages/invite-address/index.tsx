@@ -1,31 +1,27 @@
-import type { ReactElement } from "react";
-import Layout from "../components/nav/Layout";
-import type { NextPageWithLayout } from "./_app";
-import Nav from "../components/nav/Nav";
+import type { ReactElement, ChangeEvent } from "react";
+import Layout from "../../components/nav/Layout";
+import type { NextPageWithLayout } from ".././_app";
+import Nav from "../../components/nav/Nav";
 import { useState } from "react";
 import Image from "next/image";
-import Alert from "../components/Altert";
-import Success from "../components/Success";
-import Tags from "../components/Tags";
-
-type FormDataType = {
-    firstName: string;
-    lastName: string;
-    email: string; 
-    streetAddress: string;
-    streetAddress2: string; 
-    city: string;
-    state: string; 
-    postal: string;
-}
+import Alert from "../../components/Altert";
+import Success from "../../components/Success";
+import Tags from "../../components/Tags";
+import PhoneInput from "../../components/PhoneInput";
 
 const Page: NextPageWithLayout = () => {
     type formDataType = {[key:string]: FormDataEntryValue}
     const responseBody: formDataType = {}
 
+    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+        const formattedPhoneNumber = PhoneInput(e.target.value);
+        setPhoneValue(formattedPhoneNumber);
+      };
+
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
+    const [phoneValue, setPhoneValue] = useState("");
     
 
     const inputChangeHandler = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -39,7 +35,7 @@ const Page: NextPageWithLayout = () => {
 
         const JSONdata = JSON.stringify(responseBody)
 
-        const endpoint = `${process.env.API_URL}/api/v1/guests`
+        const endpoint = "/api/forms/guest/create"
 
         const options = {
                   method: 'POST',
@@ -133,10 +129,12 @@ const Page: NextPageWithLayout = () => {
                 <input
                   id="phone"
                   name="phone"
+                  onChange={(e) => handleInput(e)}
+                  value={phoneValue}
                   type="phone"
                   autoComplete="tel"
-                  maxLength={10}
-                  minLength={10}
+                  maxLength={14}
+                  minLength={14}
                   pattern="^\d{10}$"
                   title="numbers only, no special chars."
 
