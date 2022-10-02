@@ -79,39 +79,6 @@ const Page: NextPageWithLayout = () => {
               layout="responsive"
             />
           </div>
-          <section>
-            <div className="text-green-primary text-center">
-              <h3 className="mt-8 text-3xl sm:text-4xl uppercase tracking-widest uppercase">
-                Our Story
-              </h3>
-              <div className="space-y-4 mt-4">
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Soluta doloribus est tempore, explicabo quis fuga
-                  necessitatibus minima iure ipsa, mollitia nesciunt! Obcaecati
-                  sit distinctio vitae reprehenderit expedita. Laudantium,
-                  debitis doloremque! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Consequuntur sapiente possimus molestias
-                  debitis accusantium exercitationem maiores reprehenderit
-                  temporibus vel, minus culpa, necessitatibus veniam hic,
-                  voluptatum cumque pariatur ut quisquam voluptatem?
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                  neque odio pariatur nisi, doloribus assumenda inventore
-                  similique placeat accusantium animi consectetur? Quia
-                  praesentium alias voluptates debitis sapiente. Aliquid, ab
-                  tempora?
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus velit consequatur non odio, architecto accusantium
-                  hic deleniti explicabo numquam fugiat quo. Est nobis odio
-                  illum labore molestias quod doloremque magni.
-                </p>
-              </div>
-            </div>
-          </section>
         </div>
       </div>
     </>

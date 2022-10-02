@@ -65,7 +65,7 @@ const Gallery = () => {
     <>
       <div className="flex flex-wrap -m-1 md:-m-2">
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[0].path}
               alt={gallery[0].alt}
@@ -76,7 +76,7 @@ const Gallery = () => {
               priority
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[1].path}
               alt={gallery[1].alt}
@@ -87,7 +87,7 @@ const Gallery = () => {
               priority
             />
           </div>
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[2].path}
               alt={gallery[2].alt}
@@ -100,7 +100,7 @@ const Gallery = () => {
           </div>
         </div>
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[3].path}
               alt={gallery[3].alt}
@@ -111,7 +111,7 @@ const Gallery = () => {
               priority
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[4].path}
               alt={gallery[4].alt}
@@ -122,7 +122,7 @@ const Gallery = () => {
               priority
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[5].path}
               alt={gallery[5].alt}
@@ -137,7 +137,7 @@ const Gallery = () => {
       </div>
       <div className="flex flex-wrap -m-1 md:-m-2">
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[6].path}
               alt={gallery[6].alt}
@@ -147,7 +147,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[7].path}
               alt={gallery[7].alt}
@@ -157,7 +157,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[8].path}
               alt={gallery[8].alt}
@@ -169,7 +169,7 @@ const Gallery = () => {
           </div>
         </div>
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[9].path}
               alt={gallery[9].alt}
@@ -179,7 +179,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[10].path}
               alt={gallery[10].alt}
@@ -189,7 +189,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[11].path}
               alt={gallery[11].alt}
@@ -203,7 +203,7 @@ const Gallery = () => {
       </div>
       <div className="flex flex-wrap -m-1 md:-m-2">
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[12].path}
               alt={gallery[12].alt}
@@ -213,7 +213,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[13].path}
               alt={gallery[13].alt}
@@ -223,7 +223,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[14].path}
               alt={gallery[14].alt}
@@ -235,7 +235,7 @@ const Gallery = () => {
           </div>
         </div>
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[15].path}
               alt={gallery[15].alt}
@@ -245,7 +245,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[16].path}
               alt={gallery[16].alt}
@@ -255,7 +255,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[17].path}
               alt={gallery[17].alt}
@@ -269,7 +269,7 @@ const Gallery = () => {
       </div>
       <div className="flex flex-wrap -m-1 md:-m-2">
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[18].path}
               alt={gallery[18].alt}
@@ -279,7 +279,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[19].path}
               alt={gallery[19].alt}
@@ -289,7 +289,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[20].path}
               alt={gallery[20].alt}
@@ -301,7 +301,7 @@ const Gallery = () => {
           </div>
         </div>
         <div className="flex flex-wrap w-full md:w-1/2">
-          <div className="w-full p-1 md:p-2">
+          <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[21].path}
               alt={gallery[21].alt}
@@ -311,7 +311,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[22].path}
               alt={gallery[22].alt}
@@ -321,7 +321,7 @@ const Gallery = () => {
               layout="responsive"
             />
           </div>
-          <div className="w-full md:w-1/2 p-1 md:p-2">
+          <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
             <Image
               src={gallery[23].path}
               alt={gallery[23].alt}
