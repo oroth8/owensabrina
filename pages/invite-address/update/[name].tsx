@@ -4,8 +4,7 @@ import type { NextPageWithLayout } from "../../_app";
 import Nav from "../../../components/nav/Nav";
 import { useState } from "react";
 import Image from "next/image";
-import Alert from "../../../components/Altert";
-import Success from "../../../components/Success";
+import Alert from "../../../components/Alert";
 import Tags from "../../../components/Tags";
 import PhoneInput from "../../../components/PhoneInput";
 import capitalize from "../../../helpers/capitalize";
@@ -16,7 +15,6 @@ const Page: NextPageWithLayout = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   // FORM INPUT STATES
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -58,6 +56,7 @@ const Page: NextPageWithLayout = () => {
   };
 
   const getGuestDetails = async (id: string | string[]) => {
+    setLoading(true);
     const endpoint = `/api/forms/guest/find/${name}`;
     const options = { method: "GET" };
 
@@ -142,7 +141,6 @@ const Page: NextPageWithLayout = () => {
       <Nav />
       <div className="pt-8 mx-auto max-w-2xl font-display text-green-primary">
         {error && <Alert message={error} />}
-        {success && <Success message={success} />}
         <form onSubmit={(e)=> submitHandler(e)}>
           <div>
             <h3 className="text-lg font-medium leading-6">

@@ -3,7 +3,7 @@ import type { ReactElement, ChangeEvent } from "react";
 import Layout from "../../../components/nav/Layout";
 import type { NextPageWithLayout } from "../../_app";
 import Nav from "../../../components/nav/Nav";
-import Alert from "../../../components/Altert";
+import Alert from "../../../components/Alert";
 import Image from "next/image";
 import Tags from "../../../components/Tags";
 

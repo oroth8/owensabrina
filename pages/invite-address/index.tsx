@@ -4,7 +4,7 @@ import type { NextPageWithLayout } from ".././_app";
 import Nav from "../../components/nav/Nav";
 import { useState } from "react";
 import Image from "next/image";
-import Alert from "../../components/Altert";
+import Alert from "../../components/Alert";
 import Success from "../../components/Success";
 import Tags from "../../components/Tags";
 import PhoneInput from "../../components/PhoneInput";
