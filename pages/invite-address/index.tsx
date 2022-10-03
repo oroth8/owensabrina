@@ -5,7 +5,6 @@ import Nav from "../../components/nav/Nav";
 import { useState } from "react";
 import Image from "next/image";
 import Alert from "../../components/Alert";
-import Success from "../../components/Success";
 import Tags from "../../components/Tags";
 import PhoneInput from "../../components/PhoneInput";
 
@@ -20,7 +19,6 @@ const Page: NextPageWithLayout = () => {
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
-    const [success, setSuccess] = useState("")
     const [phoneValue, setPhoneValue] = useState("");
     
 
@@ -63,12 +61,15 @@ const Page: NextPageWithLayout = () => {
     <>
     <Tags title={"Address Confirmation"} description={"Confirm your address to receive a wedding invitation."} />
     <Nav/>
+    <div className="text-center font-display text-green-primary px-6 md:px-0">
+      <h1 className="text-4xl">Address Information</h1>
+      <h2 className="mt-4">Please add your address information to receive wedding details in the mail</h2>
+    </div>
     <div className="pt-8 mx-auto max-w-2xl font-display text-green-primary">
         {error && (
             <Alert message={error} />
         )}
-        {success && <Success message={success}/>}
-        <form onSubmit={inputChangeHandler}>
+        <form onSubmit={inputChangeHandler} className="px-6 md:px-0">
           <div>
             <h3 className="text-lg font-medium leading-6">Contact Information</h3>
             <p className="mt-1 text-sm">Use a permanent address where you can receive mail.</p>
