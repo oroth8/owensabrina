@@ -129,7 +129,9 @@ const Page: NextPageWithLayout = () => {
     <>
       <Tags
         title={"Update Address"}
-        description={"Update your address details to receive wedding details in the mail"}
+        description={
+          "Update your address details to receive wedding details in the mail"
+        }
       />
       <Nav />
       <div className="text-green-primary text-center text-4xl mb-4 font-display">

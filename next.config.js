@@ -4,7 +4,7 @@
 //   swcMinify: true,
 // }
 
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require("@sentry/nextjs");
 
 const moduleExports = {
   reactStrictMode: true,
@@ -12,11 +12,11 @@ const moduleExports = {
   async redirects() {
     return [
       {
-        source: '/engagement-party/:path*',
-        destination: '/',
+        source: "/engagement-party/:path*",
+        destination: "/",
         permanent: true,
       },
-    ]
+    ];
   },
 };
 

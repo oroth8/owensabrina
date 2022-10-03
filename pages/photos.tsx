@@ -33,14 +33,14 @@ const Page: NextPageWithLayout = () => {
           </div>
         </div>
         <div className="mx-auto w-16 lg:-mb-20">
-            <Image
-              src="/images/root.png"
-              alt="flowers"
-              height={100}
-              width={100}
-              layout="responsive"
-            />
-          </div>
+          <Image
+            src="/images/root.png"
+            alt="flowers"
+            height={100}
+            width={100}
+            layout="responsive"
+          />
+        </div>
       </section>
       <section className="overflow-hidden text-gray-700">
         <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">

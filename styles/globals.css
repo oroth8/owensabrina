@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    .alex-brush {
-        font-family: 'Alex Brush', cursive;
-    }
+  .alex-brush {
+    font-family: "Alex Brush", cursive;
   }
+}

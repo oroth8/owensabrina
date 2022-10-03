@@ -83,7 +83,9 @@ const Page: NextPageWithLayout = () => {
       } else if ("id" in result) {
         setLoading(false);
         setSuccess(true);
-        router.replace(`/engagement-party/edit/${id}`, undefined, { shallow: true });
+        router.replace(`/engagement-party/edit/${id}`, undefined, {
+          shallow: true,
+        });
       }
     } catch (e: any) {
       setLoading(false);
@@ -114,9 +116,14 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <>
-    <Tags title={`RSVP for ${nameValue}`} description={`RSVP details for ${nameValue}`}/>
+      <Tags
+        title={`RSVP for ${nameValue}`}
+        description={`RSVP details for ${nameValue}`}
+      />
       <Nav />
-      <h1 className=" text-3xl md:text-4xl text-green-primary text-center font-display mb-10">Update Engagement Party RSVP Details</h1>
+      <h1 className=" text-3xl md:text-4xl text-green-primary text-center font-display mb-10">
+        Update Engagement Party RSVP Details
+      </h1>
       <div className="py-20">
         {success && (
           <div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20">

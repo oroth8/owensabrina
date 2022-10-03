@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */ 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -7,24 +7,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['Baskervville'],
-        'cursive': ['"Alex Brush'],
+        display: ["Baskervville"],
+        cursive: ['"Alex Brush'],
       },
       colors: {
         green: {
-          primary: '#89907C',
-          dark: '#434F2B'
+          primary: "#89907C",
+          dark: "#434F2B",
         },
         white: {
-          DEFAULT: '#FEFEFE'
+          DEFAULT: "#FEFEFE",
         },
         gray: {
-          DEFAULT: '#9ca3af'
-        }
-      }
+          DEFAULT: "#9ca3af",
+        },
+      },
     },
   },
-  plugins: [
-    '@tailwindcss/forms'
-  ],
-}
+  plugins: ["@tailwindcss/forms"],
+};

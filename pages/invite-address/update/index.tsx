@@ -42,57 +42,60 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <>
-    <Tags title={"Find Your Engagement Party RSVP"} description={"Find Your RSVP for the engagement party"} />
+      <Tags
+        title={"Find Your Engagement Party RSVP"}
+        description={"Find Your RSVP for the engagement party"}
+      />
       <Nav />
       <div className="  ">
-      {error && (
-        <div className="mb-20 w-4/5 md:w-1/2 mx-auto ">
-          <Alert message={error} />
-        </div>
-      )}
-      <h1 className="text-4xl font-display text-center text-green-primary mb-8">
-        Find Your Address Details
-      </h1>
-      <form
-        className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5   border border-green-primary p-4"
-        onSubmit={handleSubmit}
-      >
-        <div>
-          <label htmlFor="name" className="sr-only">
-            Name
-          </label>
-          <input
-            type="tel"
-            name="name"
-            id="name"
-            className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
-            placeholder="Full Name"
-            required
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </div>
-        <p className="text-center text-sm italic font-display tracking-tight text-green-primary mb-4">
-          Enter your full name to find your address details
-        </p>
-        {loading ? (
-          <div className="text-center">
-            <Image
-              src="/images/loading.gif"
-              height={100}
-              width={100}
-              alt={"Loading"}
+        {error && (
+          <div className="mb-20 w-4/5 md:w-1/2 mx-auto ">
+            <Alert message={error} />
+          </div>
+        )}
+        <h1 className="text-4xl font-display text-center text-green-primary mb-8">
+          Find Your Address Details
+        </h1>
+        <form
+          className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5   border border-green-primary p-4"
+          onSubmit={handleSubmit}
+        >
+          <div>
+            <label htmlFor="name" className="sr-only">
+              Name
+            </label>
+            <input
+              type="tel"
+              name="name"
+              id="name"
+              className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
+              placeholder="Full Name"
+              required
+              onChange={(e) => setName(e.target.value)}
+              value={name}
             />
           </div>
-        ) : (
-          <button
-            className="bg-green-primary text-white p-2  w-full"
-            type="submit"
-          >
-            Edit Address Details
-          </button>
-        )}
-      </form>
+          <p className="text-center text-sm italic font-display tracking-tight text-green-primary mb-4">
+            Enter your full name to find your address details
+          </p>
+          {loading ? (
+            <div className="text-center">
+              <Image
+                src="/images/loading.gif"
+                height={100}
+                width={100}
+                alt={"Loading"}
+              />
+            </div>
+          ) : (
+            <button
+              className="bg-green-primary text-white p-2  w-full"
+              type="submit"
+            >
+              Edit Address Details
+            </button>
+          )}
+        </form>
       </div>
     </>
   );

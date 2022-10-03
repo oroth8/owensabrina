@@ -1,10 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withSentry } from "@sentry/nextjs";
 
-async function phoneHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+async function phoneHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
     return res.status(405).json({ error: "only GET requests allowed" });
   }
@@ -16,9 +13,9 @@ async function phoneHandler(
   // https://stackoverflow.com/questions/55946001/typescripts-type-string-string-is-not-assignable-to-type-string-what-is
   if (typeof name === "undefined") {
     return res.status(401).send({ error: "no name" });
-  } else if (Array.isArray(name) ) {
+  } else if (Array.isArray(name)) {
     return res.status(401).send({ error: "name cannot be array" });
-  } else if (!name ) {
+  } else if (!name) {
     return res.status(401).send({ error: "name cannot be empty" });
   }
 
@@ -35,27 +32,24 @@ async function phoneHandler(
 }
 
 type Response = {
-    id: number;
-    name: string;
-    email: string;
-    address: string;
-    address2: string;
-    city: string;
-    state: string;
-    postal: string;
-    created_at: string;
-    updated_at: string;
-    phone: string;
+  id: number;
+  name: string;
+  email: string;
+  address: string;
+  address2: string;
+  city: string;
+  state: string;
+  postal: string;
+  created_at: string;
+  updated_at: string;
+  phone: string;
 };
 
 type Error = {
   error: string;
 };
 
-async function makeRequest(
-  name: string,
-): Promise<Response | Error> {
-
+async function makeRequest(name: string): Promise<Response | Error> {
   const endpoint = `${process.env.API_URL}/api/v1/guest/name/${name}`;
 
   const options = {

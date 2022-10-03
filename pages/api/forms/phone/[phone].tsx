@@ -1,10 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withSentry } from "@sentry/nextjs";
 
-async function phoneHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+async function phoneHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
     return res.status(405).json({ error: "only GET requests allowed" });
   }
@@ -16,9 +13,9 @@ async function phoneHandler(
   // https://stackoverflow.com/questions/55946001/typescripts-type-string-string-is-not-assignable-to-type-string-what-is
   if (typeof phone === "undefined") {
     return res.status(401).send({ error: "no phone" });
-  } else if (Array.isArray(phone) ) {
+  } else if (Array.isArray(phone)) {
     return res.status(401).send({ error: "phone cannot be array" });
-  } else if (!phone ) {
+  } else if (!phone) {
     return res.status(401).send({ error: "phone cannot be empty" });
   }
 
@@ -47,11 +44,8 @@ type Error = {
   error: string;
 };
 
-async function makeRequest(
-  phone: string,
-): Promise<Response | Error> {
-
-    // TODO PHONE URL
+async function makeRequest(phone: string): Promise<Response | Error> {
+  // TODO PHONE URL
   const endpoint = `${process.env.API_URL}/api/v1/party_guest/find_phone/${phone}`;
 
   const options = {

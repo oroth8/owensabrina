@@ -8,9 +8,14 @@ import Tags from "../components/Tags";
 const Page: NextPageWithLayout = () => {
   return (
     <>
-    <Tags title={"Registry"} description={"Registry for Sabrina and Owen's wedding September 9th, 2023"} />
-    <Nav/>
-   <Empty/>
+      <Tags
+        title={"Registry"}
+        description={
+          "Registry for Sabrina and Owen's wedding September 9th, 2023"
+        }
+      />
+      <Nav />
+      <Empty />
     </>
   );
 };
