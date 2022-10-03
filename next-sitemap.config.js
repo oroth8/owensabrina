@@ -26,6 +26,7 @@ module.exports = {
       await config.transform(config, '/events'),
       await config.transform(config, '/photos'),
       await config.transform(config, '/invite-address'),
+      await config.transform(config, '/invite-address/new'),
       await config.transform(config, '/invite-address/update'),
     ],
     robotsTxtOptions: {
