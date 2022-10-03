@@ -12,7 +12,7 @@ const Page: NextPageWithLayout = () => {
       <Tags
         title={"Home"}
         description={
-          "Sabrina and Owen's wedding website. Save the date September 9th, 2023! This website will be a resource for all attendees."
+          "Sabrina Carlins and Owen Roth's wedding website. View event details, travel info, photos, registry, and other resources about the wedding. Save the date September 9th, 2023!"
         }
       />
       {/* FLOWERS */}
