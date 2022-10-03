@@ -128,10 +128,13 @@ const Page: NextPageWithLayout = () => {
   return (
     <>
       <Tags
-        title={"Address Confirmation"}
-        description={"Confirm your address to receive a wedding invitation."}
+        title={"Update Address"}
+        description={"Update your address details to receive wedding details in the mail"}
       />
       <Nav />
+      <div className="text-green-primary text-center text-4xl mb-4 font-display">
+        <h1>Update Address Information</h1>
+      </div>
       <div className="pt-8 mx-auto max-w-2xl font-display text-green-primary">
         {error && <Alert message={error} />}
         {loading ? (
