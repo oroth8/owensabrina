@@ -1,6 +1,6 @@
 import { ReactElement, ChangeEvent, useEffect } from "react";
 import Layout from "../../../components/nav/Layout";
-import type { NextPageWithLayout } from "../.././_app";
+import type { NextPageWithLayout } from "../../_app";
 import Nav from "../../../components/nav/Nav";
 import { useState } from "react";
 import Image from "next/image";
@@ -35,19 +35,19 @@ const Page: NextPageWithLayout = () => {
   };
 
   const router = useRouter();
-  const { id } = router.query;
+  const { name } = router.query;
 
 
 
-  const processId = (id: any) => {
-    if (typeof id === "undefined") {
+  const processName = (name: any) => {
+    if (typeof name === "undefined") {
       return "0"
-    } else if (Array.isArray(id) ) {
+    } else if (Array.isArray(name) ) {
       return "0"
-    } else if (!id ) {
+    } else if (!name ) {
       return "0"
     }else{
-      return id
+      return name.toLowerCase()
     }
    
   };
@@ -58,7 +58,7 @@ const Page: NextPageWithLayout = () => {
   };
 
   const getGuestDetails = async (id: string | string[]) => {
-    const endpoint = `/api/forms/guest/${id}`;
+    const endpoint = `/api/forms/guest/find/${name}`;
     const options = { method: "GET" };
 
     try {
@@ -98,7 +98,6 @@ const Page: NextPageWithLayout = () => {
       city,
       state,
       postal,
-      id: processId(id),
     };
 
     const JSONdata = JSON.stringify(responseBody);
@@ -129,10 +128,10 @@ const Page: NextPageWithLayout = () => {
   };
 
   useEffect(() => {
-    if (id) {
-      getGuestDetails(id);
+    if (name) {
+      getGuestDetails(processName(name));
     }
-  }, [id]);
+  }, [name]);
 
   return (
     <>

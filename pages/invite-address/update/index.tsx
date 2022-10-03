@@ -32,7 +32,7 @@ const Page: NextPageWithLayout = () => {
         setLoading(false);
         setError(result.error);
       } else if ("id" in result) {
-        window.location.href = `/invite-address/update/${result.id}`;
+        window.location.href = `/invite-address/update/${result.name}`;
       }
     } catch (e: any) {
       setLoading(false);
