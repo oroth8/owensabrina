@@ -6,7 +6,7 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 5000,
   generateRobotsTxt: true,
-  // exclude: ['/protected-page', '/awesome/secret-page'],
+  exclude: ['/engagement-party/find', '/engagement-party/rsvp'],
   // Default transformation function
   transform: async (config, path) => {
     return {
