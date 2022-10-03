@@ -1,15 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withSentry } from "@sentry/nextjs";
 
-async function userHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+async function userHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "only POST requests allowed" });
   }
   const { name, phone } = req.body;
-  
+
   try {
     const result = await makeRequest(name, phone);
     if ("error" in result) {

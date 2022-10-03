@@ -1,8 +1,8 @@
-import { XCircleIcon } from '@heroicons/react/20/solid'
+import { XCircleIcon } from "@heroicons/react/20/solid";
 
 type Props = {
-    message: string;
-}
+  message: string;
+};
 
 export default function Alert(props: Props) {
   return (
@@ -12,7 +12,9 @@ export default function Alert(props: Props) {
           <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">There were errors with your submission</h3>
+          <h3 className="text-sm font-medium text-red-800">
+            There were errors with your submission
+          </h3>
           <div className="mt-2 text-sm text-red-700">
             <ul role="list" className="list-disc space-y-1 pl-5">
               <li>{props.message}</li>
@@ -21,5 +23,5 @@ export default function Alert(props: Props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

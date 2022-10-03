@@ -1,10 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withSentry } from "@sentry/nextjs";
 
- async function updateHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") {
     return res.status(405).json({ error: "only PUT requests allowed" });
   }

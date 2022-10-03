@@ -1,17 +1,25 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withSentry } from "@sentry/nextjs";
 
-async function userHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+async function userHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") {
     return res.status(405).json({ error: "only PUT requests allowed" });
   }
-  const { name, email, phone, address, address2, city, state, postal, id } = req.body;
-  
+  const { name, email, phone, address, address2, city, state, postal, id } =
+    req.body;
+
   try {
-    const result = await makeRequest( name, email, phone, address, address2, city, state, postal, id);
+    const result = await makeRequest(
+      name,
+      email,
+      phone,
+      address,
+      address2,
+      city,
+      state,
+      postal,
+      id
+    );
     if ("error" in result) {
       res.status(500).send(result);
     } else {
@@ -49,7 +57,7 @@ async function makeRequest(
   city: string,
   state: string,
   postal: string,
-  id: string,
+  id: string
 ): Promise<Response | Error> {
   const data = {
     name,
@@ -60,7 +68,7 @@ async function makeRequest(
     state,
     postal,
     phone: phone.replace(/\D+/g, ""),
-    id
+    id,
   };
 
   const JSONdata = JSON.stringify(data);

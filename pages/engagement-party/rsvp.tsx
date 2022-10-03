@@ -4,7 +4,7 @@ import Layout from "../../components/nav/Layout";
 import type { NextPageWithLayout } from "../_app";
 import Nav from "../../components/nav/Nav";
 import PhoneInput from "../../components/PhoneInput";
-import Alert from "../../components/Altert";
+import Alert from "../../components/Alert";
 import Image from "next/image";
 import Link from "next/link";
 import Tags from "../../components/Tags";
@@ -57,7 +57,10 @@ const Page: NextPageWithLayout = () => {
 
   return (
     <>
-    <Tags title={"Engagement Party RSVP"} description={"RSVP for the engagement party"} />
+      <Tags
+        title={"Engagement Party RSVP"}
+        description={"RSVP for the engagement party"}
+      />
       <Nav />
       <div className="bg-white font-display">
         <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:py-16 lg:px-8">
@@ -73,9 +76,7 @@ const Page: NextPageWithLayout = () => {
               <span className="block">6:00pm</span>
             </h3>
             <h4 className="text-xl">
-              <span className="block">
-                Catered in Gordo&apos;s Tiny Tacos
-              </span>
+              <span className="block">Catered in Gordo&apos;s Tiny Tacos</span>
               <span className="block">BYOB</span>
               <span className="block mt-2">September 24th</span>
               <span className="block">6:00pm</span>
@@ -84,13 +85,12 @@ const Page: NextPageWithLayout = () => {
             </h4>
             <div>--- Late Night ---</div>
             <h5 className="text-xl">
-            <span className="block">BASSMENT CHICAGO</span>
+              <span className="block">BASSMENT CHICAGO</span>
               <span className="block">353 W Hubbard</span>
               <span className="block">Chicago, IL 60654</span>
               <span className="block">Table reserved for RSVP list only</span>
               <span className="block">10:00pm</span>
             </h5>
-            
           </section>
         </div>
       </div>

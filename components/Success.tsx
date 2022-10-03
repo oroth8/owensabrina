@@ -23,21 +23,21 @@ export default function Success(props: Props) {
             <p>{props.message}</p>
           </div>
           {props.links && (
-             <div className="mt-4">
-             <div className="-mx-2 -my-1.5 flex">
-               <Link href="/travel" type="button">
-                 <a className="rounded-md bg-green-50 px-2 py-1.5 text-sm font-medium text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">
-                   Travel Details
-                 </a>
-               </Link>
-               <Link href="/registry" type="button">
-                 <a className="ml-3 rounded-md bg-green-50 px-2 py-1.5 text-sm font-medium text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">
-                   Gift Registry
-                 </a>
-               </Link>
-             </div>
-           </div>
-           )}
+            <div className="mt-4">
+              <div className="-mx-2 -my-1.5 flex">
+                <Link href="/travel" type="button">
+                  <a className="rounded-md bg-green-50 px-2 py-1.5 text-sm font-medium text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">
+                    Travel Details
+                  </a>
+                </Link>
+                <Link href="/registry" type="button">
+                  <a className="ml-3 rounded-md bg-green-50 px-2 py-1.5 text-sm font-medium text-green-800 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 focus:ring-offset-green-50">
+                    Gift Registry
+                  </a>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -45,5 +45,5 @@ export default function Success(props: Props) {
 }
 
 Success.defaultProps = {
-  links: false
-}
+  links: false,
+};

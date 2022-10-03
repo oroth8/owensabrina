@@ -7,9 +7,14 @@ import Tags from "../components/Tags";
 const Page: NextPageWithLayout = () => {
   return (
     <>
-      <Tags title={"RSVP"} description={"RSVP to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"} />
+      <Tags
+        title={"RSVP"}
+        description={
+          "RSVP to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"
+        }
+      />
       <Nav />
-      <Empty/>
+      <Empty />
       {/* <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
         <h2 className="text-3xl">YOU&apos;RE INVITED</h2>
         <div className="bg-green-primary h-1 w-48 my-8 sm:my-16 mx-auto"></div>
