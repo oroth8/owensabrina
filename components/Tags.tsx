@@ -17,10 +17,14 @@ const Tags = ({ title, description }: Props) => {
         content={`Sabrina Carlins and Owen Roth Wedding | ${title}`}
       />
       <meta name="description" content={`${description}`} />
-      <link
-        rel="canonical"
-        href={`https://www.sabrina-owen-wedding.com${asPath}`}
-      />
+      {asPath === "/" ? (
+        <link rel="canonical" href={`https://www.sabrina-owen-wedding.com`} />
+      ) : (
+        <link
+          rel="canonical"
+          href={`https://www.sabrina-owen-wedding.com${asPath}`}
+        />
+      )}
 
       {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />

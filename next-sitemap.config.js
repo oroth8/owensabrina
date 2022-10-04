@@ -4,7 +4,7 @@ module.exports = {
   siteUrl: "https://www.sabrina-owen-wedding.com",
   changefreq: "weekly",
   priority: 0.7,
-  sitemapSize: 5000,
+  sitemapSize: 100,
   generateRobotsTxt: true,
   exclude: ['/engagement-party/find', '/engagement-party/rsvp'],
   // Default transformation function
@@ -18,7 +18,7 @@ module.exports = {
     };
   },
   additionalPaths: async (config) => [
-    await config.transform(config, "/"),
+    await config.transform(config, ""),
     await config.transform(config, "/wedding-party"),
     await config.transform(config, "/travel"),
     await config.transform(config, "/RSVP"),
