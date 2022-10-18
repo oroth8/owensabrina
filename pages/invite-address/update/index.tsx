@@ -65,8 +65,9 @@ const Page: NextPageWithLayout = () => {
               Name
             </label>
             <input
-              type="tel"
+              type="text"
               name="name"
+              autoComplete="name"
               id="name"
               className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
               placeholder="Full Name"
