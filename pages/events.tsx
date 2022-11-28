@@ -33,7 +33,7 @@ const Page: NextPageWithLayout = () => {
         <p>Cocktail Attire</p>
         <p>12 S Michigan Ave, Chicago, IL 60603</p>
         <br/>
-        <p className="italic">Cindy’s is atop the Chicago Athletic Association overlooking millennium park</p>
+        <p className="italic">Cindy&apos;s is atop the Chicago Athletic Association overlooking millennium park</p>
         </div>
       </div>
       <div className="bg-green-primary w-[80%] mx-auto h-1"></div>
