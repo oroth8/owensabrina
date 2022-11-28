@@ -26,7 +26,7 @@ const Page: NextPageWithLayout = () => {
         </div>
         <div className="w-full max-w-xs text-green-primary text-center">
          <a href="http://www.cindysrooftop.com/">
-        <h2 className="uppercase text-3xl text-green-dark hover:text-green-primary">Cindy's Rooftop</h2>
+        <h2 className="uppercase text-3xl text-green-dark hover:text-green-primary">Cindy&apos;s Rooftop</h2>
         </a> 
         <br/>
         <p>Time - TBD</p>
