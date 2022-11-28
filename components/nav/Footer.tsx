@@ -72,7 +72,7 @@ export default function Footer() {
             </a>
           ))}
         </div>
-        <div className="text-center mt-4">
+        <div className="text-center mt-8">
         <a href="mailto:contact@sabrina-owen-wedding.com" className="text-green-primary">
         contact@sabrina-owen-wedding.com
         </a>
