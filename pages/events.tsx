@@ -36,6 +36,7 @@ const Page: NextPageWithLayout = () => {
         <p className="italic">Cindy’s is atop the Chicago Athletic Association overlooking millennium park</p>
         </div>
       </div>
+      <div className="bg-green-primary w-[80%] mx-auto h-1"></div>
       {/* 9th */}
       <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
         <div className="max-w-xl">
