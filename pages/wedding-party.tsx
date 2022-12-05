@@ -162,61 +162,61 @@ const Page: NextPageWithLayout = () => {
       <Tags title={"Wedding Party"} description={"Meet the wedding party"} />
       <Nav />
       <div className="bg-white font-display">
-      <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:px-8">
-        {/* BRIDESMAIDS BEGIN */}
-        <div className="space-y-12">
-          <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-            <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">Bridesmaids</h2>
-          </div>
-          <ul
-            role="list"
-            className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:max-w-5xl lg:grid-cols-4"
-          >
-            {bridesmaids.map((bridesmaid) => (
-              <li key={bridesmaid.name}>
-                <div className="space-y-6">
-                  <div className="mx-auto h-40 w-40 xl:h-56 xl:w-56">
-                    <Image src={bridesmaid.imagePath} height={40} width={40} className="rounded-full" layout="responsive" alt={bridesmaid.name} />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="space-y-1 text-lg font-medium leading-6 text-green-dark">
-                      <h3>{bridesmaid.name}</h3>
-                      <p className="text-green-primary">{bridesmaid.role}</p>
+        <div className="mx-auto max-w-7xl py-12 px-4 text-center sm:px-6 lg:px-8">
+          {/* BRIDESMAIDS BEGIN */}
+          <div className="space-y-12">
+            <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+              <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">Bridesmaids</h2>
+            </div>
+            <ul
+              role="list"
+              className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:max-w-5xl lg:grid-cols-4"
+            >
+              {bridesmaids.map((bridesmaid) => (
+                <li key={bridesmaid.name}>
+                  <div className="space-y-6">
+                    <div className="mx-auto h-40 w-40 xl:h-56 xl:w-56">
+                      <Image src={bridesmaid.imagePath} height={40} width={40} className="rounded-full" layout="responsive" alt={bridesmaid.name} />
+                    </div>
+                    <div className="space-y-2">
+                      <div className="space-y-1 text-lg font-medium leading-6 text-green-dark">
+                        <h3>{bridesmaid.name}</h3>
+                        <p className="text-green-primary">{bridesmaid.role}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* BRIDESMAIDS END */}
-        {/* GROOMSMEN START */}
-        <div className="space-y-12 mt-20">
-          <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-            <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">Groomsmen</h2>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul
-            role="list"
-            className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:max-w-5xl lg:grid-cols-4"
-          >
-            {groomsmen.map((groomsman) => (
-              <li key={groomsman.name}>
-                <div className="space-y-6">
-                  <img className="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56" src={groomsman.imagePath} alt={groomsman.name} />
-                  <div className="space-y-2">
-                    <div className="space-y-1 text-lg font-medium leading-6">
-                      <h3>{groomsman.name}</h3>
-                      <p className="text-green-primary">{groomsman.role}</p>
+          {/* BRIDESMAIDS END */}
+          {/* GROOMSMEN START */}
+          <div className="space-y-12 mt-20">
+            <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+              <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">Groomsmen</h2>
+            </div>
+            <ul
+              role="list"
+              className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:max-w-5xl lg:grid-cols-4"
+            >
+              {groomsmen.map((groomsman) => (
+                <li key={groomsman.name}>
+                  <div className="space-y-6">
+                    <img className="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56" src={groomsman.imagePath} alt={groomsman.name} />
+                    <div className="space-y-2">
+                      <div className="space-y-1 text-lg font-medium leading-6">
+                        <h3>{groomsman.name}</h3>
+                        <p className="text-green-primary">{groomsman.role}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* GROOMSMEN END */}
         </div>
-        {/* GROOMSMEN END */}
       </div>
-    </div>
     </>
   );
 };

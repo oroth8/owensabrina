@@ -2,7 +2,7 @@ import type { ReactElement } from "react";
 import Layout from "../components/nav/Layout";
 import type { NextPageWithLayout } from "./_app";
 import Nav from "../components/nav/Nav";
-import { BoltIcon, DevicePhoneMobileIcon, GlobeAltIcon, ScaleIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
+import { GiftTopIcon, GiftIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline'
 import Tags from "../components/Tags";
 
 const Page: NextPageWithLayout = () => {
@@ -12,26 +12,23 @@ const Page: NextPageWithLayout = () => {
     {
       name: 'West Elm',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-      icon: GlobeAltIcon,
+        'West Elm offers modern furniture and home decor featuring inspiring designs and colors that we love. Please help us furnish our new home with a gift from their registry.',
+      href: 'https://www.westelm.com/registry/6lxtprkt9d/registry-list.html',
+      icon: GiftTopIcon,
     },
     {
       name: 'Williams-Sonoma',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-      icon: ScaleIcon,
-    },
-    {
-      name: 'Amazon',
-      description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-      icon: BoltIcon,
+        'Williams-Sonoma is an American consumer retail company that sells kitchenware and home furnishings. Please help us furnish our kitchen with a gift from their registry.',
+      href: 'https://www.williams-sonoma.com/registry/mhx2mq5pdc/registry-list.html',
+      icon: GiftIcon,
     },
     {
       name: 'Honeymoon Fund',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-      icon: DevicePhoneMobileIcon,
+        'Please help us celebrate our marriage with a gift to our honeymoon fund. We are still planning our honeymoon, but we are looking forward to sharing details soon!',
+      href: 'https://donate.stripe.com/28oeXw1ZA59gcb67ss',
+      icon: CurrencyDollarIcon,
     },
   ]
 
@@ -55,22 +52,23 @@ const Page: NextPageWithLayout = () => {
           </div>
 
           <div className="mt-20 max-w-lg sm:mx-auto md:max-w-none">
-            <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16">
+            <div className="grid grid-cols-1 gap-y-16 md:grid-cols-3 md:gap-x-12 md:gap-y-16">
               {features.map((feature) => (
                 <div key={feature.name} className="relative flex flex-col gap-6 sm:flex-row md:flex-col lg:flex-row">
-                  {/* <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500 text-white sm:shrink-0">
-                  <feature.icon className="h-8 w-8" aria-hidden="true" />
-                </div> */}
                   <div className="sm:min-w-0 sm:flex-1">
                     <p className="text-2xl font-semibold leading-8 text-green-dark uppercase">{feature.name}</p>
                     <p className="mt-2 text-base leading-7 text-gray-600">{feature.description}</p>
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-md border border-transparent bg-green-primary mt-8 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                    >
-                      Go to {feature.name}
-                      <feature.icon className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
-                    </button>
+                    <a href={feature.href} target="_blank" rel="noopener noreferrer">
+
+                      <button
+                        type="button"
+                        className="inline-flex items-center rounded-md border border-transparent bg-green-primary mt-8 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-green-primary focus:ring-offset-2"
+                      >
+                        Go to {feature.name}
+                        <feature.icon className="ml-2 -mr-1 h-5 w-5" aria-hidden="true" />
+                      </button>
+                    </a>
+
                   </div>
                 </div>
               ))}
