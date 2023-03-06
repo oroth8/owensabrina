@@ -72,8 +72,8 @@ const Page: NextPageWithLayout = () => {
       <div className="text-center font-display text-green-primary px-6 md:px-0">
         <h1 className="text-4xl">Address Information</h1>
         <h2 className="mt-4">
-          Please add your individual address information to receive wedding details in the
-          mail
+          Please add your individual address information to receive wedding
+          details in the mail
         </h2>
       </div>
       <div className="pt-8 mx-auto max-w-2xl font-display text-green-primary">
