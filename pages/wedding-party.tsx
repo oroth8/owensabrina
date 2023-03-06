@@ -106,7 +106,7 @@ const groomsmen = [
       '/images/wedding-party/brooks.png',
   },
   {
-    name: 'Connor Paterson',
+    name: 'Connor Patterson',
     role: 'Groomsman',
     imagePath:
       '/images/wedding-party/connor.png',
