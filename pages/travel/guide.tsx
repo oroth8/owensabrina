@@ -68,7 +68,7 @@ const Page: NextPageWithLayout = () => {
                       rel="noopener noreferrer"
                       className="hover:text-gray-100"
                     >
-                      Eggy's
+                      Eggy&apos;s
                     </a>
                   </li>
                   <li>
@@ -88,7 +88,7 @@ const Page: NextPageWithLayout = () => {
                       rel="noopener noreferrer"
                       className="hover:text-gray-100"
                     >
-                      Gordon's Tiny Tacos
+                      Gordon&apos;s Tiny Tacos
                     </a>
                   </li>
                   <li>
@@ -118,7 +118,7 @@ const Page: NextPageWithLayout = () => {
                       rel="noopener noreferrer"
                       className="hover:text-gray-100"
                     >
-                      Lou Malnati's Deep Dish Pizza
+                      Lou Malnati&apos;s Deep Dish Pizza
                     </a>
                   </li>
                 </ul>
