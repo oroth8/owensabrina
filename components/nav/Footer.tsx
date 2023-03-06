@@ -73,9 +73,12 @@ export default function Footer() {
           ))}
         </div>
         <div className="text-center mt-8">
-        <a href="mailto:contact@sabrina-owen-wedding.com" className="text-green-primary">
-        contact@sabrina-owen-wedding.com
-        </a>
+          <a
+            href="mailto:contact@sabrina-owen-wedding.com"
+            className="text-green-primary"
+          >
+            contact@sabrina-owen-wedding.com
+          </a>
         </div>
         <p className="mt-8 text-center text-xs text-green-primary">
           &copy; 2022-2023 Owen Roth. All rights reserved.

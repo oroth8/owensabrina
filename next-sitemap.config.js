@@ -6,7 +6,7 @@ module.exports = {
   priority: 0.7,
   sitemapSize: 100,
   generateRobotsTxt: true,
-  exclude: ['/engagement-party/find', '/engagement-party/rsvp'],
+  exclude: ["/engagement-party/find", "/engagement-party/rsvp"],
   // Default transformation function
   transform: async (config, path) => {
     return {
@@ -31,7 +31,6 @@ module.exports = {
     await config.transform(config, "/invite-address"),
     await config.transform(config, "/invite-address/new"),
     await config.transform(config, "/invite-address/update"),
-
   ],
   robotsTxtOptions: {
     policies: [

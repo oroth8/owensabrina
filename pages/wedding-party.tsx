@@ -7,154 +7,129 @@ import Image from "next/image";
 
 const bridesmaids = [
   {
-    name: 'Rachel Palmer',
-    role: 'Maid of Honor',
-    imagePath:
-      '/images/wedding-party/rachel.png',
+    name: "Rachel Palmer",
+    role: "Maid of Honor",
+    imagePath: "/images/wedding-party/rachel.png",
   },
   {
-    name: 'Elaine Gitles',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/ellie.png',
+    name: "Elaine Gitles",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/ellie.png",
   },
   {
-    name: 'Emma Carlins',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/emma_c.png',
+    name: "Emma Carlins",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/emma_c.png",
   },
   {
-    name: 'Emily Iglar',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/emilly.png',
+    name: "Emily Iglar",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/emilly.png",
   },
   {
-    name: 'Olivia Destefano',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/olivia.png',
+    name: "Olivia Destefano",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/olivia.png",
   },
   {
-    name: 'Ellie Gershenson',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/ellie_g.png',
+    name: "Ellie Gershenson",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/ellie_g.png",
   },
   {
-    name: 'Josie Dondanville',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/josie.png',
+    name: "Josie Dondanville",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/josie.png",
   },
   {
-    name: 'Lilah Roth',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/lilah.png',
+    name: "Lilah Roth",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/lilah.png",
   },
   {
-    name: 'Dee Humphrey',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/dee.png',
+    name: "Dee Humphrey",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/dee.png",
   },
   {
-    name: 'Bella Dutra',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/bella.png',
+    name: "Bella Dutra",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/bella.png",
   },
   {
-    name: 'Carly White',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/carly.png',
+    name: "Carly White",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/carly.png",
   },
   {
-    name: 'Livi Carlton',
-    role: 'Bridesmaid',
-    imagePath:
-      '/images/wedding-party/livi.png',
+    name: "Livi Carlton",
+    role: "Bridesmaid",
+    imagePath: "/images/wedding-party/livi.png",
   },
-]
+];
 
 const groomsmen = [
   {
-    name: 'Caleb Roth',
-    role: 'Best Man',
-    imagePath:
-      '/images/wedding-party/caleb.png',
+    name: "Caleb Roth",
+    role: "Best Man",
+    imagePath: "/images/wedding-party/caleb.png",
   },
   {
-    name: 'Alex Carlins',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/alex.png',
+    name: "Alex Carlins",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/alex.png",
   },
   {
-    name: 'Nick Abbott',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/abbott.png',
+    name: "Nick Abbott",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/abbott.png",
   },
   {
-    name: 'Brooks Ashmore',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/brooks.png',
+    name: "Brooks Ashmore",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/brooks.png",
   },
   {
-    name: 'Connor Paterson',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/connor.png',
+    name: "Connor Patterson",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/connor.png",
   },
   {
-    name: 'Jack Fitzpatrick',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/fitz.png',
+    name: "Jack Fitzpatrick",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/fitz.png",
   },
   {
-    name: 'Griffin Olson',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/griff.png',
+    name: "Griffin Olson",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/griff.png",
   },
   {
-    name: 'James Oneil',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/james.png',
+    name: "James Oneil",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/james.png",
   },
   {
-    name: 'Jamie Sawyer',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/jamie.png',
+    name: "Jamie Sawyer",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/jamie.png",
   },
   {
-    name: 'Michael Thomas',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/mike-t.png',
+    name: "Michael Thomas",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/mike-t.png",
   },
   {
-    name: 'Michael Welch',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/mike-w.png',
+    name: "Michael Welch",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/mike-w.png",
   },
   {
-    name: 'Rory McGinnis',
-    role: 'Groomsman',
-    imagePath:
-      '/images/wedding-party/rory.png',
+    name: "Rory McGinnis",
+    role: "Groomsman",
+    imagePath: "/images/wedding-party/rory.png",
   },
-
-]
+];
 
 const Page: NextPageWithLayout = () => {
   return (
@@ -166,7 +141,9 @@ const Page: NextPageWithLayout = () => {
           {/* BRIDESMAIDS BEGIN */}
           <div className="space-y-12">
             <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-              <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">Bridesmaids</h2>
+              <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">
+                Bridesmaids
+              </h2>
             </div>
             <ul
               role="list"
@@ -176,7 +153,14 @@ const Page: NextPageWithLayout = () => {
                 <li key={bridesmaid.name}>
                   <div className="space-y-6">
                     <div className="mx-auto h-40 w-40 xl:h-56 xl:w-56">
-                      <Image src={bridesmaid.imagePath} height={40} width={40} className="rounded-full" layout="responsive" alt={bridesmaid.name} />
+                      <Image
+                        src={bridesmaid.imagePath}
+                        height={40}
+                        width={40}
+                        className="rounded-full"
+                        layout="responsive"
+                        alt={bridesmaid.name}
+                      />
                     </div>
                     <div className="space-y-2">
                       <div className="space-y-1 text-lg font-medium leading-6 text-green-dark">
@@ -193,7 +177,9 @@ const Page: NextPageWithLayout = () => {
           {/* GROOMSMEN START */}
           <div className="space-y-12 mt-20">
             <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-              <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">Groomsmen</h2>
+              <h2 className="text-3xl tracking-widest sm:text-4xl uppercase text-green-dark">
+                Groomsmen
+              </h2>
             </div>
             <ul
               role="list"
@@ -202,7 +188,11 @@ const Page: NextPageWithLayout = () => {
               {groomsmen.map((groomsman) => (
                 <li key={groomsman.name}>
                   <div className="space-y-6">
-                    <img className="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56" src={groomsman.imagePath} alt={groomsman.name} />
+                    <img
+                      className="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56"
+                      src={groomsman.imagePath}
+                      alt={groomsman.name}
+                    />
                     <div className="space-y-2">
                       <div className="space-y-1 text-lg font-medium leading-6">
                         <h3>{groomsman.name}</h3>
