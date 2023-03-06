@@ -13,15 +13,17 @@ const supportLinks = [
     name: 'Radisson Blu Aqua Hotel',
     href: 'https://www.radissonhotelsamericas.com/en-us/booking/room-display/index.html?checkInDate=2023-09-08&checkOutDate=2023-09-10&adults%5B%5D=2&children%5B%5D=0&searchType=pac&promotionCode=CARLOW&hotelCode=ILCHIAQU',
     description:
-      'Please use the link above to book your room at the Radisson Blu Aqua Hotel. The dates for the block and the discounted promotion will be automatically provided.',
+      'Please use the link below to book your room at the Radisson Blu Aqua Hotel. The dates for the block and the discounted promotion will be automatically provided upon clicking the booking link.',
     icon: BuildingOffice2Icon,
+    linkText: "Book here for Radisson Blu Aqua"
   },
   {
     name: 'St. Regis Hotel Chicago',
-    href: '#',
+    href: 'https://us-east-2.protection.sophos.com/?d=marriott.com&u=aHR0cHM6Ly93d3cubWFycmlvdHQuY29tL2V2ZW50cy9zdGFydC5taT9pZD0xNjc1OTc3Mjk3Njk0JmtleT1HUlA=&i=NWE2Nzk3ZWZjNWVhZDUxNzljMDQ1ZWZi&t=SkwvT0lWWFNvV1VKU0ZkWHYzUkpSTVhYNzhxN1RtVFFwZms4RWl0TURGbz0=&h=1df635fea8314d819eaa6e75bfeaba82&s=AVNPUEhUT0NFTkNSWVBUSVbpUZWeeOoyfyyafJ9EXclAouSFv7UbI6V2avWba4XT3w',
     description:
-      'Coming Soon!!! This is a brand new hotel that is opening spring 2023. We have reserved a block of rooms at the St. Regis Hotel. However, the hotel website is not yet live. We will update this page with the link to book your room as soon as it is available.',
+    'Please use the link below to book your room at the brand new St. Regis Chicago. Walking distance from the Radisson Blu Aqua Hotel. The dates for the block and the discounted promotion will be automatically provided upon clicking the booking link.',
     icon: BuildingOffice2Icon,
+    linkText: "Book here for St. Regis Hotel Chicago"
   },
 ]
 
@@ -68,7 +70,7 @@ const Page: NextPageWithLayout = () => {
               </div>
               <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
                 <a href={link.href} className="text-base font-medium text-green-primary hover:text-green-dark">
-                Book your hotel room<span aria-hidden="true"> &rarr;</span>
+                {link.linkText}<span aria-hidden="true"> &rarr;</span>
                 </a>
               </div>
             </div>

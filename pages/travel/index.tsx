@@ -16,6 +16,7 @@ const supportLinks = [
     description:
       'We have put together a guide to Chicago to help you plan your trip. We have included some of our favorite restaurants, bars, and activities.',
     icon: InformationCircleIcon,
+    linkText: "View Guide",
   },
   {
     name: 'Hotels',
@@ -23,6 +24,7 @@ const supportLinks = [
     description:
       'We have reserved a block of rooms at the Radisson Blu Hotel and the St. Regis Hotel. Both hotels are located in the heart of downtown Chicago, in the Lakeshore East community, and are within walking distance from each other.',
     icon: BuildingOffice2Icon,
+    linkText: "View Hotel Options"
   },
   {
     name: 'Getting to the Venue',
@@ -30,6 +32,7 @@ const supportLinks = [
     description:
       'Transportation to the venue will be provided for all guests. We will be sending out more information about transportation in the coming months.',
     icon: TruckIcon,
+    linkText: "View Transporation Options"
   },
 ]
 
@@ -77,7 +80,7 @@ const Page: NextPageWithLayout = () => {
               <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
                 <Link href={link.href} >
                 <a className="text-base font-medium text-green-primary hover:text-green-dark">
-                  Contact us<span aria-hidden="true"> &rarr;</span>
+                  {link.linkText}<span aria-hidden="true"> &rarr;</span>
                 </a>
                 </Link>
               </div>
