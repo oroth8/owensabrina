@@ -26,9 +26,15 @@ const Page: NextPageWithLayout = () => {
           <div className="absolute inset-0  mix-blend-multiply" aria-hidden="true" />
         </div>
         <div className="relative mx-auto max-w-7xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl uppercase">Travel Details - Comming Soon!!!</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl uppercase">Travel Details - Specifics Comming Soon!!!</h1>
           <p className="mt-6 max-w-3xl text-xl text-gray-300">
-            This page will contain a list of information pertaining to transportation and travel logistics for the wedding event. We will be sending out more information about transportation in the coming months.
+           Transportation will be provided from the hotel areas. Shuttle busses will be running frequent trips to the wedding venue and back to the hotel areas.
+          </p>
+          <p className="mt-6 max-w-3xl text-xl text-gray-300">
+           Uber and Lyfts are options as well but might be less reliable in the later hours at the wedding venue.
+          </p>
+          <p className="mt-6 max-w-3xl text-xl text-gray-300">
+          Guests are more than welcome to drive to the wedding venue. There is free and convenient parking.
           </p>
         </div>
       </div>

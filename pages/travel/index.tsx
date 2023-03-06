@@ -30,7 +30,7 @@ const supportLinks = [
     name: 'Getting to the Venue',
     href: '/travel/transportation',
     description:
-      'Transportation to the venue will be provided for all guests. We will be sending out more information about transportation in the coming months.',
+      'Transportation to the venue will be provided for all guests staying at the hotel options we have provided. Guests are more than welcome to find their own alternate transportaion.',
     icon: TruckIcon,
     linkText: "View Transporation Options"
   },
@@ -54,7 +54,7 @@ const Page: NextPageWithLayout = () => {
         <div className="relative mx-auto max-w-7xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl uppercase">Travel & Hotel Information</h1>
           <p className="mt-6 max-w-3xl text-xl text-gray-300">
-            This page contains all the information you need to plan your trip to Chicago. We have included information about the hotels, transportation, and things to do in the city. If you are based in Chicago, we recommend you check out these options as well and information.
+            This page contains all the information you need to plan your trip to Chicago. We have included information about the hotels, transportation, and things to do in the city. If you are based in Chicago, we recommend you check out these options as well!
           </p>
         </div>
       </div>
