@@ -26,7 +26,7 @@ const Page: NextPageWithLayout = () => {
     {
       name: 'Honeymoon Fund',
       description:
-        'Please help us celebrate our marriage with a gift to our honeymoon fund. We are still planning our honeymoon, but we are looking forward to sharing details soon!',
+        'Please help us celebrate our marriage with a gift to our honeymoon fund. We are planned to take our honeymoon throughout Japan for two weeks following the wedding.',
       href: 'https://donate.stripe.com/28oeXw1ZA59gcb67ss',
       icon: CurrencyDollarIcon,
     },

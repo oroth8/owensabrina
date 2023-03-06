@@ -69,7 +69,7 @@ const Page: NextPageWithLayout = () => {
                 <p className="mt-4 text-base text-gray-500">{link.description}</p>
               </div>
               <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-                <a href={link.href} className="text-base font-medium text-green-primary hover:text-green-dark">
+                <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-base font-medium text-green-primary hover:text-green-dark">
                 {link.linkText}<span aria-hidden="true"> &rarr;</span>
                 </a>
               </div>
