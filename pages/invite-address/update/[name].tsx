@@ -25,6 +25,7 @@ const Page: NextPageWithLayout = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [postal, setPostal] = useState("");
+  const [id, setId] = useState("");
 
   const handleNameRes = (name: string) => {
     const splitName = name.split(" ");
@@ -73,6 +74,7 @@ const Page: NextPageWithLayout = () => {
         setCity(result.city);
         setState(result.state);
         setPostal(result.postal);
+        setId(result.id)
       }
     } catch (e: any) {
       setLoading(false);
@@ -84,6 +86,7 @@ const Page: NextPageWithLayout = () => {
     event.preventDefault();
     setLoading(true);
     const responseBody: formDataType = {
+      id,
       name: `${firstName} ${lastName}`,
       email,
       phone: phoneValue,
