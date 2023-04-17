@@ -5,6 +5,7 @@ import Nav from "../../components/nav/Nav";
 import { BuildingOffice2Icon } from "@heroicons/react/24/outline";
 import Tags from "../../components/Tags";
 import Image from "next/image";
+import Link from "next/link";
 
 const supportLinks = [
   {
@@ -103,6 +104,13 @@ const Page: NextPageWithLayout = () => {
             </div>
           ))}
         </div>
+        <div className="mt-8">
+            <Link href="/travel">
+              <button className="bg-green-primary text-white p-4 rounded-md outline">
+                Back to travel page
+              </button>
+            </Link>
+          </div>
       </section>
     </div>
   </>;
