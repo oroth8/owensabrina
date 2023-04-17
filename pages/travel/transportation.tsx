@@ -3,7 +3,7 @@ import Layout from "../../components/nav/Layout";
 import type { NextPageWithLayout } from ".././_app";
 import Nav from "../../components/nav/Nav";
 import Tags from "../../components/Tags";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 
 // const supportLinks = [

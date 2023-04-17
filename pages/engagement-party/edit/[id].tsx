@@ -5,7 +5,7 @@ import type { NextPageWithLayout } from "../../_app";
 import Nav from "../../../components/nav/Nav";
 import { useRouter } from "next/router";
 import PhoneInput from "../../../components/PhoneInput";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Success from "../../../components/Success";
 import Link from "next/link";
 import Tags from "../../../components/Tags";

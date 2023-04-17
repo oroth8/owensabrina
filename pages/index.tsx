@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import Layout from "../components/nav/Layout";
 import type { NextPageWithLayout } from "./_app";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { navigation } from "../navLinks";
 import Tags from "../components/Tags";

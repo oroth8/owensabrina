@@ -3,7 +3,7 @@ import Layout from "../../../components/nav/Layout";
 import type { NextPageWithLayout } from "../../_app";
 import Nav from "../../../components/nav/Nav";
 import { useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Alert from "../../../components/Alert";
 import Tags from "../../../components/Tags";
 import PhoneInput from "../../../components/PhoneInput";

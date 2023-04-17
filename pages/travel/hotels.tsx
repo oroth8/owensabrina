@@ -4,7 +4,7 @@ import type { NextPageWithLayout } from ".././_app";
 import Nav from "../../components/nav/Nav";
 import { BuildingOffice2Icon } from "@heroicons/react/24/outline";
 import Tags from "../../components/Tags";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const supportLinks = [
   {

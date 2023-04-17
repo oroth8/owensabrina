@@ -4,7 +4,7 @@ import type { NextPageWithLayout } from "./_app";
 import Nav from "../components/nav/Nav";
 import Tags from "../components/Tags";
 import Gallery from "../components/Gallery";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Page: NextPageWithLayout = () => {
   return (
