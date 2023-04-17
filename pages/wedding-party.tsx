@@ -161,8 +161,9 @@ const Page: NextPageWithLayout = () => {
                       sizes="100vw"
                       style={{
                         width: "100%",
-                        height: "auto"
-                      }} />
+                        height: "100%",
+                      }} 
+                      />
                   </div>
                   <div className="space-y-2">
                     <div className="space-y-1 text-lg font-medium leading-6 text-green-dark">
@@ -190,11 +191,17 @@ const Page: NextPageWithLayout = () => {
             {groomsmen.map((groomsman) => (
               <li key={groomsman.name}>
                 <div className="space-y-6">
-                  <img
-                    className="mx-auto h-40 w-40 rounded-full xl:h-56 xl:w-56"
-                    src={groomsman.imagePath}
-                    alt={groomsman.name}
-                  />
+                <Image
+                      src={groomsman.imagePath}
+                      height={40}
+                      width={40}
+                      className="rounded-full"
+                      alt={groomsman.name}
+                      sizes="100vw"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                      }} />
                   <div className="space-y-2">
                     <div className="space-y-1 text-lg font-medium leading-6">
                       <h3>{groomsman.name}</h3>

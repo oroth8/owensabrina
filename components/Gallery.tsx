@@ -75,7 +75,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -89,7 +89,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -103,7 +103,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -119,7 +119,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -133,7 +133,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -147,7 +147,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -164,7 +164,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -177,7 +177,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -190,7 +190,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -205,7 +205,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -218,7 +218,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -231,7 +231,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -248,7 +248,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -261,7 +261,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -274,7 +274,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -289,7 +289,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -302,7 +302,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -315,7 +315,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -332,7 +332,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -345,7 +345,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -358,7 +358,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
@@ -373,7 +373,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -386,7 +386,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
         <div className="w-full md:w-1/2 p-1 md:p-2 transform transition duration-500 hover:scale-110">
@@ -399,7 +399,7 @@ const Gallery = () => {
             sizes="100vw"
             style={{
               width: "100%",
-              height: "auto"
+              height: "100%"
             }} />
         </div>
       </div>
