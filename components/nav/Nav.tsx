@@ -16,8 +16,11 @@ const Nav = () => {
             alt="flowers"
             height={100}
             width={100}
-            layout="responsive"
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </div>
         <h1>Owen Roth</h1>
       </div>

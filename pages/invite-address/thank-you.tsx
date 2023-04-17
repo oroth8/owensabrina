@@ -35,10 +35,10 @@ const Page: NextPageWithLayout = () => {
           <p className="text-xl my-6">
             {"Be on the lookout for a Save the Date and wedding invitation."}
           </p>
-          <Link href="/invite-address/update">
-            <a className="text-green-dark underline">
+          <Link href="/invite-address/update" className="text-green-dark underline">
+ 
               Edit your address Information
-            </a>
+           
           </Link>
         </div>
       </div>
