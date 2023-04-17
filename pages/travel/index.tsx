@@ -117,7 +117,7 @@ const Page: NextPageWithLayout = () => {
         </section>
         <div className="flex items-center justify-center">
           <div className=" border-green-primary border-4 h-96 w-96 relative">
-          <GoogleMapFrame />
+            <GoogleMapFrame />
           </div>
         </div>
       </div>
