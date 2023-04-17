@@ -18,15 +18,15 @@ const Page: NextPageWithLayout = () => {
         <h2 className="text-3xl">Address Details Menu</h2>
         <div className="bg-green-primary h-1 w-48 my-8 sm:my-16 mx-auto"></div>
         <div className="mt-4 max-w-xl mx-auto">
-          <Link href="/invite-address/new">
-            <a className="bg-green-primary text-white w-full mx-auto p-4 font-display tracking-widest uppercase block">
+          <Link href="/invite-address/new" className="bg-green-primary text-white w-full mx-auto p-4 font-display tracking-widest uppercase block">
+     
               Add Address Details
-            </a>
+     
           </Link>
-          <Link href="/invite-address/update">
-            <a className="bg-green-primary text-white w-full mx-auto mt-4 p-4 font-display tracking-widest uppercase block">
+          <Link href="/invite-address/update" className="bg-green-primary text-white w-full mx-auto mt-4 p-4 font-display tracking-widest uppercase block">
+        
               Update Address Details
-            </a>
+       
           </Link>
         </div>
       </div>

@@ -35,10 +35,8 @@ export default function Error({ statusCode }: Props) {
                 </p>
               </div>
               <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
-                <Link href="/">
-                  <a className="inline-flex items-center rounded border border-transparent bg-green-dark px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-primary focus:outline-none">
+                <Link href="/" className="inline-flex items-center rounded border border-transparent bg-green-dark px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-primary focus:outline-none">
                     Go back home
-                  </a>
                 </Link>
                 <a
                   href="mailto:rothowen27@gmail.com"

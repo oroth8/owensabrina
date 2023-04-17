@@ -107,10 +107,8 @@ const Page: NextPageWithLayout = () => {
         </form>
       </div>
       <div className="mt-8">
-        <Link href="/engagement-party/rsvp">
-          <a className="text-center block text-green-primary font-display text-sm">
+        <Link href="/engagement-party/rsvp" className="text-center block text-green-primary font-display text-sm">
             Back To Party Details
-          </a>
         </Link>
       </div>
     </>

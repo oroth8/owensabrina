@@ -104,11 +104,10 @@ const Page: NextPageWithLayout = () => {
                   </p>
                 </div>
                 <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-                  <Link href={link.href}>
-                    <a className="text-base font-medium text-green-primary hover:text-green-dark">
+                  <Link href={link.href} className="text-base font-medium text-green-primary hover:text-green-dark">
+                
                       {link.linkText}
                       <span aria-hidden="true"> &rarr;</span>
-                    </a>
                   </Link>
                 </div>
               </div>
