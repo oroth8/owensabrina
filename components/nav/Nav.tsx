@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { navigation } from "../../navLinks";
 import { useRouter } from "next/router";
@@ -16,8 +16,11 @@ const Nav = () => {
             alt="flowers"
             height={100}
             width={100}
-            layout="responsive"
-          />
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto"
+            }} />
         </div>
         <h1>Owen Roth</h1>
       </div>

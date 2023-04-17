@@ -5,7 +5,7 @@ import type { NextPageWithLayout } from "../_app";
 import Nav from "../../components/nav/Nav";
 import PhoneInput from "../../components/PhoneInput";
 import Alert from "../../components/Alert";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import Tags from "../../components/Tags";
 
@@ -47,72 +47,73 @@ const Page: NextPageWithLayout = () => {
     }
   };
 
-  return (
-    <>
-      <Tags
-        title={"Find Your Engagement Party RSVP"}
-        description={"Find Your RSVP for the engagement party"}
-      />
-      <Nav />
-      <div className="  ">
-        {error && (
-          <div className="mb-20 w-4/5 md:w-1/2 mx-auto ">
-            <Alert message={error} />
+  return <>
+    <Tags
+      title={"Find Your Engagement Party RSVP"}
+      description={"Find Your RSVP for the engagement party"}
+    />
+    <Nav />
+    <div className="  ">
+      {error && (
+        <div className="mb-20 w-4/5 md:w-1/2 mx-auto ">
+          <Alert message={error} />
+        </div>
+      )}
+      <h1 className="text-4xl font-display text-center text-green-primary mb-8">
+        Find Your RSVP
+      </h1>
+      <form
+        className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5   border border-green-primary p-4"
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <label htmlFor="phone" className="sr-only">
+            Phone
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
+            placeholder="Phone Number"
+            required
+            minLength={14}
+            maxLength={14}
+            onChange={(e) => handleInput(e)}
+            value={phoneValue}
+          />
+        </div>
+        <p className="text-center text-sm italic font-display tracking-tight text-green-primary mb-4">
+          Enter your phone number to find your RSVP
+        </p>
+        {loading ? (
+          <div className="text-center">
+            <Image
+              src="/images/loading.gif"
+              height={100}
+              width={100}
+              alt={"Loading"}
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
+        ) : (
+          <button
+            className="bg-green-primary text-white p-2  w-full"
+            type="submit"
+          >
+            Edit RSVP
+          </button>
         )}
-        <h1 className="text-4xl font-display text-center text-green-primary mb-8">
-          Find Your RSVP
-        </h1>
-        <form
-          className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5   border border-green-primary p-4"
-          onSubmit={handleSubmit}
-        >
-          <div>
-            <label htmlFor="phone" className="sr-only">
-              Phone
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
-              placeholder="Phone Number"
-              required
-              minLength={14}
-              maxLength={14}
-              onChange={(e) => handleInput(e)}
-              value={phoneValue}
-            />
-          </div>
-          <p className="text-center text-sm italic font-display tracking-tight text-green-primary mb-4">
-            Enter your phone number to find your RSVP
-          </p>
-          {loading ? (
-            <div className="text-center">
-              <Image
-                src="/images/loading.gif"
-                height={100}
-                width={100}
-                alt={"Loading"}
-              />
-            </div>
-          ) : (
-            <button
-              className="bg-green-primary text-white p-2  w-full"
-              type="submit"
-            >
-              Edit RSVP
-            </button>
-          )}
-        </form>
-      </div>
-      <div className="mt-8">
-        <Link href="/engagement-party/rsvp" className="text-center block text-green-primary font-display text-sm">
-            Back To Party Details
-        </Link>
-      </div>
-    </>
-  );
+      </form>
+    </div>
+    <div className="mt-8">
+      <Link href="/engagement-party/rsvp" className="text-center block text-green-primary font-display text-sm">
+          Back To Party Details
+      </Link>
+    </div>
+  </>;
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
