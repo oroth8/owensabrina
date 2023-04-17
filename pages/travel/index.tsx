@@ -10,6 +10,7 @@ import {
 import Tags from "../../components/Tags";
 import Image from "next/image";
 import Link from "next/link";
+import GoogleMapFrame from "../../components/GoogleMapFrame";
 
 const supportLinks = [
   {
@@ -114,6 +115,11 @@ const Page: NextPageWithLayout = () => {
             ))}
           </div>
         </section>
+        <div className="flex items-center justify-center">
+          <div className=" border-green-primary border-4 h-96 w-96 relative">
+            <GoogleMapFrame />
+          </div>
+        </div>
       </div>
     </>
   );
