@@ -191,6 +191,7 @@ const Page: NextPageWithLayout = () => {
             {groomsmen.map((groomsman) => (
               <li key={groomsman.name}>
                 <div className="space-y-6">
+                <div className="mx-auto h-40 w-40 xl:h-56 xl:w-56">
                 <Image
                       src={groomsman.imagePath}
                       height={40}
@@ -207,6 +208,7 @@ const Page: NextPageWithLayout = () => {
                       <h3>{groomsman.name}</h3>
                       <p className="text-green-primary">{groomsman.role}</p>
                     </div>
+                  </div>
                   </div>
                 </div>
               </li>
