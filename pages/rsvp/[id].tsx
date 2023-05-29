@@ -6,6 +6,9 @@ import Tags from "../../components/Tags";
 import { GetServerSideProps } from "next";
 import LoadingButton from "../../components/LoadingButton";
 import { useState } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 type GuestRecord = {
   id: number;
@@ -27,7 +30,11 @@ interface RSVPGuestPageProps {
 }
 
 const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
+  const { guestRecord } = props;
+  const router = useRouter();
+  const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
+    guestId: guestRecord?.id,
     attending: "",
     transportation: "",
     dinner: "",
@@ -38,7 +45,6 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
     soAllergies: "",
   });
 
-  const { guestRecord } = props;
   if (!guestRecord) {
     return (
       <>
@@ -59,10 +65,30 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
   };
 
   // Handle form submission
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formData); // Access the form data
-    // Additional form submission logic
+    const JSONdata = JSON.stringify(formData);
+    const endpoint = `/api/rsvp/update`;
+
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    setLoading(true);
+    try {
+      const response = await fetch(endpoint, options);
+      const result = await response.json();
+      console.log(result);
+      setLoading(false);
+      router.push("/rsvp/confirmation");
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
   };
 
   return (
@@ -74,15 +100,15 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
         }
       />
       <Nav />
-      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 font-display">
         <form onSubmit={handleSubmit}>
           <div className="space-y-10 divide-y divide-gray-900/10">
             <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
               <div className="px-4 sm:px-0">
-                <h2 className="text-4xl font-semibold leading-7 text-gray-900">
+                <h2 className="text-4xl font-semibold leading-7 text-green-dark">
                   {guestRecord.name}
                 </h2>
-                <p className="mt-1 text-sm leading-6 text-gray-600">
+                <p className="mt-1 text-sm leading-6 text-green-primary">
                   {guestRecord.significant_other
                     ? "Please fill out this section for yourself and fill out your significant other's information below to RSVP for Sabrina and Owen's wedding on September 9th, 2023."
                     : "Please fill out this form to RSVP for Sabrina and Owen's wedding on September 9th, 2023."}
@@ -94,10 +120,10 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                   <div className="max-w-2xl space-y-10">
                     {/* ATTENDANCE */}
                     <fieldset>
-                      <legend className="text-sm font-semibold leading-6 text-gray-900">
+                      <legend className="text-sm font-semibold leading-6 text-green-dark">
                         Attendance
                       </legend>
-                      <p className="mt-1 text-sm leading-6 text-gray-600">
+                      <p className="mt-1 text-sm leading-6 text-green-primary">
                         Will you be attending the wedding on September 9th,
                         2023?
                       </p>
@@ -110,11 +136,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="yes"
                             checked={formData.attending === "yes"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="attending-yes"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Yes
                           </label>
@@ -127,11 +153,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="no"
                             checked={formData.attending === "no"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="attending-no"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             No
                           </label>
@@ -140,12 +166,20 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                     </fieldset>
                     {/* TRANSPORTATION */}
                     <fieldset>
-                      <legend className="text-sm font-semibold leading-6 text-gray-900">
+                      <legend className="text-sm font-semibold leading-6 text-green-dark">
                         Transportation
                       </legend>
-                      <p className="mt-1 text-sm leading-6 text-gray-600">
+                      <p className="mt-1 text-sm leading-6 text-green-primary">
                         How will you be arriving to the wedding?{" "}
-                        <span>Transportation Options</span>
+                        <span className="underline">
+                          <Link
+                            href="/travel/transportation"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Transportation Options
+                          </Link>
+                        </span>
                       </p>
                       <div className="mt-6 space-y-6">
                         <div className="flex items-center gap-x-3">
@@ -156,11 +190,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="bus"
                             checked={formData.transportation === "bus"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="bus"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Shuttle Bus from hotel blocks
                           </label>
@@ -173,11 +207,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="ride-share"
                             checked={formData.transportation === "ride-share"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="ride-share"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Ride Share
                           </label>
@@ -192,11 +226,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               formData.transportation === "private-vehicle"
                             }
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="private-vehicle"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Private Vehicle
                           </label>
@@ -211,11 +245,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               formData.transportation === "shared-vehicle"
                             }
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="shared-vehicle"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Getting a ride with someone else
                           </label>
@@ -228,11 +262,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="other"
                             checked={formData.transportation === "other"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="other"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Other
                           </label>
@@ -241,10 +275,10 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                     </fieldset>
                     {/* FOOD */}
                     <fieldset>
-                      <legend className="text-sm font-semibold leading-6 text-gray-900">
+                      <legend className="text-sm font-semibold leading-6 text-green-dark">
                         Dinner Selection
                       </legend>
-                      <p className="mt-1 text-sm leading-6 text-gray-600">
+                      <p className="mt-1 text-sm leading-6 text-green-primary">
                         Please select your entre option for dinner.
                       </p>
                       <div className="mt-6 space-y-6">
@@ -256,11 +290,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="vegetarian"
                             checked={formData.dinner === "vegetarian"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="vegetarian"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Vegetarian
                           </label>
@@ -273,15 +307,20 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="fish"
                             checked={formData.dinner === "fish"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="fish"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Fish{" "}
-                            <span>
-                              <small>GF</small>
+                            <span className="inline-block">
+                              <Image
+                                src={"/images/gluten-free.png"}
+                                alt={"Gluten Free"}
+                                width={15}
+                                height={15}
+                              />
                             </span>
                           </label>
                         </div>
@@ -293,15 +332,20 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             value="beef"
                             checked={formData.dinner === "beef"}
                             onChange={handleRadioChange}
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
                             htmlFor="beef"
-                            className="block text-sm font-medium leading-6 text-gray-900"
+                            className="block text-sm font-medium leading-6 text-green-dark"
                           >
                             Beef{" "}
-                            <span>
-                              <small>GF</small>
+                            <span className="inline-block">
+                              <Image
+                                src={"/images/gluten-free.png"}
+                                alt={"Gluten Free"}
+                                width={15}
+                                height={15}
+                              />
                             </span>
                           </label>
                         </div>
@@ -310,12 +354,12 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                     {/* Allergies */}
                     <div className="col-span-full">
                       <label
-                        htmlFor="about"
-                        className="block text-sm font-medium leading-6 text-gray-900"
+                        htmlFor="allergies"
+                        className="block text-sm font-medium leading-6 text-green-dark"
                       >
                         Allergies
                       </label>
-                      <p className="mt-3 text-sm leading-6 text-gray-600">
+                      <p className="mt-3 text-sm leading-6 text-green-primary">
                         Please include any dietary allergies
                       </p>
                       <div className="mt-2">
@@ -325,7 +369,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                           onChange={handleInputChange}
                           value={formData.allergies}
                           rows={3}
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 py-1.5 text-green-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-dark sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
@@ -341,10 +385,10 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
             <div className="space-y-10 divide-y divide-gray-900/10">
               <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
                 <div className="px-4 sm:px-0">
-                  <h2 className="text-4xl font-semibold leading-7 text-gray-900">
+                  <h2 className="text-4xl font-semibold leading-7 text-green-dark">
                     {guestRecord.significant_other}
                   </h2>
-                  <p className="mt-1 text-sm leading-6 text-gray-600">
+                  <p className="mt-1 text-sm leading-6 text-green-primary">
                     Please fill out this section for your significant other.
                   </p>
                 </div>
@@ -354,43 +398,43 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                     <div className="max-w-2xl space-y-10">
                       {/* ATTENDANCE */}
                       <fieldset>
-                        <legend className="text-sm font-semibold leading-6 text-gray-900">
+                        <legend className="text-sm font-semibold leading-6 text-green-dark">
                           Attendance
                         </legend>
-                        <p className="mt-1 text-sm leading-6 text-gray-600">
-                          Will you be attending the wedding on September 9th,
-                          2023?
+                        <p className="mt-1 text-sm leading-6 text-green-primary">
+                          Will your significant other be attending the wedding
+                          on September 9th, 2023?
                         </p>
                         <div className="mt-6 space-y-6">
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="attending-yes"
+                              id="so-attending-yes"
                               name="soAttending"
                               checked={formData.soAttending === "yes"}
                               onChange={handleRadioChange}
                               value="yes"
                               type="radio"
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="attending-yes"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-attending-yes"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Yes
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="attending-no"
+                              id="so-attending-no"
                               name="soAttending"
                               onChange={handleRadioChange}
                               type="radio"
                               value="no"
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="attending-no"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-attending-no"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               No
                             </label>
@@ -399,34 +443,43 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                       </fieldset>
                       {/* TRANSPORTATION */}
                       <fieldset>
-                        <legend className="text-sm font-semibold leading-6 text-gray-900">
+                        <legend className="text-sm font-semibold leading-6 text-green-dark">
                           Transportation
                         </legend>
-                        <p className="mt-1 text-sm leading-6 text-gray-600">
-                          How will you be arriving to the wedding?{" "}
-                          <span>Transportation Options</span>
+                        <p className="mt-1 text-sm leading-6 text-green-primary">
+                          How will your significant other be arriving to the
+                          wedding?{" "}
+                          <span className="underline">
+                            <Link
+                              href="/travel/transportation"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Transportation Options
+                            </Link>
+                          </span>
                         </p>
                         <div className="mt-6 space-y-6">
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="bus"
+                              id="so-bus"
                               name="soTransportation"
                               value="bus"
                               type="radio"
                               checked={formData.soTransportation === "bus"}
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="bus"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-bus"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Shuttle Bus from hotel blocks
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="ride-share"
+                              id="so-ride-share"
                               name="soTransportation"
                               type="radio"
                               value="ride-share"
@@ -434,18 +487,18 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                                 formData.soTransportation === "ride-share"
                               }
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="ride-share"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-ride-share"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Ride Share
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="private-vehicle"
+                              id="so-private-vehicle"
                               name="soTransportation"
                               type="radio"
                               value="private-vehicle"
@@ -453,18 +506,18 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                                 formData.soTransportation === "private-vehicle"
                               }
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="private-vehicle"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-private-vehicle"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Private Vehicle
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="shared-vehicle"
+                              id="so-shared-vehicle"
                               name="soTransportation"
                               type="radio"
                               value="shared-vehicle"
@@ -472,28 +525,28 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                                 formData.soTransportation === "shared-vehicle"
                               }
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="shared-vehicle"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-shared-vehicle"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Getting a ride with someone else
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="other"
+                              id="so-other"
                               name="soTransportation"
                               type="radio"
                               value="other"
                               checked={formData.soTransportation === "other"}
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="other"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-other"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Other
                             </label>
@@ -502,67 +555,78 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                       </fieldset>
                       {/* FOOD */}
                       <fieldset>
-                        <legend className="text-sm font-semibold leading-6 text-gray-900">
+                        <legend className="text-sm font-semibold leading-6 text-green-dark">
                           Dinner Selection
                         </legend>
-                        <p className="mt-1 text-sm leading-6 text-gray-600">
-                          Please select your entre option for dinner.
+                        <p className="mt-1 text-sm leading-6 text-green-primary">
+                          Please select your significant other&apos;s entre
+                          option for dinner.
                         </p>
                         <div className="mt-6 space-y-6">
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="vegetarian"
+                              id="so-vegetarian"
                               name="soDinner"
                               type="radio"
                               value="vegetarian"
                               checked={formData.soDinner === "vegetarian"}
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="vegetarian"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-vegetarian"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Vegetarian
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="fish"
+                              id="so-fish"
                               name="soDinner"
                               type="radio"
                               value="fish"
                               checked={formData.soDinner === "fish"}
                               onChange={handleRadioChange}
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="fish"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-fish"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Fish{" "}
-                              <span>
-                                <small>GF</small>
+                              <span className="inline-block">
+                                <Image
+                                  src={"/images/gluten-free.png"}
+                                  alt={"Gluten Free"}
+                                  width={15}
+                                  height={15}
+                                />
                               </span>
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
                             <input
-                              id="beef"
+                              id="so-beef"
                               name="soDinner"
                               type="radio"
                               checked={formData.soDinner === "beef"}
                               onChange={handleRadioChange}
                               value="beef"
-                              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                             />
                             <label
-                              htmlFor="beef"
-                              className="block text-sm font-medium leading-6 text-gray-900"
+                              htmlFor="so-beef"
+                              className="block text-sm font-medium leading-6 text-green-dark"
                             >
                               Beef{" "}
-                              <span>
-                                <small>GF</small>
+                              <span className="inline-block">
+                                <Image
+                                  src={"/images/gluten-free.png"}
+                                  alt={"Gluten Free"}
+                                  width={15}
+                                  height={15}
+                                />
                               </span>
                             </label>
                           </div>
@@ -571,22 +635,23 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                       {/* Allergies */}
                       <div className="col-span-full">
                         <label
-                          htmlFor="about"
-                          className="block text-sm font-medium leading-6 text-gray-900"
+                          htmlFor="so-allergies"
+                          className="block text-sm font-medium leading-6 text-green-dark"
                         >
                           Allergies
                         </label>
-                        <p className="mt-3 text-sm leading-6 text-gray-600">
-                          Please include any dietary allergies
+                        <p className="mt-3 text-sm leading-6 text-green-primary">
+                          Please include any of your significant other&apos;s
+                          dietary allergies
                         </p>
                         <div className="mt-2">
                           <textarea
-                            id="allergies"
+                            id="so-allergies"
                             name="soAllergies"
                             onChange={handleInputChange}
                             value={formData.soAllergies}
                             rows={3}
-                            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            className="block w-full rounded-md border-0 py-1.5 text-green-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-dark sm:text-sm sm:leading-6"
                           />
                         </div>
                       </div>
@@ -597,8 +662,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
             </div>
           )}
 
-          <div className="text-center px-4 my-8">
-            <LoadingButton isLoading={false} label={"RSVP!"} />
+          <div className="text-center p-4 my-8 border-2">
+            <LoadingButton isLoading={isLoading} label={"RSVP!"} />
           </div>
         </form>
       </div>
