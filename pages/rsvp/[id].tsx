@@ -94,9 +94,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
   return (
     <>
       <Tags
-        title={"RSVP"}
+        title={"RSVP | Form"}
         description={
-          "RSVP to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"
+          "Fill out this form to RSVP for Sabrina and Owen's wedding on September 9th, 2023."
         }
       />
       <Nav />

@@ -40,9 +40,9 @@ const Page: NextPageWithLayout = () => {
   return (
     <>
       <Tags
-        title={"RSVP"}
+        title={"RSVP | Phone"}
         description={
-          "RSVP to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"
+          "RSVP (phone lookup) to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"
         }
       />
       <Nav />

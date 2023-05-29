@@ -11,13 +11,14 @@ import {
 } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
+
 const Page: NextPageWithLayout = () => {
   return (
     <>
       <Tags
-        title={"RSVP"}
+        title={"RSVP | Confirmed"}
         description={
-          "RSVP to confirm your attendance for Sabrina and Owen's wedding September 9th, 2023"
+          "We have received your RSVP for Sabrina and Owen's wedding September 9th, 2023. Thank you!"
         }
       />
       <Nav />
