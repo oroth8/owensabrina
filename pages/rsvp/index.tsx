@@ -4,8 +4,7 @@ import type { NextPageWithLayout } from ".././_app";
 import Nav from "../../components/nav/Nav";
 import Tags from "../../components/Tags";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState} from "react";
 import NameTable from "../../components/NameTable";
 import LoadingButton from "../../components/LoadingButton";
 

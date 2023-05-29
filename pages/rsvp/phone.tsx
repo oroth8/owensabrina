@@ -7,7 +7,6 @@ import Tags from "../../components/Tags";
 import Link from "next/link";
 import PhoneInput from "../../components/PhoneInput";
 import NameTable from "../../components/NameTable";
-import Image from "next/image";
 import LoadingButton from "../../components/LoadingButton";
 
 const Page: NextPageWithLayout = () => {
