@@ -2,8 +2,9 @@ import type { ReactElement } from "react";
 import Layout from "../../components/nav/Layout";
 import type { NextPageWithLayout } from ".././_app";
 import Nav from "../../components/nav/Nav";
-import Empty from "../../components/Empty";
 import Tags from "../../components/Tags";
+import Link from "next/link";
+
 const Page: NextPageWithLayout = () => {
   return (
     <>
@@ -14,11 +15,10 @@ const Page: NextPageWithLayout = () => {
         }
       />
       <Nav />
-      <Empty />
-      {/* <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
+      <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
         <h2 className="text-3xl">YOU&apos;RE INVITED</h2>
         <div className="bg-green-primary h-1 w-48 my-8 sm:my-16 mx-auto"></div>
-        <p className="text-xl sm:text-2xl">Enter the name on your invitation</p>
+        <p className="text-xl sm:text-2xl">Enter your displayed name from the invitation</p>
         <div className="mt-4">
           <label htmlFor="name" className="sr-only">
             Name
@@ -35,7 +35,10 @@ const Page: NextPageWithLayout = () => {
         <button className="bg-green-primary text-white w-full mx-auto max-w-xl mt-4 p-4 font-display tracking-widest">
           FIND RSVP
         </button>
-      </div> */}
+        <Link href="/" className="block mt-4">
+        <small>Try phone number instead</small>
+        </Link>
+      </div>
     </>
   );
 };
