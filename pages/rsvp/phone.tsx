@@ -72,7 +72,7 @@ const Page: NextPageWithLayout = () => {
                 required
               />
             </div>
-            <LoadingButton isLoading={isLoading} />
+            <LoadingButton isLoading={isLoading} label={"Find RSVP"}/>
           </form>
           <Link href="/rsvp" className="block mt-4">
             <small>Try invitation name instead</small>

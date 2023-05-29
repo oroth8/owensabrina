@@ -42,6 +42,7 @@ type Response = {
   created_at: string;
   updated_at: string;
   phone: string;
+  significant_other: string;
 };
 
 type Error = {
@@ -60,6 +61,7 @@ const exampleResponse: Response = {
     created_at: "2021-09-09T00:00:00.000000Z",
     updated_at: "2021-09-09T00:00:00.000000Z",
     phone: "123-456-7890",
+    significant_other: "Jane Doe",
 };
 
 async function makeRequest(name: string): Promise<Response | Error> {

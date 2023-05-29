@@ -1,9 +1,12 @@
 import Image from "next/image";
 type Props = {
     isLoading: boolean;
+    label: string;
 };
 
-export default function LoadingButton({isLoading}: {isLoading: boolean}) {
+export default function LoadingButton(props: Props) {
+    const { isLoading, label } = props;
+
     if(isLoading){
        return(<Image
         src="/images/loading.gif"
@@ -21,9 +24,9 @@ export default function LoadingButton({isLoading}: {isLoading: boolean}) {
         return(
         <button
         type="submit"
-        className="bg-green-primary text-white w-full mx-auto max-w-xl mt-4 p-4 font-display tracking-widest"
+        className="bg-green-primary text-white w-full mx-auto max-w-xl mt-4 p-4 font-display tracking-widest uppercase"
       >
-        FIND RSVP
+        {label}
       </button>
         )
     }
