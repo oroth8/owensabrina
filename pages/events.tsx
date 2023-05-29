@@ -55,10 +55,15 @@ const Page: NextPageWithLayout = () => {
             </Link>
             <br />
             <p className="italic">
-              Shuttles will be provided to the venue from a location near the hotel options
+              Shuttles will be provided round trip from the hotel to the venue throughout the night
             </p>
+            <br />
             <p className="italic">
-              Valet and free parking will also be available at the venue
+              Valet will also be available at the venue
+            </p>
+            <br />
+            <p className="italic">
+              Guests are more than welcome to take Ride Share options
             </p>
           </div>
         </div>
