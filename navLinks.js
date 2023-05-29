@@ -1,7 +1,7 @@
 export const navigation = {
   main: [
     { name: "Home", href: "/" },
-    { name: "RSVP", href: "/RSVP" },
+    { name: "RSVP", href: "/rsvp" },
     { name: "Events", href: "/events" },
     { name: "Wedding Party", href: "/wedding-party" },
     { name: "Travel", href: "/travel" },

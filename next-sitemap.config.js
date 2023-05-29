@@ -24,7 +24,7 @@ module.exports = {
     await config.transform(config, "/travel/hotels"),
     await config.transform(config, "/travel/guide"),
     await config.transform(config, "/travel/transportation"),
-    await config.transform(config, "/RSVP"),
+    await config.transform(config, "/rsvp"),
     await config.transform(config, "/registry"),
     await config.transform(config, "/events"),
     await config.transform(config, "/photos"),
