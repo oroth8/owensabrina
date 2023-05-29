@@ -59,11 +59,11 @@ const Page: NextPageWithLayout = () => {
             </p>
             <br />
             <p className="italic">
-              Valet will also be available at the venue
+              We encourage guests to utilize Ride Share options or the shuttle bus service
             </p>
             <br />
             <p className="italic">
-              Guests are more than welcome to take Ride Share options
+              Valet will also be available at the venue
             </p>
           </div>
         </div>

@@ -38,20 +38,26 @@ const Page: NextPageWithLayout = () => {
         </div>
         <div className="relative mx-auto max-w-7xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl uppercase">
-            Travel Details - Specifics Comming Soon!!!
+            Travel Details
           </h1>
-          <p className="mt-6 max-w-3xl text-xl text-gray-300">
-            Transportation will be provided from the hotel areas. Shuttle
+          <p className="mt-6 max-w-3xl text-xl text-white">
+            In order for us to provide optimal transportation options for our guests, we kindly ask that you keep your transportation selection updated on your RSVP.
+          </p>
+          <h2 className="text-3xl tracking-tight text-white md:text-4xl lg:text-5xl mt-8 underline">Shuttle Bus Service</h2>
+          <p className="mt-6 max-w-3xl text-xl text-white">
+            <span className="block">Shuttle Bus Schedule Coming Soon!</span>
+            <br />
+            Transportation will be provided round-trip from the hotel areas. Shuttle
             busses will be running frequent trips to the wedding venue and
-            back to the hotel areas.
+            back to the hotel areas throughout the evening.
           </p>
-          <p className="mt-6 max-w-3xl text-xl text-gray-300">
-            Uber and Lyfts are options as well but might be less reliable in
-            the later hours at the wedding venue.
+          <h2 className="text-3xl tracking-tight text-white md:text-4xl lg:text-5xl mt-8 underline">Ride Share</h2>
+          <p className="mt-6 max-w-3xl text-xl text-white">
+            Guests are encouraged to use ride share services such as Uber and Lyft, or the provided shuttle bus service.
           </p>
-          <p className="mt-6 max-w-3xl text-xl text-gray-300">
-            Guests are more than welcome to drive to the wedding venue. There
-            is free and convenient parking.
+          <h2 className="text-3xl tracking-tight text-white md:text-4xl lg:text-5xl mt-8 underline">Venue Parking</h2>
+          <p className="mt-6 max-w-3xl text-xl text-white">
+            Complimentary valet parking will be provided at the venue. We kindly ask that guests arrive in 1 vehicle per party.
           </p>
         </div>
       </div>
