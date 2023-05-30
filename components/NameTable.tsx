@@ -1,4 +1,6 @@
+import Link from "next/link";
 type Props = {
+
 };
 
 function classNames(...classes: string[]) {
@@ -15,15 +17,6 @@ export default function NameTable(props: Props) {
       storage: 'Yes',
       price: 'No',
       isCurrent: false,
-    },
-    {
-      id: 2,
-      name: 'Startup',
-      memory: '8 GB RAM',
-      cpu: '6 CPUs',
-      storage: '256 GB SSD disk',
-      price: '$80',
-      isCurrent: true,
     },
     // More plans...
   ]
@@ -133,8 +126,8 @@ export default function NameTable(props: Props) {
                     'px-3 py-3.5 text-sm text-gray-500'
                   )}
                 >
-                  <div className="sm:hidden">{plan.price}/mo</div>
-                  <div className="hidden sm:block">{plan.price}/month</div>
+                  <div className="sm:hidden">{plan.price}</div>
+                  <div className="hidden sm:block">{plan.price}</div>
                 </td>
               <td
                 className={classNames(
@@ -142,6 +135,7 @@ export default function NameTable(props: Props) {
                   'relative py-3.5 pl-3 pr-4 text-right text-sm font-medium sm:pr-6'
                 )}
               >
+                <Link href="/rsvp/1">
                 <button
                   type="button"
                   className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white"
@@ -149,6 +143,7 @@ export default function NameTable(props: Props) {
                 >
                   Select<span className="sr-only">, {plan.name}</span>
                 </button>
+                </Link>
                 {planIdx !== 0 ? <div className="absolute -top-px left-0 right-6 h-px bg-gray-200" /> : null}
               </td>
             </tr>

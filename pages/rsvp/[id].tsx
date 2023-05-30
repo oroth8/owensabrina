@@ -196,7 +196,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             htmlFor="bus"
                             className="block text-sm font-medium leading-6 text-green-dark"
                           >
-                            Shuttle Bus from hotel blocks
+                            Shuttle Bus
                           </label>
                         </div>
                         <div className="flex items-center gap-x-3">
@@ -251,7 +251,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             htmlFor="shared-vehicle"
                             className="block text-sm font-medium leading-6 text-green-dark"
                           >
-                            Getting a ride with someone else
+                            Getting a ride
                           </label>
                         </div>
                         <div className="flex items-center gap-x-3">
@@ -474,7 +474,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               htmlFor="so-bus"
                               className="block text-sm font-medium leading-6 text-green-dark"
                             >
-                              Shuttle Bus from hotel blocks
+                              Shuttle Bus
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
@@ -531,7 +531,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               htmlFor="so-shared-vehicle"
                               className="block text-sm font-medium leading-6 text-green-dark"
                             >
-                              Getting a ride with someone else
+                              Getting a ride
                             </label>
                           </div>
                           <div className="flex items-center gap-x-3">
