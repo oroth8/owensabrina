@@ -22,6 +22,9 @@ const Page: NextPageWithLayout = () => {
               September 9th, 2023
             </h2>
             <div className="text-center">
+            <p className="mt-5 text-l text-green-primary italic">
+                Please arrive to the venue by 5:15
+              </p>
               <p className="mt-5 text-xl text-green-primary">
                 Ceremony
                 <span className="block">5:30 - 6:00</span>
