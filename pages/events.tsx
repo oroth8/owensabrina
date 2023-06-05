@@ -50,20 +50,24 @@ const Page: NextPageWithLayout = () => {
             <p>Black-Tie Optional</p>
             <p>2520 South Hoyne Ave Chicago, IL 60608</p>
             <br />
-            <Link href="/travel" className="hover:text-green-dark">
+            <Link href="/travel" className="hover:text-green-dark font-bold underline">
             <p>Transportation</p>
             </Link>
             <br />
             <p className="italic">
+              We kindly asks that guests indicate their travel plans on the RSVP page to help us accommodate transportation services 
+            </p>
+            <br />
+            <p>
               Shuttles will be provided round trip from the hotel to the venue throughout the night
             </p>
             <br />
-            <p className="italic">
-              We encourage guests to utilize Ride Share options or the shuttle bus service
+            <p>
+              Complimentary valet will be available at the venue
             </p>
             <br />
-            <p className="italic">
-              Valet will also be available at the venue
+            <p>
+              Ride share services and taxis are also available
             </p>
           </div>
         </div>
