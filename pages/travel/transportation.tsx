@@ -53,11 +53,11 @@ const Page: NextPageWithLayout = () => {
           </p>
           <h2 className="text-3xl tracking-tight text-white md:text-4xl lg:text-5xl mt-8 underline">Ride Share</h2>
           <p className="mt-6 max-w-3xl text-xl text-white">
-            Guests are encouraged to use ride share services such as Uber and Lyft, or the provided shuttle bus service.
+            Ride share services such as Uber, Lyft, or Curb will be easily accessible.
           </p>
           <h2 className="text-3xl tracking-tight text-white md:text-4xl lg:text-5xl mt-8 underline">Venue Parking</h2>
           <p className="mt-6 max-w-3xl text-xl text-white">
-            Complimentary valet parking will be provided at the venue. We kindly ask that guests arrive in 1 vehicle per party.
+            Complimentary valet parking will be provided at the venue.
           </p>
         </div>
       </div>
