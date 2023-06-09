@@ -18,12 +18,12 @@ const Page: NextPageWithLayout = () => {
       <div className="font-display">
         <div className="flex items-center justify-center lg:space-x-64 flex-col sm:flex-row">
           <div className="max-w-xl">
-            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl text-green-dark">
+            <h2 className="text-4xl font-bold tracking-tight text-center sm:text-3xl lg:text-4xl text-green-dark">
               September 9th, 2023
             </h2>
             <div className="text-center">
             <p className="mt-5 text-l text-green-primary italic">
-                Please arrive to the venue by 5:15
+                Doors open for ceremony seating at 5:00. Kindly arrive between 5:00 and 5:15 so we may start promptly at 5:30 for the ceremony.
               </p>
               <p className="mt-5 text-xl text-green-primary">
                 Ceremony
@@ -43,9 +43,9 @@ const Page: NextPageWithLayout = () => {
               </p>
             </div>
           </div>
-          <div className="w-full max-w-xs text-green-primary text-center">
+          <div className="w-full max-w-xs text-green-primary text-center mt-12">
             <a href="https://thegeraghty.com/">
-              <h2 className="uppercase text-3xl  text-green-dark hover:text-green-primary">
+              <h2 className="uppercase text-3xl  text-green-dark font-bold hover:text-green-primary tracking-tight">
                 The Geraghty
               </h2>
             </a>
