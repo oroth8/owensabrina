@@ -41,7 +41,11 @@ module.exports = {
       },
       {
         userAgent: "*",
-        disallow: ["/engagement-party/*", "/invite-address/thank-you", "/rsvp/*"],
+        disallow: [
+          "/engagement-party/*",
+          "/invite-address/thank-you",
+          "/rsvp/*",
+        ],
       },
     ],
   },

@@ -1,14 +1,15 @@
 import Image from "next/image";
 type Props = {
-    isLoading: boolean;
-    label: string;
+  isLoading: boolean;
+  label: string;
 };
 
 export default function LoadingButton(props: Props) {
-    const { isLoading, label } = props;
+  const { isLoading, label } = props;
 
-    if(isLoading){
-       return(<Image
+  if (isLoading) {
+    return (
+      <Image
         src="/images/loading.gif"
         className="mx-auto"
         height={100}
@@ -19,15 +20,15 @@ export default function LoadingButton(props: Props) {
           height: "auto",
         }}
       />
-       )
-    }else{
-        return(
-        <button
+    );
+  } else {
+    return (
+      <button
         type="submit"
         className="bg-green-primary text-white w-full mx-auto max-w-xl mt-4 p-4 font-display tracking-widest uppercase"
       >
         {label}
       </button>
-        )
-    }
+    );
+  }
 }

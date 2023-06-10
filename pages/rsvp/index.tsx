@@ -4,20 +4,21 @@ import type { NextPageWithLayout } from ".././_app";
 import Nav from "../../components/nav/Nav";
 import Tags from "../../components/Tags";
 import Link from "next/link";
-import { useState} from "react";
+import { useState } from "react";
 import NameTable from "../../components/NameTable";
 import LoadingButton from "../../components/LoadingButton";
+import { RsvpDataRes } from "../../types";
+
+type Data = RsvpDataRes | null;
 
 const Page: NextPageWithLayout = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Data>(null);
   const [isLoading, setLoading] = useState(false);
+  const [name, setName] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    console.log(name);
-    fetchRsvp(name);
+    fetchRsvp(name.toLocaleLowerCase());
   };
 
   const fetchRsvp = async (name: FormDataEntryValue | null) => {
@@ -44,8 +45,8 @@ const Page: NextPageWithLayout = () => {
         }
       />
       <Nav />
-      {data ? (
-        <NameTable />
+      {data && data.rsvp ? (
+        <NameTable rsvp={data} />
       ) : (
         <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
           <h2 className="text-3xl">YOU&apos;RE INVITED</h2>
@@ -67,9 +68,11 @@ const Page: NextPageWithLayout = () => {
                 placeholder="John Smith"
                 autoComplete="name"
                 required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <LoadingButton isLoading={isLoading} label={"Find RSVP"}/>
+            <LoadingButton isLoading={isLoading} label={"Find RSVP"} />
           </form>
           <Link href="/rsvp/phone" className="block mt-4">
             <small>Try phone number instead</small>

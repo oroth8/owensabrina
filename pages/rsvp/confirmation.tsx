@@ -11,7 +11,6 @@ import {
 } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-
 const Page: NextPageWithLayout = () => {
   return (
     <>
@@ -59,25 +58,27 @@ const Page: NextPageWithLayout = () => {
               </div>
             </Link>
             <div className="mt-4 flex w-full flex-none gap-x-4 px-6">
-            <Link href="/registry">
-              <dt className="flex-none">
-                <span className="sr-only">Registry</span>
-                <GiftIcon
-                  className="h-6 w-5 text-green-dark"
-                  aria-hidden="true"
-                />
-              </dt>
+              <Link href="/registry">
+                <dt className="flex-none">
+                  <span className="sr-only">Registry</span>
+                  <GiftIcon
+                    className="h-6 w-5 text-green-dark"
+                    aria-hidden="true"
+                  />
+                </dt>
               </Link>
               <Link href="/registry">
-              <dd className="text-sm leading-6 text-green-dark">
-                View Registry
-              </dd>
+                <dd className="text-sm leading-6 text-green-dark">
+                  View Registry
+                </dd>
               </Link>
             </div>
-          
           </dl>
           <div className="mt-6 border-t border-gray-900/5 px-6 py-6">
-            <Link href="/"  className="text-sm font-semibold leading-6 text-green-primary">
+            <Link
+              href="/"
+              className="text-sm font-semibold leading-6 text-green-primary"
+            >
               Back to Home <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>

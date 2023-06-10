@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import type { RsvpResponse, ApiError } from "../../../types";
 
 async function nameSearch(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
@@ -20,65 +21,34 @@ async function nameSearch(req: NextApiRequest, res: NextApiResponse) {
 
   try {
     const result = await makeRequest(name);
-    if ("error" in result) {
-      res.status(500).send(result);
-    } else {
-      res.status(200).send(result);
-    }
+    res.status(result.status).send(result);
   } catch (err) {
+    console.error(err);
     res.status(500).send({ error: "failed to fetch data" });
   }
 }
 
-type Response = {
-  id: number;
-  name: string;
-  email: string;
-  address: string;
-  address2: string;
-  city: string;
-  state: string;
-  postal: string;
-  created_at: string;
-  updated_at: string;
-  phone: string;
-};
+async function makeRequest(name: string): Promise<RsvpResponse | ApiError> {
+  const endpoint = `${process.env.API_URL}/api/v1/rsvp/search-name/${name}`;
 
-type Error = {
-  error: string;
-};
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.API_KEY}`,
+    },
+  };
 
-const exampleResponse: Response = {
-    id: 1,
-    name: "John Doe",
-    email: "john@comcast.net",
-    address: "123 Main St",
-    address2: "Apt 1",
-    city: "Chicago",
-    state: "IL",
-    postal: "60608",
-    created_at: "2021-09-09T00:00:00.000000Z",
-    updated_at: "2021-09-09T00:00:00.000000Z",
-    phone: "123-456-7890",
-};
+  const response = await fetch(endpoint, options);
 
-async function makeRequest(name: string): Promise<Response | Error> {
-//   const endpoint = `${process.env.API_URL}/api/v1/guests/${id}`;
+  // need to respond with json for unauthorized requests
+  if (response.status === 401) {
+    return { error: "unauthorized request", status: 401 };
+  }
 
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${process.env.API_KEY}`,
-//     },
-//   };
-
-//   const response = await fetch(endpoint, options);
-
-//   const result = await response.json();
-//   return result;
-console.log(name)
-    return exampleResponse;
+  const result = await response.json();
+  result.status = response.status;
+  return result;
 }
 
 export default nameSearch;

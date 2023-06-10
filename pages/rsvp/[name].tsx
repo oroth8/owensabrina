@@ -1,57 +1,41 @@
 import type { ChangeEventHandler, ReactElement } from "react";
 import Layout from "../../components/nav/Layout";
-import type { NextPageWithLayout } from ".././_app";
+import type { NextPageWithLayout } from "../_app";
 import Nav from "../../components/nav/Nav";
 import Tags from "../../components/Tags";
 import { GetServerSideProps } from "next";
 import LoadingButton from "../../components/LoadingButton";
 import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import Link from "next/link";
-
-type GuestRecord = {
-  id: number;
-  name: string;
-  email: string;
-  address: string;
-  address2: string;
-  city: string;
-  state: string;
-  postal: string;
-  created_at: string;
-  updated_at: string;
-  phone: string;
-  significant_other: string;
-};
-
-interface RSVPGuestPageProps {
-  guestRecord: GuestRecord | null;
-}
+import capitalize from "../../helpers/capitalize";
+import type { RSVPGuestPageProps, RsvpDataRes } from "../../types";
 
 const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
-  const { guestRecord } = props;
-  const router = useRouter();
+  const { rsvpData } = props;
   const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    guestId: guestRecord?.id,
-    attending: "",
-    transportation: "",
-    dinner: "",
-    allergies: "",
-    soAttending: "",
-    soTransportation: "",
-    soDinner: "",
-    soAllergies: "",
+    id: rsvpData?.rsvp.id,
+    attending: rsvpData?.rsvp.attending,
+    transportation: rsvpData?.rsvp.transportation,
+    dinner: rsvpData?.rsvp.dinner,
+    allergies: rsvpData?.rsvp.dietary_restrictions,
+    soAttending: rsvpData?.rsvp.so_attending,
+    soTransportation: rsvpData?.rsvp.so_transportation,
+    soDinner: rsvpData?.rsvp.so_dinner,
+    soAllergies: rsvpData?.rsvp.so_dietary_restrictions,
   });
 
-  if (!guestRecord) {
+  if (!rsvpData) {
     return (
       <>
         <h1>Guest not found</h1>
       </>
     );
   }
+
+  const { guest_name, significant_other, rsvp, status } = rsvpData;
+
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
@@ -82,9 +66,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
     try {
       const response = await fetch(endpoint, options);
       const result = await response.json();
-      console.log(result);
       setLoading(false);
-      router.push("/rsvp/confirmation");
+      // router.push("/rsvp/confirmation");
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -106,10 +89,10 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
               <div className="px-4 sm:px-0">
                 <h2 className="text-4xl font-semibold leading-7 text-green-dark">
-                  {guestRecord.name}
+                  {capitalize(guest_name)}
                 </h2>
                 <p className="mt-1 text-sm leading-6 text-green-primary">
-                  {guestRecord.significant_other
+                  {significant_other
                     ? "Please fill out this section for yourself and fill out your significant other's information below to RSVP for Sabrina and Owen's wedding on September 9th, 2023."
                     : "Please fill out this form to RSVP for Sabrina and Owen's wedding on September 9th, 2023."}
                 </p>
@@ -134,7 +117,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             name="attending"
                             type="radio"
                             value="yes"
-                            checked={formData.attending === "yes"}
+                            checked={formData.attending || undefined}
                             onChange={handleRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
@@ -151,7 +134,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             name="attending"
                             type="radio"
                             value="no"
-                            checked={formData.attending === "no"}
+                            checked={formData.attending || undefined}
                             onChange={handleRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
@@ -367,7 +350,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                           id="allergies"
                           name="allergies"
                           onChange={handleInputChange}
-                          value={formData.allergies}
+                          value={formData.allergies || undefined}
                           rows={3}
                           className="block w-full rounded-md border-0 py-1.5 text-green-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-dark sm:text-sm sm:leading-6"
                         />
@@ -381,12 +364,12 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
 
           {/* SO */}
 
-          {guestRecord.significant_other && (
+          {significant_other && (
             <div className="space-y-10 divide-y divide-gray-900/10">
               <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
                 <div className="px-4 sm:px-0">
                   <h2 className="text-4xl font-semibold leading-7 text-green-dark">
-                    {guestRecord.significant_other}
+                    {capitalize(significant_other)}
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-green-primary">
                     Please fill out this section for your significant other.
@@ -410,7 +393,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             <input
                               id="so-attending-yes"
                               name="soAttending"
-                              checked={formData.soAttending === "yes"}
+                              checked={formData.soAttending || undefined}
                               onChange={handleRadioChange}
                               value="yes"
                               type="radio"
@@ -649,7 +632,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             id="so-allergies"
                             name="soAllergies"
                             onChange={handleInputChange}
-                            value={formData.soAllergies}
+                            value={formData.soAllergies || undefined}
                             rows={3}
                             className="block w-full rounded-md border-0 py-1.5 text-green-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-dark sm:text-sm sm:leading-6"
                           />
@@ -679,23 +662,22 @@ Page.getLayout = function getLayout(page: ReactElement) {
 export const getServerSideProps: GetServerSideProps<
   RSVPGuestPageProps
 > = async (context) => {
-  const { id } = context.query;
-
+  const { name } = context.query;
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/rsvp/${id}`
+      `${process.env.NEXT_PUBLIC_API_URL}/rsvp/name-search?name=${name}`
     );
-    const guestData: GuestRecord = await response.json();
+    const rsvpData: RsvpDataRes = await response.json();
     return {
       props: {
-        guestRecord: guestData,
+        rsvpData: rsvpData,
       },
     };
   } catch (error) {
     console.error("Error fetching guest record:", error);
     return {
       props: {
-        guestRecord: null,
+        rsvpData: null,
       },
     };
   }

@@ -8,23 +8,30 @@ import Link from "next/link";
 import PhoneInput from "../../components/PhoneInput";
 import NameTable from "../../components/NameTable";
 import LoadingButton from "../../components/LoadingButton";
+import { RsvpDataRes } from "../../types";
+
+type Data = RsvpDataRes | null;
 
 const Page: NextPageWithLayout = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Data>(null);
   const [isLoading, setLoading] = useState(false);
+  const [phoneValue, setPhoneValue] = useState("");
+  const [rawPhoneValue, setRawPhoneValue] = useState("");
+
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    const formattedPhoneNumber = PhoneInput(e.target.value);
+    setPhoneValue(formattedPhoneNumber);
+    setRawPhoneValue(e.target.value);
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const rawPhone = formData.get("phone");
-    const phone = PhoneInput(`${rawPhone}`);
-    console.log(phone);
-    fetchRsvp(phone);
+    fetchRsvp(rawPhoneValue);
   };
 
   const fetchRsvp = async (phone: FormDataEntryValue | null) => {
     if (phone === null) return;
-    const url = `/api/rsvp/name-search?name=${phone}`;
+    const url = `/api/rsvp/phone-search?phone=${phone}`;
     setLoading(true);
     try {
       const res = await fetch(url);
@@ -47,7 +54,7 @@ const Page: NextPageWithLayout = () => {
       />
       <Nav />
       {data ? (
-        <NameTable />
+        <NameTable rsvp={data} />
       ) : (
         <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
           <h2 className="text-3xl">YOU&apos;RE INVITED</h2>
@@ -70,9 +77,11 @@ const Page: NextPageWithLayout = () => {
                 maxLength={14}
                 minLength={14}
                 required
+                onChange={(e) => handleInput(e)}
+                value={phoneValue}
               />
             </div>
-            <LoadingButton isLoading={isLoading} label={"Find RSVP"}/>
+            <LoadingButton isLoading={isLoading} label={"Find RSVP"} />
           </form>
           <Link href="/rsvp" className="block mt-4">
             <small>Try invitation name instead</small>

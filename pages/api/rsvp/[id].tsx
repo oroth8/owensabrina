@@ -50,37 +50,37 @@ type Error = {
 };
 
 const exampleResponse: Response = {
-    id: 1,
-    name: "John Doe",
-    email: "john@comcast.net",
-    address: "123 Main St",
-    address2: "Apt 1",
-    city: "Chicago",
-    state: "IL",
-    postal: "60608",
-    created_at: "2021-09-09T00:00:00.000000Z",
-    updated_at: "2021-09-09T00:00:00.000000Z",
-    phone: "123-456-7890",
-    significant_other: "Jane Doe",
+  id: 1,
+  name: "John Doe",
+  email: "john@comcast.net",
+  address: "123 Main St",
+  address2: "Apt 1",
+  city: "Chicago",
+  state: "IL",
+  postal: "60608",
+  created_at: "2021-09-09T00:00:00.000000Z",
+  updated_at: "2021-09-09T00:00:00.000000Z",
+  phone: "123-456-7890",
+  significant_other: "Jane Doe",
 };
 
 async function makeRequest(name: string): Promise<Response | Error> {
-//   const endpoint = `${process.env.API_URL}/api/v1/guests/${id}`;
+  //   const endpoint = `${process.env.API_URL}/api/v1/guests/${id}`;
 
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${process.env.API_KEY}`,
-//     },
-//   };
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${process.env.API_KEY}`,
+  //     },
+  //   };
 
-//   const response = await fetch(endpoint, options);
+  //   const response = await fetch(endpoint, options);
 
-//   const result = await response.json();
-//   return result;
-console.log(name)
-    return exampleResponse;
+  //   const result = await response.json();
+  //   return result;
+  console.log(name);
+  return exampleResponse;
 }
 
 export default rsvpHandler;

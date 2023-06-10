@@ -22,14 +22,15 @@ const Page: NextPageWithLayout = () => {
               September 9th, 2023
             </h2>
             <div className="text-center">
-            <p className="mt-5 text-l text-green-primary italic">
-                Doors open for ceremony seating at 5:00. Kindly arrive between 5:00 and 5:15 so we may start promptly at 5:30 for the ceremony.
+              <p className="mt-5 text-l text-green-primary italic">
+                Doors open for ceremony seating at 5:00. Kindly arrive between
+                5:00 and 5:15 so we may start promptly at 5:30 for the ceremony.
               </p>
               <p className="mt-5 text-xl text-green-primary">
                 Ceremony
                 <span className="block">5:30 - 6:00</span>
               </p>
-               <p className="mt-5 text-xl text-green-primary">
+              <p className="mt-5 text-xl text-green-primary">
                 Cocktail Hour
                 <span className="block">6:00 - 7:00</span>
               </p>
@@ -37,7 +38,7 @@ const Page: NextPageWithLayout = () => {
                 Reception
                 <span className="block">7:00 - 10:30</span>
               </p>
-                <p className="mt-5 text-xl text-green-primary">
+              <p className="mt-5 text-xl text-green-primary">
                 After Party
                 <span className="block">10:30 - 1:30</span>
               </p>
@@ -53,25 +54,26 @@ const Page: NextPageWithLayout = () => {
             <p>Black-Tie Optional</p>
             <p>2520 South Hoyne Ave Chicago, IL 60608</p>
             <br />
-            <Link href="/travel" className="hover:text-green-dark font-bold underline">
-            <p>Transportation</p>
+            <Link
+              href="/travel"
+              className="hover:text-green-dark font-bold underline"
+            >
+              <p>Transportation</p>
             </Link>
             <br />
             <p className="italic">
-              We kindly asks that guests indicate their travel plans on the RSVP page to help us accommodate transportation services 
+              We kindly asks that guests indicate their travel plans on the RSVP
+              page to help us accommodate transportation services
             </p>
             <br />
             <p>
-              Shuttles will be provided round trip from the hotel to the venue throughout the night
+              Shuttles will be provided round trip from the hotel to the venue
+              throughout the night
             </p>
             <br />
-            <p>
-              Complimentary valet will be available at the venue
-            </p>
+            <p>Complimentary valet will be available at the venue</p>
             <br />
-            <p>
-              Ride share services and taxis are also available
-            </p>
+            <p>Ride share services and taxis are also available</p>
           </div>
         </div>
       </div>
