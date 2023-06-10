@@ -10,9 +10,11 @@ import Image from "next/image";
 import Link from "next/link";
 import capitalize from "../../helpers/capitalize";
 import type { RSVPGuestPageProps, RsvpDataRes } from "../../types";
+import { useRouter } from "next/router";
 
 const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
   const { rsvpData } = props;
+  const router = useRouter();
   const [isLoading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     id: rsvpData?.rsvp.id,
@@ -36,10 +38,18 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
 
   const { guest_name, significant_other, rsvp, status } = rsvpData;
 
-  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAttendingRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    const parsedValue = value === "yes" ? true : false;
+    setFormData((prevState) => ({ ...prevState, [name]: parsedValue }));
+  };
+
+  const handleRadioChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
-  };
+  }
 
   const handleInputChange: ChangeEventHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -67,6 +77,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
       const response = await fetch(endpoint, options);
       const result = await response.json();
       setLoading(false);
+      if(result.status === 200 && result.rsvp.id) {
+        router.push("/rsvp/confirmation");
+      }
       // router.push("/rsvp/confirmation");
     } catch (error) {
       console.error(error);
@@ -117,8 +130,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             name="attending"
                             type="radio"
                             value="yes"
-                            checked={formData.attending || undefined}
-                            onChange={handleRadioChange}
+                            checked={formData.attending === true}
+                            onChange={handleAttendingRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
@@ -134,8 +147,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             name="attending"
                             type="radio"
                             value="no"
-                            checked={formData.attending || undefined}
-                            onChange={handleRadioChange}
+                            checked={formData.attending === false}
+                            onChange={handleAttendingRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
                           <label
@@ -187,8 +200,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             id="ride-share"
                             name="transportation"
                             type="radio"
-                            value="ride-share"
-                            checked={formData.transportation === "ride-share"}
+                            value="ride_share"
+                            checked={formData.transportation === "ride_share"}
                             onChange={handleRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
                           />
@@ -204,9 +217,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             id="private-vehicle"
                             name="transportation"
                             type="radio"
-                            value="private-vehicle"
+                            value="private_vehicle"
                             checked={
-                              formData.transportation === "private-vehicle"
+                              formData.transportation === "private_vehicle"
                             }
                             onChange={handleRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
@@ -223,9 +236,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             id="shared-vehicle"
                             name="transportation"
                             type="radio"
-                            value="shared-vehicle"
+                            value="shared_vehicle"
                             checked={
-                              formData.transportation === "shared-vehicle"
+                              formData.transportation === "shared_vehicle"
                             }
                             onChange={handleRadioChange}
                             className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
@@ -393,8 +406,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             <input
                               id="so-attending-yes"
                               name="soAttending"
-                              checked={formData.soAttending || undefined}
-                              onChange={handleRadioChange}
+                              checked={formData.soAttending === true}
+                              onChange={handleAttendingRadioChange}
                               value="yes"
                               type="radio"
                               className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
@@ -410,7 +423,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                             <input
                               id="so-attending-no"
                               name="soAttending"
-                              onChange={handleRadioChange}
+                              checked={formData.soAttending === false}
+                              onChange={handleAttendingRadioChange}
                               type="radio"
                               value="no"
                               className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
@@ -465,9 +479,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               id="so-ride-share"
                               name="soTransportation"
                               type="radio"
-                              value="ride-share"
+                              value="ride_share"
                               checked={
-                                formData.soTransportation === "ride-share"
+                                formData.soTransportation === "ride_share"
                               }
                               onChange={handleRadioChange}
                               className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
@@ -484,9 +498,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               id="so-private-vehicle"
                               name="soTransportation"
                               type="radio"
-                              value="private-vehicle"
+                              value="private_vehicle"
                               checked={
-                                formData.soTransportation === "private-vehicle"
+                                formData.soTransportation === "private_vehicle"
                               }
                               onChange={handleRadioChange}
                               className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"
@@ -503,9 +517,9 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                               id="so-shared-vehicle"
                               name="soTransportation"
                               type="radio"
-                              value="shared-vehicle"
+                              value="shared_vehicle"
                               checked={
-                                formData.soTransportation === "shared-vehicle"
+                                formData.soTransportation === "shared_vehicle"
                               }
                               onChange={handleRadioChange}
                               className="h-4 w-4 border-gray-300 text-green-primary focus:ring-green-dark"

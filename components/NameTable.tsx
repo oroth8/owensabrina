@@ -1,4 +1,7 @@
 import Link from "next/link";
+import capitalize from "../helpers/capitalize";
+import { transportationParse } from "../helpers/transportationParse";
+import { attendingParse } from "../helpers/attendingParse";
 
 type Rsvp = {
   id: number;
@@ -33,17 +36,11 @@ function classNames(...classes: string[]) {
 
 export default function NameTable({ rsvp }: Props) {
   const { guest_name, significant_other, rsvp: rsvpData, status } = rsvp;
-  const {
-    id,
-    attending,
-    transportation,
-    dinner,
-    dietary_restrictions,
-    so_attending,
-    so_transportation,
-    so_dinner,
-    so_dietary_restrictions,
-  } = rsvpData;
+  const { id, attending, transportation, so_attending } = rsvpData;
+
+  const onSearchAgain = () => {
+    window.location.href = "/rsvp";
+  };
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 font-display">
@@ -58,12 +55,13 @@ export default function NameTable({ rsvp }: Props) {
           </p>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button
-            type="button"
+          <Link
+            onClick={onSearchAgain}
+            href={"/rsvp"}
             className="block rounded-md bg-green-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-dark"
           >
             Search Again
-          </button>
+          </Link>
         </div>
       </div>
       <div className="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
@@ -108,19 +106,21 @@ export default function NameTable({ rsvp }: Props) {
           <tbody>
             <tr key={id}>
               <td className="relative py-4 pl-4 pr-3 text-sm sm:pl-6">
-                <div className="font-medium text-gray-900">{guest_name}</div>
+                <div className="font-medium text-gray-900">
+                  {capitalize(guest_name)}
+                </div>
               </td>
               <td className="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                {significant_other}
+                {significant_other ? capitalize(significant_other) : null}
               </td>
               <td className="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                {transportation}
+                {transportation ? transportationParse(transportation) : null}
               </td>
               <td className="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                {so_attending}
+                {attendingParse(so_attending)}
               </td>
               <td className="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                {attending}
+                {attendingParse(attending)}
               </td>
               <td className="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                 <Link href={`/rsvp/${guest_name}`}>

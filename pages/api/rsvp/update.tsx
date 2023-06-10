@@ -51,11 +51,11 @@ async function makeRequest(
     attending,
     transportation,
     dinner,
-    allergies,
+    dietary_restrictions: allergies,
     so_attending: soAttending,
     so_transportation: soTransportation,
     so_dinner: soDinner,
-    so_allergies: soAllergies,
+    so_dietary_restrictions: soAllergies,
   };
   const JSONdata = JSON.stringify(data);
   const endpoint = `${process.env.API_URL}/api/v1/rsvp/${id}`;
