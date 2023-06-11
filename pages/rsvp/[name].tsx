@@ -683,9 +683,11 @@ export const getServerSideProps: GetServerSideProps<
   RSVPGuestPageProps
 > = async (context) => {
   const { name } = context.query;
+  const {NEXT_PUBLIC_API_URL, NEXT_PUBLIC_VERCEL_URL} = process.env;
+  const VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? NEXT_PUBLIC_API_URL : NEXT_PUBLIC_VERCEL_URL;
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/rsvp/name-search?name=${name}`
+      `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
     );
     const rsvpData: RsvpApiResponse = await response.json();
     return {
