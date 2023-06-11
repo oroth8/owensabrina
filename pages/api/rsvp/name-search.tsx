@@ -30,7 +30,8 @@ async function nameSearch(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function makeRequest(name: string): Promise<RsvpApiResponse> {
-  const endpoint = `${process.env.API_URL}/api/v1/rsvp/search-name/${name}`;
+  const encodedName = encodeURIComponent(name);
+  const endpoint = `${process.env.API_URL}/api/v1/rsvp/search-name/${encodedName}`;
 
   const options = {
     method: "GET",
