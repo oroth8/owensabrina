@@ -9,23 +9,26 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import capitalize from "../../helpers/capitalize";
-import type { RSVPGuestPageProps, RsvpDataRes } from "../../helpers/types";
+import type { RsvpApiResponse, RSVPGuestPageProps} from "../../helpers/types";
 import { useRouter } from "next/router";
+import Alert from "../../components/Alert";
 
 const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
   const { rsvpData } = props;
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
+  const [data, setData] = useState<RsvpApiResponse | null>(null);
+
   const [formData, setFormData] = useState({
-    id: rsvpData?.rsvp.id,
-    attending: rsvpData?.rsvp.attending,
-    transportation: rsvpData?.rsvp.transportation,
-    dinner: rsvpData?.rsvp.dinner,
-    allergies: rsvpData?.rsvp.dietary_restrictions,
-    soAttending: rsvpData?.rsvp.so_attending,
-    soTransportation: rsvpData?.rsvp.so_transportation,
-    soDinner: rsvpData?.rsvp.so_dinner,
-    soAllergies: rsvpData?.rsvp.so_dietary_restrictions,
+    id: rsvpData?.rsvp?.id,
+    attending: rsvpData?.rsvp?.attending,
+    transportation: rsvpData?.rsvp?.transportation,
+    dinner: rsvpData?.rsvp?.dinner,
+    allergies: rsvpData?.rsvp?.dietary_restrictions,
+    soAttending: rsvpData?.rsvp?.so_attending,
+    soTransportation: rsvpData?.rsvp?.so_transportation,
+    soDinner: rsvpData?.rsvp?.so_dinner,
+    soAllergies: rsvpData?.rsvp?.so_dietary_restrictions,
   });
 
   if (!rsvpData) {
@@ -76,6 +79,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
     try {
       const response = await fetch(endpoint, options);
       const result = await response.json();
+      setData(result);
       setLoading(false);
       if(result.status === 200 && result.rsvp.id) {
         router.push("/rsvp/confirmation");
@@ -97,12 +101,14 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
       />
       <Nav />
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 font-display">
+        {data && data.error && (
+          <Alert message={data.error} />)}
         <form onSubmit={handleSubmit}>
           <div className="space-y-10 divide-y divide-gray-900/10">
             <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
               <div className="px-4 sm:px-0">
                 <h2 className="text-4xl font-semibold leading-7 text-green-dark">
-                  {capitalize(guest_name)}
+                  {guest_name && capitalize(guest_name)}
                 </h2>
                 <p className="mt-1 text-sm leading-6 text-green-primary">
                   {significant_other
@@ -660,6 +666,8 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
           )}
 
           <div className="text-center p-4 my-8 border-2">
+          {data && data.error && (
+          <Alert message={data.error} />)}
             <LoadingButton isLoading={isLoading} label={"RSVP!"} />
           </div>
         </form>
@@ -681,7 +689,7 @@ export const getServerSideProps: GetServerSideProps<
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/rsvp/name-search?name=${name}`
     );
-    const rsvpData: RsvpDataRes = await response.json();
+    const rsvpData: RsvpApiResponse = await response.json();
     return {
       props: {
         rsvpData: rsvpData,

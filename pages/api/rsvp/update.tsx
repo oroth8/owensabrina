@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { RsvpResponse, ApiError } from "../../../helpers/types";
+import type { RsvpApiResponse } from "../../../helpers/types";
+import apiError from "../../../helpers/apiError";
 
 async function update(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") {
-    return res.status(405).json({ error: "only PUT requests allowed" });
+    return res.status(405).json(apiError("only PUT method allowed", 405));
   }
   const {
     id,
@@ -46,7 +47,7 @@ async function makeRequest(
   soTransportation: string | null,
   soDinner: string | null,
   soAllergies: string | null
-): Promise<RsvpResponse | ApiError> {
+): Promise<RsvpApiResponse> {
   const data = {
     attending,
     transportation,
@@ -72,7 +73,7 @@ async function makeRequest(
   const response = await fetch(endpoint, options);
   // need to respond with json for unauthorized requests
   if (response.status === 401) {
-    return { error: "unauthorized request", status: 401 };
+    return apiError("Api: Unauthorized", 401)
   }
 
   const result = await response.json();

@@ -8,12 +8,11 @@ import Link from "next/link";
 import PhoneInput from "../../components/PhoneInput";
 import NameTable from "../../components/NameTable";
 import LoadingButton from "../../components/LoadingButton";
-import { RsvpDataRes } from "../../helpers/types";
-
-type Data = RsvpDataRes | null;
+import { RsvpApiResponse } from "../../helpers/types";
+import Alert from "../../components/Alert";
 
 const Page: NextPageWithLayout = () => {
-  const [data, setData] = useState<Data>(null);
+  const [data, setData] = useState<RsvpApiResponse | null>(null);
   const [isLoading, setLoading] = useState(false);
   const [phoneValue, setPhoneValue] = useState("");
   const [rawPhoneValue, setRawPhoneValue] = useState("");
@@ -53,10 +52,12 @@ const Page: NextPageWithLayout = () => {
         }
       />
       <Nav />
-      {data ? (
+      {data && data.rsvp ? (
         <NameTable rsvp={data} />
       ) : (
         <div className="text-green-primary uppercase text-center font-display py-10 sm:py-20 tracking-widest px-10">
+              {data && data.error && (
+            <Alert message={data.error} />)}
           <h2 className="text-3xl">YOU&apos;RE INVITED</h2>
           <div className="bg-green-primary h-1 w-48 my-8 sm:my-16 mx-auto"></div>
           <p className="text-xl sm:text-2xl">

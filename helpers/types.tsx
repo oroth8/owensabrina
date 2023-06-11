@@ -14,23 +14,17 @@ export type Rsvp = {
   so_dietary_restrictions: string | null;
 };
 
-export type RsvpDataRes = {
-  guest_name: string;
-  significant_other: string | null;
-  rsvp: Rsvp;
+export type RsvpApiResponse = {
   status: number;
+  guest_name: string | null;
+  significant_other: string | null;
+  rsvp: Rsvp | null;
+  error: string | null;
 };
 
 export interface RSVPGuestPageProps {
-  rsvpData: RsvpDataRes | null;
+  rsvpData: RsvpApiResponse | null;
 }
-
-export type RsvpResponse = {
-  guest_name: string;
-  significant_other: string | null;
-  rsvp: Rsvp;
-  status: number;
-};
 
 export type ApiError = {
   error: string;
