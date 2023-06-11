@@ -72,7 +72,7 @@ const Page: NextPageWithLayout = () => {
                 type="text"
                 name="phone"
                 id="phone"
-                className="block w-full p-2 mx-auto max-w-xl border-gray border rounded h-10 shadow-sm focus:border-green-primary focus:ring-green-primary sm:text-sm"
+                className="block w-full p-2 mx-auto max-w-xl border-gray border rounded h-10 shadow-sm focus:border-green-primary focus:outline-green-primary focus:ring-green-primary sm:text-sm"
                 placeholder="Enter Phone Number Here"
                 autoComplete="tel"
                 maxLength={14}
