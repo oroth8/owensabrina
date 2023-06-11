@@ -45,7 +45,7 @@ async function makeRequest(name: string): Promise<RsvpApiResponse> {
 
   // need to respond with json for unauthorized requests
   if (response.status === 401) {
-    apiError("Api: Unauthorized", 401)
+    apiError("Api: Unauthorized", 401);
   }
 
   const result = await response.json();

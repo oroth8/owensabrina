@@ -5,7 +5,7 @@ import { attendingParse } from "../helpers/attendingParse";
 import { RsvpApiResponse } from "../helpers/types";
 
 type Props = {
-  rsvp: RsvpApiResponse ;
+  rsvp: RsvpApiResponse;
 };
 
 function classNames(...classes: string[]) {
@@ -13,7 +13,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function NameTable({ rsvp }: Props) {
-  const { guest_name, significant_other, rsvp: rsvpData} = rsvp;
+  const { guest_name, significant_other, rsvp: rsvpData } = rsvp;
   if (!rsvpData) {
     return (
       <div className="px-4 sm:px-6 lg:px-8 font-display">
@@ -35,7 +35,7 @@ export default function NameTable({ rsvp }: Props) {
             </Link>
           </div>
         </div>
-      </div> 
+      </div>
     );
   }
   const { id, attending, transportation, so_attending } = rsvpData;
@@ -72,17 +72,29 @@ export default function NameTable({ rsvp }: Props) {
             <table className="min-w-full divide-y divide-gray-300">
               <thead>
                 <tr>
-                  <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                  Guest Name
+                  <th
+                    scope="col"
+                    className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                  >
+                    Guest Name
                   </th>
-                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Guest Attending
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    Guest Attending
                   </th>
-                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Significant Other
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    Significant Other
                   </th>
-                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                  Significant Other Attending
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                  >
+                    Significant Other Attending
                   </th>
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                     <span className="sr-only">Edit</span>
@@ -90,24 +102,30 @@ export default function NameTable({ rsvp }: Props) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                  <tr key={id}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                <tr key={id}>
+                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                     {guest_name && capitalize(guest_name)}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{attendingParse(attending)}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{significant_other ? capitalize(significant_other) : null}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{attendingParse(so_attending)}</td>
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    {attendingParse(attending)}
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    {significant_other ? capitalize(significant_other) : null}
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    {attendingParse(so_attending)}
+                  </td>
+                  <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                     <Link href={`/rsvp/${guest_name}`}>
-                  <button
-                    type="button"
-                    className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white"
-                  >
-                    Select<span className="sr-only">, {guest_name}</span>
-                  </button>
-                </Link>
-                    </td>
-                  </tr>
+                      <button
+                        type="button"
+                        className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white"
+                      >
+                        Select<span className="sr-only">, {guest_name}</span>
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

@@ -9,7 +9,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import capitalize from "../../helpers/capitalize";
-import type { RsvpApiResponse, RSVPGuestPageProps} from "../../helpers/types";
+import type { RsvpApiResponse, RSVPGuestPageProps } from "../../helpers/types";
 import { useRouter } from "next/router";
 import Alert from "../../components/Alert";
 
@@ -41,18 +41,18 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
 
   const { guest_name, significant_other, rsvp, status } = rsvpData;
 
-  const handleAttendingRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAttendingRadioChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const { name, value } = event.target;
     const parsedValue = value === "yes" ? true : false;
     setFormData((prevState) => ({ ...prevState, [name]: parsedValue }));
   };
 
-  const handleRadioChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
-  }
+  };
 
   const handleInputChange: ChangeEventHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -81,7 +81,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
       const result = await response.json();
       setData(result);
       setLoading(false);
-      if(result.status === 200 && result.rsvp.id) {
+      if (result.status === 200 && result.rsvp.id) {
         router.push("/rsvp/confirmation");
       }
       // router.push("/rsvp/confirmation");
@@ -101,8 +101,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
       />
       <Nav />
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 font-display">
-        {data && data.error && (
-          <Alert message={data.error} />)}
+        {data && data.error && <Alert message={data.error} />}
         <form onSubmit={handleSubmit}>
           <div className="space-y-10 divide-y divide-gray-900/10">
             <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
@@ -666,8 +665,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
           )}
 
           <div className="text-center p-4 my-8 border-2">
-          {data && data.error && (
-          <Alert message={data.error} />)}
+            {data && data.error && <Alert message={data.error} />}
             <LoadingButton isLoading={isLoading} label={"RSVP!"} />
           </div>
         </form>

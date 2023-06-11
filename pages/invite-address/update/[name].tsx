@@ -126,6 +126,7 @@ const Page: NextPageWithLayout = () => {
     if (name) {
       getGuestDetails(processName(name));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
   return (

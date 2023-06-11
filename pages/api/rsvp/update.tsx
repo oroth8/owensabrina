@@ -73,7 +73,7 @@ async function makeRequest(
   const response = await fetch(endpoint, options);
   // need to respond with json for unauthorized requests
   if (response.status === 401) {
-    return apiError("Api: Unauthorized", 401)
+    return apiError("Api: Unauthorized", 401);
   }
 
   const result = await response.json();
