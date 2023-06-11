@@ -683,8 +683,7 @@ export const getServerSideProps: GetServerSideProps<
   RSVPGuestPageProps
 > = async (context) => {
   const { name } = context.query;
-  const VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? process.env.NEXT_PUBLIC_API_URL : process.env.NEXT_PUBLIC_VERCEL_URL;
-  console.log(process.env.NEXT_PUBLIC_API_URL, process.env.NEXT_PUBLIC_VERCEL_URL, "ENVS")
+  const VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? process.env.NEXT_PUBLIC_API_URL : "https://owensabrina-git-rsvp-updates-owen-roth.vercel.app";
   try {
     const response = await fetch(
       `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
