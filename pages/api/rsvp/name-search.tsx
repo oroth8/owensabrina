@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { RsvpResponse, ApiError } from "../../../types";
+import type { RsvpResponse, ApiError } from "../../../helpers/types";
 
 async function nameSearch(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {

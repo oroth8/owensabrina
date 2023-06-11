@@ -9,7 +9,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import capitalize from "../../helpers/capitalize";
-import type { RSVPGuestPageProps, RsvpDataRes } from "../../types";
+import type { RSVPGuestPageProps, RsvpDataRes } from "../../helpers/types";
 import { useRouter } from "next/router";
 
 const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {

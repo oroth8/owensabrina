@@ -8,7 +8,7 @@ import Link from "next/link";
 import PhoneInput from "../../components/PhoneInput";
 import NameTable from "../../components/NameTable";
 import LoadingButton from "../../components/LoadingButton";
-import { RsvpDataRes } from "../../types";
+import { RsvpDataRes } from "../../helpers/types";
 
 type Data = RsvpDataRes | null;
 
