@@ -25,7 +25,7 @@ export default function LoadingButton(props: Props) {
     return (
       <button
         type="submit"
-        className="bg-green-primary text-white w-full mx-auto max-w-xl mt-4 p-4 font-display tracking-widest uppercase"
+        className="bg-green-primary hover:bg-green-dark text-white w-full mx-auto max-w-xl mt-4 p-4 font-display tracking-widest uppercase"
       >
         {label}
       </button>

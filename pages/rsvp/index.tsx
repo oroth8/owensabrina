@@ -64,7 +64,7 @@ const Page: NextPageWithLayout = () => {
                 type="text"
                 name="name"
                 id="name"
-                className="block w-full p-2 mx-auto max-w-xl border-gray border rounded h-10 shadow-sm focus:border-green-primary focus:outline-green-primary focus:ring-green-primary sm:text-sm"
+                className="block w-full p-2 mx-auto max-w-xl border-gray border rounded h-10 shadow-sm focus:border-green-primary focus:outline-green-primary focus:ring-green-primary sm:text-sm text-green-dark"
                 placeholder="John Smith"
                 autoComplete="name"
                 required
@@ -74,7 +74,7 @@ const Page: NextPageWithLayout = () => {
             </div>
             <LoadingButton isLoading={isLoading} label={"Find RSVP"} />
           </form>
-          <Link href="/rsvp/phone" className="block mt-4">
+          <Link href="/rsvp/phone" className="block mt-4 hover:text-green-dark">
             <small>Try phone number instead</small>
           </Link>
         </div>
