@@ -1,4 +1,4 @@
-import type { ChangeEventHandler, ReactElement } from "react";
+import { ChangeEventHandler, ReactElement, useEffect } from "react";
 import Layout from "../../components/nav/Layout";
 import type { NextPageWithLayout } from "../_app";
 import Nav from "../../components/nav/Nav";
@@ -18,6 +18,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState<RsvpApiResponse | null>(null);
+  const [hideForm, setHideForm] = useState(false);
 
   const [formData, setFormData] = useState({
     id: rsvpData?.rsvp?.id,
@@ -31,10 +32,51 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
     soAllergies: rsvpData?.rsvp?.so_dietary_restrictions,
   });
 
-  if (!rsvpData) {
+  function classNames(...classes: any[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+
+  useEffect(() => {
+    if (formData.attending === false) {
+      setHideForm(true);
+    } else {
+      setHideForm(false);
+    }
+  }, [formData.attending]);
+
+  console.log({rsvpData})
+
+  if (!rsvpData || rsvpData?.error) {
     return (
       <>
-        <h1>Guest not found</h1>
+       <Tags
+        title={"RSVP | Form Error"}
+        description={
+          "RSVP | Form Error, we could not find your RSVP. Please contact us if you believe this is an error."
+        }
+      />
+      <Nav />
+      <div className="flex justify-center items-center font-display text-green-primary">
+        <div className="max-w-md p-6 bg-white rounded-lg shadow-lg">
+          <h1 className="text-2xl font-bold mb-4">{`Guest Not Found ${rsvpData?.status}`}</h1>
+          <p className="text-gray-700">
+            {rsvpData?.error}
+          </p>
+          <br/>
+          <p>
+            If you believe this is an error, please contact us at:{" "}
+            <a href="mailto:CONTACT@SABRINA-OWEN-WEDDING.COM" className="text-green-primary hover:text-green-secondary">
+            CONTACT@SABRINA-OWEN-WEDDING.COM
+            </a>
+
+            <Link href="/rsvp" className="text-green-primary hover:text-green-secondary block mt-8 text-center border-green-primary border-2 py-2">
+            
+                Go Back
+           
+            </Link>
+          </p>
+        </div>
+      </div>
       </>
     );
   }
@@ -166,7 +208,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                       </div>
                     </fieldset>
                     {/* TRANSPORTATION */}
-                    <fieldset>
+                    <fieldset className={classNames(hideForm ? "hidden" : "")}>
                       <legend className="text-sm font-semibold leading-6 text-green-dark">
                         Transportation
                       </legend>
@@ -275,7 +317,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                       </div>
                     </fieldset>
                     {/* FOOD */}
-                    <fieldset>
+                    <fieldset className={classNames(hideForm ? "hidden" : "")}>
                       <legend className="text-sm font-semibold leading-6 text-green-dark">
                         Dinner Selection
                       </legend>
@@ -353,7 +395,11 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
                       </div>
                     </fieldset>
                     {/* Allergies */}
-                    <div className="col-span-full">
+                    <div
+                      className={classNames(
+                        hideForm ? "hidden" : "col-span-full"
+                      )}
+                    >
                       <label
                         htmlFor="allergies"
                         className="block text-sm font-medium leading-6 text-green-dark"
@@ -382,7 +428,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
 
           {/* SO */}
 
-          {significant_other && (
+          {significant_other && !hideForm && (
             <div className="space-y-10 divide-y divide-gray-900/10">
               <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
                 <div className="px-4 sm:px-0">
@@ -683,10 +729,13 @@ export const getServerSideProps: GetServerSideProps<
   RSVPGuestPageProps
 > = async (context) => {
   const { name } = context.query;
-  const VERCEL_URL = process.env.NEXT_PUBLIC_VERCEL_ENV === "production" ? process.env.NEXT_PUBLIC_API_URL : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  const VERCEL_URL =
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
+      ? process.env.NEXT_PUBLIC_API_URL
+      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   try {
     const response = await fetch(
-      `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
+        `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
     );
     const rsvpData: RsvpApiResponse = await response.json();
     return {
