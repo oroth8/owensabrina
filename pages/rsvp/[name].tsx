@@ -44,8 +44,6 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
     }
   }, [formData.attending]);
 
-  console.log({rsvpData})
-
   if (!rsvpData || rsvpData?.error) {
     return (
       <>
@@ -81,7 +79,7 @@ const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
     );
   }
 
-  const { guest_name, significant_other, rsvp, status } = rsvpData;
+  const { guest_name, significant_other } = rsvpData;
 
   const handleAttendingRadioChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -735,7 +733,7 @@ export const getServerSideProps: GetServerSideProps<
       : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   try {
     const response = await fetch(
-        `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
+        `http://localhost:3030/api/rsvp/name-search?name=${name}`
     );
     const rsvpData: RsvpApiResponse = await response.json();
     return {
