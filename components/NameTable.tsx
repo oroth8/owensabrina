@@ -103,9 +103,13 @@ export default function NameTable({ rsvp }: Props) {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 <tr key={id}>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                    {guest_name && capitalize(guest_name)}
-                  </td>
+                 
+                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-green-dark sm:pl-0">
+                    <Link href={`/rsvp/${guest_name}`} className="border-2 border-green-primary hover:border-green-dark p-2 rounded-md">
+                      {guest_name && capitalize(guest_name)}
+                      </Link>
+                    </td>
+        
                   <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     {attendingParse(attending)}
                   </td>

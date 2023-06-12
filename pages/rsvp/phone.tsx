@@ -71,7 +71,7 @@ const Page: NextPageWithLayout = () => {
                 type="text"
                 name="phone"
                 id="phone"
-                className="block w-full p-2 mx-auto max-w-xl border-gray border rounded h-10 shadow-sm focus:border-green-primary focus:outline-green-primary focus:ring-green-primary sm:text-sm"
+                className="block w-full p-2 mx-auto max-w-xl border-gray border rounded h-10 shadow-sm focus:border-green-primary focus:outline-green-primary focus:ring-green-primary sm:text-sm text-green-dark"
                 placeholder="Enter Phone Number Here"
                 autoComplete="tel"
                 maxLength={14}
@@ -83,7 +83,7 @@ const Page: NextPageWithLayout = () => {
             </div>
             <LoadingButton isLoading={isLoading} label={"Find RSVP"} />
           </form>
-          <Link href="/rsvp" className="block mt-4">
+          <Link href="/rsvp" className="block mt-4 hover:text-green-dark">
             <small>Try invitation name instead</small>
           </Link>
         </div>
