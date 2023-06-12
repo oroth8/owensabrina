@@ -733,7 +733,7 @@ export const getServerSideProps: GetServerSideProps<
       : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
   try {
     const response = await fetch(
-        `http://localhost:3030/api/rsvp/name-search?name=${name}`
+        `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
     );
     const rsvpData: RsvpApiResponse = await response.json();
     return {
