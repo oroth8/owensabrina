@@ -105,7 +105,7 @@ export default function NameTable({ rsvp }: Props) {
                 <tr key={id}>
                  
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-green-dark sm:pl-0">
-                    <Link href={`/rsvp/${guest_name}`} className="border-2 border-green-primary hover:border-green-dark p-2 rounded-md">
+                    <Link href={`/rsvp/${guest_name}`} className="border-2 border-green-primary hover:border-green-dark p-2 rounded-md focus:outline-none">
                       {guest_name && capitalize(guest_name)}
                       </Link>
                     </td>
