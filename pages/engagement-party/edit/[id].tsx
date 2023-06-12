@@ -114,106 +114,110 @@ const Page: NextPageWithLayout = () => {
     );
   }
 
-  return <>
-    <Tags
-      title={`RSVP for ${nameValue}`}
-      description={`RSVP details for ${nameValue}`}
-    />
-    <Nav />
-    <h1 className=" text-3xl md:text-4xl text-green-primary text-center font-display mb-10">
-      Update Engagement Party RSVP Details
-    </h1>
-    <div className="py-20">
-      {success && (
-        <div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20">
-          <Success message={submit ? submitMessage : updateMessage} />
-        </div>
-      )}
-      {loading ? (
-        <div className="text-center">
-          <Image
-            src="/images/loading.gif"
-            height={100}
-            width={100}
-            alt={"Loading"}
-            style={{
-              maxWidth: "100%",
-              height: "auto"
-            }} />
-        </div>
-      ) : (
-        <form
-          className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5 xl:w-1/5  -mt-10 border border-green-primary p-4"
-          onSubmit={handleSubmit}
-        >
-          <div>
-            <label htmlFor="name" className="sr-only">
-              Name
-            </label>
-            <input
-              type="name"
-              name="name"
-              id="name"
-              className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
-              placeholder="Full Name"
-              required
-              maxLength={100}
-              onChange={(e) => setNameValue(e.target.value)}
-              value={nameValue}
-            />
-            <label htmlFor="phone" className="sr-only">
-              Phone
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
-              placeholder="Phone Number"
-              required
-              minLength={14}
-              maxLength={14}
-              onChange={(e) => handleInput(e)}
-              value={phoneValue}
-            />
-            <div className="text-center mb-4">
-              <input
-                id="default-checkbox"
-                type="checkbox"
-                checked={attendingValue}
-                onChange={() => setAttendingValue(!attendingValue)}
-                className="w-4 h-4 text-green-dark bg-green-dark rounded border-green-primary"
-              />
-              <label
-                htmlFor="default-checkbox"
-                className="ml-2 text-sm font-medium text-green-dark"
-              >
-                Attending?
-              </label>
-            </div>
+  return (
+    <>
+      <Tags
+        title={`RSVP for ${nameValue}`}
+        description={`RSVP details for ${nameValue}`}
+      />
+      <Nav />
+      <h1 className=" text-3xl md:text-4xl text-green-primary text-center font-display mb-10">
+        Update Engagement Party RSVP Details
+      </h1>
+      <div className="py-20">
+        {success && (
+          <div className="mx-auto w-4/5 md:w-1/2 -mt-20 mb-20">
+            <Success message={submit ? submitMessage : updateMessage} />
           </div>
-          {error && (
-            <p className="text-center text-sm italic font-display tracking-tight text-red-500 mb-4">
-              {error}
-            </p>
-          )}
-          <button
-            className="bg-green-primary text-white p-2  w-full"
-            type="submit"
+        )}
+        {loading ? (
+          <div className="text-center">
+            <Image
+              src="/images/loading.gif"
+              height={100}
+              width={100}
+              alt={"Loading"}
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
+        ) : (
+          <form
+            className="font-display text-green-primary w-4/5 mx-auto sm:w-3/5 lg:w-2/5 xl:w-1/5  -mt-10 border border-green-primary p-4"
+            onSubmit={handleSubmit}
           >
-            UPDATE
-          </button>
-        </form>
-      )}
-    </div>
-    <div className="-mt-10">
-      <Link href="/engagement-party/rsvp" className="text-center block text-green-primary font-display text-sm">
-
+            <div>
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
+                placeholder="Full Name"
+                required
+                maxLength={100}
+                onChange={(e) => setNameValue(e.target.value)}
+                value={nameValue}
+              />
+              <label htmlFor="phone" className="sr-only">
+                Phone
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                className="block w-full p-2 mb-4 rounded-md border border-green-primary shadow-sm focus:text-green-dark focus:outline-none sm:text-sm"
+                placeholder="Phone Number"
+                required
+                minLength={14}
+                maxLength={14}
+                onChange={(e) => handleInput(e)}
+                value={phoneValue}
+              />
+              <div className="text-center mb-4">
+                <input
+                  id="default-checkbox"
+                  type="checkbox"
+                  checked={attendingValue}
+                  onChange={() => setAttendingValue(!attendingValue)}
+                  className="w-4 h-4 text-green-dark bg-green-dark rounded border-green-primary"
+                />
+                <label
+                  htmlFor="default-checkbox"
+                  className="ml-2 text-sm font-medium text-green-dark"
+                >
+                  Attending?
+                </label>
+              </div>
+            </div>
+            {error && (
+              <p className="text-center text-sm italic font-display tracking-tight text-red-500 mb-4">
+                {error}
+              </p>
+            )}
+            <button
+              className="bg-green-primary text-white p-2  w-full"
+              type="submit"
+            >
+              UPDATE
+            </button>
+          </form>
+        )}
+      </div>
+      <div className="-mt-10">
+        <Link
+          href="/engagement-party/rsvp"
+          className="text-center block text-green-primary font-display text-sm"
+        >
           Back To Party Details
-   
-      </Link>
-    </div>
-  </>;
+        </Link>
+      </div>
+    </>
+  );
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
