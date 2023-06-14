@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { withSentry } from "@sentry/nextjs";
 
 async function userHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") {
@@ -88,5 +87,3 @@ async function makeRequest(
   const result = await response.json();
   return result;
 }
-
-export default withSentry(userHandler);

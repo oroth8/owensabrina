@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { withSentry } from "@sentry/nextjs";
 
 async function idHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") {
@@ -60,5 +59,3 @@ async function makeRequest(id: string): Promise<Response | Error> {
   const result = await response.json();
   return result;
 }
-
-export default withSentry(idHandler);

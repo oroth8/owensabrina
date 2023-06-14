@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { withSentry } from "@sentry/nextjs";
 
 async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") {
@@ -63,8 +62,3 @@ async function makeRequest(
   return result;
 }
 
-// [sentry] If Next.js logs a warning "API resolved without sending a response", it's a false positive, which we're working to rectify.
-//             In the meantime, to suppress this warning, set `SENTRY_IGNORE_API_RESOLUTION_ERROR` to 1 in your env.
-//             To suppress the nextjs warning, use the `externalResolver` API route option (see https://nextjs.org/docs/api-routes/api-middlewares#custom-config for details).
-// API resolved without sending a response for /api/forms/update, this may result in stalled requests.
-export default withSentry(updateHandler);
