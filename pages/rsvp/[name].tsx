@@ -730,8 +730,11 @@ export const getServerSideProps: GetServerSideProps<
 > = async (context) => {
   const { name } = context.query;
 
+  const url = `${apiUrl()}/api/rsvp/name/`
+  console.log({url})
+
   try {
-    const response = await fetch(`${apiUrl()}/api/rsvp/name/${name}`);
+    const response = await fetch(`${url}${name}`);
     const rsvpData: RsvpApiResponse = await response.json();
     return {
       props: {
