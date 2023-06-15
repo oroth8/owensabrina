@@ -12,6 +12,7 @@ import capitalize from "../../helpers/capitalize";
 import type { RsvpApiResponse, RSVPGuestPageProps } from "../../helpers/types";
 import { useRouter } from "next/router";
 import Alert from "../../components/Alert";
+import devUrl from "../../helpers/devUrl";
 
 const Page: NextPageWithLayout<RSVPGuestPageProps> = (props) => {
   const { rsvpData } = props;
@@ -728,14 +729,19 @@ export const getServerSideProps: GetServerSideProps<
   RSVPGuestPageProps
 > = async (context) => {
   const { name } = context.query;
+
+  const {
+    NEXT_PUBLIC_VERCEL_URL,
+    NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_VERCEL_ENV,
+  } = process.env;
   const VERCEL_URL =
-    process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-      ? process.env.NEXT_PUBLIC_API_URL
-      : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+    NEXT_PUBLIC_VERCEL_ENV === "production"
+      ? NEXT_PUBLIC_API_URL
+      : devUrl(NEXT_PUBLIC_VERCEL_URL);
+
   try {
-    const response = await fetch(
-      `${VERCEL_URL}/api/rsvp/name-search?name=${name}`
-    );
+    const response = await fetch(`${VERCEL_URL}/api/rsvp/name/${name}`);
     const rsvpData: RsvpApiResponse = await response.json();
     return {
       props: {
