@@ -21,7 +21,7 @@ const Page: NextPageWithLayout = () => {
         }
       />
       <Nav />
-      <Success message="Thank you for your RSVP! If plans change or preferences change please update them through the RSVP page." />
+      <Success message="Thank you for your RSVP! A confirmation update email was sent. If plans change or preferences change please update them through the RSVP page." />
       <div className="lg:col-start-3 lg:row-end-1 mx-auto max-w-7xl sm:px-6 lg:px-8 font-display mt-8">
         <h2 className="sr-only">Wedding Check-List</h2>
         <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-green-primary">
