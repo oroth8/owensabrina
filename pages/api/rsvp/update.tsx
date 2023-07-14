@@ -6,15 +6,36 @@ async function update(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") {
     return res.status(405).json(apiError("only PUT method allowed", 405));
   }
- 
+
   if (!req.body) {
     return res.status(400).json(apiError("missing request body", 400));
   }
 
-  if (req.body.attending && !req.body.transportation || !req.body.dinner) {
-    return res.status(400).json(apiError("Transportation and dinner fields are required when attending.", 400));
-  }else if (req.body.attending && req.body.so_attending && (!req.body.so_transportation || !req.body.so_dinner)) {
-    return res.status(400).json(apiError("Transportation and dinner fields are required for your significant other when attending.", 400));
+  if (
+    req.body.attending === true &&
+    (!req.body.transportation || !req.body.dinner)
+  ) {
+    return res
+      .status(400)
+      .json(
+        apiError(
+          "Transportation and dinner fields are required when attending.",
+          400
+        )
+      );
+  } else if (
+    req.body.attending === true &&
+    req.body.so_attending === true &&
+    (!req.body.so_transportation || !req.body.so_dinner)
+  ) {
+    return res
+      .status(400)
+      .json(
+        apiError(
+          "Transportation and dinner fields are required for your significant other when attending.",
+          400
+        )
+      );
   }
 
   const {
@@ -69,6 +90,7 @@ async function makeRequest(
     so_dinner: soDinner,
     so_dietary_restrictions: soAllergies,
   };
+
   const JSONdata = JSON.stringify(data);
   const endpoint = `${process.env.API_URL}/api/v1/rsvp/${id}`;
 
