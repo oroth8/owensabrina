@@ -91,13 +91,6 @@ async function makeRequest(
     so_dietary_restrictions: soAllergies,
   };
 
-  // Set so_attending to false if main guest is not attending
-  // This is to prevent the so_attending field from being set to null
-  // And causing an error
-  if(!attending) {
-    data['so_attending'] = false;
-  }
-
   const JSONdata = JSON.stringify(data);
   const endpoint = `${process.env.API_URL}/api/v1/rsvp/${id}`;
 
