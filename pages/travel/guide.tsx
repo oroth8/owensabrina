@@ -64,6 +64,16 @@ const Page: NextPageWithLayout = () => {
                   Food Recommendations
                 </h3>
                 <ul className="list-disc ml-8 space-y-2">
+                <li>
+                    <a
+                      href="https://www.mirurestaurant.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-gray-100"
+                    >
+                      Miru
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="https://www.eggysdiner.com/chicago/"
