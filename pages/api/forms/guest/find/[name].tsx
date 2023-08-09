@@ -64,4 +64,3 @@ async function makeRequest(name: string): Promise<Response | Error> {
   const result = await response.json();
   return result;
 }
-

@@ -8,9 +8,14 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/rsvp/:path*",
+        destination: "/rsvp",
+        permanent: true,
+      },
     ];
   },
-}
+};
 
 // Injected content via Sentry wizard below
 

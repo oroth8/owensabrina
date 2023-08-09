@@ -106,13 +106,12 @@ const RsvpForm = (props: props) => {
       setHideForm(false);
     }
 
-      if(formData.attending === false && !significant_other) {
+    if (formData.attending === false && !significant_other) {
       setFormData((prevState) => ({ ...prevState, soAttending: null }));
-    }else if(formData.attending === false && significant_other) {
+    } else if (formData.attending === false && significant_other) {
       setFormData((prevState) => ({ ...prevState, soAttending: false }));
     }
-
-    }, [formData.attending, significant_other]);
+  }, [formData.attending, significant_other]);
 
   return (
     <>

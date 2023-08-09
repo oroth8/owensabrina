@@ -61,4 +61,3 @@ async function makeRequest(
   const result = await response.json();
   return result;
 }
-
