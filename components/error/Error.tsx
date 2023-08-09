@@ -28,8 +28,8 @@ export default function Error({ statusCode }: Props) {
                 <p className="mt-1 text-base text-green-primary">
                   If you are still experiencing issues please contact{" "}
                   <span className="text-green-dark underline">
-                    <a href="mailto:rothowen27@gmail.com">
-                      rothowen27@gmail.com
+                    <a href="mailto:contact@sabrina-owen-wedding.com">
+                      contact@sabrina-owen-wedding.com
                     </a>
                   </span>
                 </p>
@@ -42,7 +42,7 @@ export default function Error({ statusCode }: Props) {
                   Go back home
                 </Link>
                 <a
-                  href="mailto:rothowen27@gmail.com"
+                  href="mailto:contact@sabrina-owen-wedding.com"
                   className="inline-flex items-center rounded border border-transparent bg-green-primary px-4 py-2 text-sm font-medium text-white hover:bg-green-dark focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Contact support

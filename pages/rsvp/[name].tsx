@@ -25,6 +25,13 @@ Page.getLayout = function getLayout(page: ReactElement) {
 export const getServerSideProps: GetServerSideProps<
   RSVPGuestPageProps
 > = async (context) => {
+  // DISABLE THIS PAGE
+  return {
+    redirect: {
+      destination: '/rsvp',
+      permanent: true, 
+    },
+  }
   const { name } = context.query;
 
   const url = `${apiUrl()}/api/rsvp/name/`;
