@@ -6,6 +6,7 @@ import {
   InformationCircleIcon,
   BuildingOffice2Icon,
   TruckIcon,
+  MapIcon
 } from "@heroicons/react/24/outline";
 import Tags from "../../components/Tags";
 import Image from "next/image";
@@ -34,8 +35,16 @@ const supportLinks = [
     href: "/travel/transportation",
     description:
       "Transportation to the venue will be provided for all guests staying at the hotel options we have provided. Guests are more than welcome to find their own alternate transportaion.",
+    icon: MapIcon,
+    linkText: "Transportation Options",
+  },
+  {
+    name: "Shuttle Bus Schedule",
+    href: "/travel/bus-schedule",
+    description:
+      "Shuttle buses will be provided for all guests that indicated they would like to use the shuttle bus service. The shuttle bus will run from the St. Regis Hotel to the wedding venue and back to the hotel at the end of the night.",
     icon: TruckIcon,
-    linkText: "View Transporation Options",
+    linkText: "View Shuttle Bus Schedule",
   },
 ];
 
@@ -86,7 +95,7 @@ const Page: NextPageWithLayout = () => {
           <h2 className="sr-only" id="contact-heading">
             Contact us
           </h2>
-          <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
+          <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-4 lg:gap-y-0 lg:gap-x-8">
             {supportLinks.map((link) => (
               <div
                 key={link.name}

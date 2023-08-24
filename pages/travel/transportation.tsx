@@ -51,7 +51,13 @@ const Page: NextPageWithLayout = () => {
               Shuttle Bus Service
             </h2>
             <p className="mt-6 max-w-3xl text-xl text-white">
-              <span className="block">Shuttle Bus Schedule Coming Soon!</span>
+            <div className="mt-8">
+                  <Link href="/travel/bus-schedule">
+                    <button className="bg-white hover:bg-gray-100 text-green-primary p-4 rounded-md outline border-1 border-green-primary  focus:ring-green-primary">
+                      Shuttle Bus Schedule
+                    </button>
+                  </Link>
+                </div>
               <br />
               Transportation will be provided round-trip from the hotel areas.
               Shuttle busses will be running frequent trips to the wedding venue
