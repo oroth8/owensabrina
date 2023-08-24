@@ -61,9 +61,8 @@ const Page: NextPageWithLayout = () => {
               <p>Transportation</p>
             </Link>
             <br />
-            <p className="italic">
-              We kindly asks that guests indicate their travel plans on the RSVP
-              page to help us accommodate transportation services
+            <p>
+              If you indicated shuttle service on your RSVP, please see the <Link className="text-green-dark underline hover:text-green-primary" href='/travel/bus-schedule'>bus schedule</Link> for departure information.
             </p>
             <br />
             <p>
